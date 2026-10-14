@@ -1,62 +1,68 @@
 import React from 'react';
-import { Calendar, Layers } from 'lucide-react';
+import { Calendar, CheckCircle2 } from 'lucide-react';
 
 export const ExperienceTableSection = () => {
   const experiences = [
     {
       period: '2024 - Sekarang',
       status: 'Current Focus',
-      role: 'Full Stack & Web Architecture',
-      desc: 'Merancang arsitektur web modern dengan React 19, Next.js, dan sistem komputasi audio interaktif.',
+      role: 'Full Stack & Modern Web Systems',
+      desc: 'Merancang arsitektur web modern dengan React 19, Next.js, dan optimasi komputasi interaktif berskala industri.',
       skills: ['React 19', 'Next.js', 'TypeScript', 'Web Audio Synth', 'Tailwind CSS', 'Vite']
     },
     {
       period: '2022 - 2024',
       status: 'Specialized Track',
-      role: 'Mobile Engineering',
-      desc: 'Membangun ekosistem aplikasi mobile lintas platform Android & iOS berkinerja native tinggi.',
-      skills: ['React Native', 'React Native for Web', 'Cross-Platform UI', 'Mobile REST APIs']
+      role: 'Enterprise Mobile Engineering',
+      desc: 'Membangun aplikasi mobile perkebunan skala ribuan hektar (GGF FMS) serta aplikasi konsumen dengan performa tinggi pada platform Android & iOS.',
+      skills: ['React Native', 'React Native for Web', 'Offline SQLite', 'GIS / Maps', 'REST APIs']
     },
     {
       period: '2021 - Sekarang',
       status: 'Continuous R&D',
-      role: 'Open Source & System Innovation',
-      desc: 'Riset emulasi OS klasik (Payaman OS), pustaka query visual, dan integrasi pemetaan GeoJSON / GIS.',
-      skills: ['Payaman OS', 'GIS / GeoJSON', 'Node.js', 'Visual Query Builders', 'AI Studio']
+      role: 'Applied Systems & Open Source Innovation',
+      desc: 'Riset mandiri emulasi retro OS (Payaman OS 1-bit), pustaka query visual, dan integrasi kecerdasan buatan terapan.',
+      skills: ['Payaman OS', 'GIS / GeoJSON', 'Node.js', 'Visual Query Builders', 'AI Integrations']
     }
   ];
 
   return (
-    <section id="experience" className="apple-section">
+    <section id="experience" className="anthropic-section">
       <div className="container">
-        <div className="apple-section-header">
-          <span className="apple-eyebrow">TRAJECTORY &amp; MASTERY</span>
-          <h2 className="apple-headline">
-            Experience that matters. <br />
-            <span className="apple-headline-gradient">Battle-tested in production.</span>
+        <div className="anthropic-header-block">
+          <div className="anthropic-eyebrow-row">
+            <span className="anthropic-eyebrow-index">04</span>
+            <span className="anthropic-eyebrow-divider">/</span>
+            <span className="anthropic-eyebrow-text">Chronological Trajectory &amp; Track Record</span>
+          </div>
+
+          <h2 className="anthropic-headline">
+            Years of deliberate craft. <br />
+            <em>Proven in production environments.</em>
           </h2>
-          <p className="apple-subheadline">
-            Rekam jejak spesialisasi dalam rekayasa perangkat lunak multiplatform, arsitektur web, dan inovasi sistem.
+
+          <p className="anthropic-lead">
+            Evolusi teknis dari fondasi rekayasa logika, arsitektur aplikasi mobile di lapangan, hingga pengembangan sistem web fullstack yang resilien.
           </p>
         </div>
 
-        <div className="apple-timeline-stack">
+        <div className="anthropic-timeline-stack">
           {experiences.map((item, index) => (
-            <div key={index} className="apple-timeline-row apple-reveal-card">
-              <div className="apple-timeline-meta">
-                <div className="apple-period-pill">
-                  <Calendar size={13} />
+            <div key={index} className="anthropic-timeline-row">
+              <div className="anthropic-timeline-meta">
+                <div className="anthropic-period-badge">
+                  <Calendar size={13} className="anthropic-period-icon" />
                   <span>{item.period}</span>
                 </div>
-                <span className="apple-status-tag">{item.status}</span>
+                <span className="anthropic-status-text">{item.status}</span>
               </div>
 
-              <div className="apple-timeline-main">
-                <h3 className="apple-timeline-role">{item.role}</h3>
-                <p className="apple-timeline-desc">{item.desc}</p>
-                <div className="apple-timeline-skills">
+              <div className="anthropic-timeline-content">
+                <h3 className="anthropic-timeline-role">{item.role}</h3>
+                <p className="anthropic-timeline-desc">{item.desc}</p>
+                <div className="anthropic-timeline-skills">
                   {item.skills.map((skill, i) => (
-                    <span key={i} className="apple-skill-pill">
+                    <span key={i} className="anthropic-skill-pill">
                       {skill}
                     </span>
                   ))}

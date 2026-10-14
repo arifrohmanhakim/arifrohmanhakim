@@ -1,71 +1,78 @@
 import React from 'react';
-import { ShieldCheck, Cpu, Terminal } from 'lucide-react';
+import { ShieldCheck, Cpu, Terminal, GitBranch } from 'lucide-react';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const VisionSection = ({ stats }) => {
   return (
-    <section id="vision" className="apple-section">
+    <section id="vision" className="anthropic-section">
       <div className="container">
-        <div className="apple-section-header">
-          <span className="apple-eyebrow">PHILOSOPHY &amp; IMPACT</span>
-          <h2 className="apple-headline">
-            Obsessed with detail. <br />
-            <span className="apple-headline-gradient">From architecture to pixel.</span>
+        <div className="anthropic-header-block">
+          <div className="anthropic-eyebrow-row">
+            <span className="anthropic-eyebrow-index">03</span>
+            <span className="anthropic-eyebrow-divider">/</span>
+            <span className="anthropic-eyebrow-text">Principles &amp; Empirical Metrics</span>
+          </div>
+
+          <h2 className="anthropic-headline">
+            Clear abstractions. <br />
+            <em>Measurable reliability.</em>
           </h2>
-          <p className="apple-subheadline">
-            Mewujudkan konsep rekayasa menjadi produk digital yang instan, elegan, dan teruji di lingkungan produksi.
+
+          <p className="anthropic-lead">
+            Menghindari kompleksitas yang tidak esensial. Setiap baris kode ditulis untuk kejelasan logis, efisiensi waktu respon, dan skalabilitas jangka panjang.
           </p>
         </div>
 
-        <div className="apple-vision-bento">
-          {/* Sisi Kiri: Apple Spec Metric Tiles */}
-          <div className="apple-metrics-stack">
-            <div className="apple-metric-card apple-reveal-card">
-              <div className="apple-metric-header">
-                <Terminal size={20} className="apple-metric-icon" />
-                <span className="apple-metric-badge">Open Ecosystem</span>
+        <div className="anthropic-vision-grid">
+          <div className="anthropic-metrics-stack">
+            <div className="anthropic-metric-card">
+              <div className="anthropic-metric-header">
+                <Terminal size={18} className="anthropic-metric-icon" />
+                <span className="anthropic-metric-category">OPEN REPOSITORIES</span>
               </div>
-              <span className="apple-metric-number">{stats.publicRepos || 12}+</span>
-              <span className="apple-metric-label">Public Repositories di GitHub</span>
-              <p className="apple-metric-desc">Pustaka open source, tool modular, dan implementasi arsitektur frontend modern.</p>
+              <div className="anthropic-metric-val">{stats.publicRepos || 12}+</div>
+              <div className="anthropic-metric-name">Public Repositories di GitHub</div>
+              <p className="anthropic-metric-explanation">
+                Pustaka open source mandiri, emulasi retro OS, modul mapping spatial, dan visual query builder.
+              </p>
             </div>
 
-            <div className="apple-metric-card apple-reveal-card">
-              <div className="apple-metric-header">
-                <Cpu size={20} className="apple-metric-icon" />
-                <span className="apple-metric-badge">Performance</span>
+            <div className="anthropic-metric-card">
+              <div className="anthropic-metric-header">
+                <Cpu size={18} className="anthropic-metric-icon" />
+                <span className="anthropic-metric-category">COMPUTATION LATENCY</span>
               </div>
-              <span className="apple-metric-number">60 FPS</span>
-              <span className="apple-metric-label">Fluid Motion &amp; Zero Bloat</span>
-              <p className="apple-metric-desc">Komposisi ringan dengan pemanfaatan hardware acceleration dan state management efisien.</p>
+              <div className="anthropic-metric-val">&lt; 16ms</div>
+              <div className="anthropic-metric-name">60/120 FPS Interaction Budget</div>
+              <p className="anthropic-metric-explanation">
+                Animasi berbasis CSS hardware compositor native, state management modular tanpa re-render berlebihan.
+              </p>
             </div>
 
-            <div className="apple-metric-card apple-reveal-card">
-              <div className="apple-metric-header">
-                <ShieldCheck size={20} className="apple-metric-icon" />
-                <span className="apple-metric-badge">Standards</span>
+            <div className="anthropic-metric-card">
+              <div className="anthropic-metric-header">
+                <ShieldCheck size={18} className="anthropic-metric-icon" />
+                <span className="anthropic-metric-category">CODE CRAFTSMANSHIP</span>
               </div>
-              <span className="apple-metric-number">100%</span>
-              <span className="apple-metric-label">Clean Code &amp; Test Discipline</span>
-              <p className="apple-metric-desc">Prinsip clean architecture, separation of concerns, dan keamanan di setiap layer aplikasi.</p>
+              <div className="anthropic-metric-val">100%</div>
+              <div className="anthropic-metric-name">Separation of Concerns</div>
+              <p className="anthropic-metric-explanation">
+                Penamaan deskriptif (self-documenting), custom hooks modular, serta sanitasi dan validasi data ketat di semua layer.
+              </p>
             </div>
           </div>
 
-          {/* Sisi Kanan: Apple Pro Hardware Frame Workspace */}
-          <div className="apple-workspace-frame apple-reveal-card">
-            <div className="apple-workspace-glass">
+          <div className="anthropic-workspace-panel">
+            <div className="anthropic-workspace-frame">
               <img
                 src="/workstation.jpg"
-                alt="Engineering Workspace"
-                className="apple-workspace-img"
+                alt="Engineering Lab Workstation"
+                className="anthropic-workspace-photo"
                 loading="lazy"
               />
-              <div className="apple-workspace-glow"></div>
-              <div className="apple-workspace-caption">
-                <div className="apple-caption-pill">
-                  <span className="apple-caption-dot"></span>
-                  <span>Engineering Studio • Yogyakarta, ID</span>
-                </div>
+              <div className="anthropic-workspace-overlay" />
+              <div className="anthropic-workspace-footer">
+                <span className="anthropic-mono-pill">PRIMARY WORKSTATION // YOGYAKARTA</span>
               </div>
             </div>
           </div>

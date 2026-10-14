@@ -19,9 +19,9 @@ export const App = () => {
       <Navbar isScrolled={isScrolled} />
       <main id="main-content">
         <HeroMadisonSection scrollY={scrollY} />
+        <RecentProjectsSection />
         <ServicesSection />
         <VisionSection stats={gitHubStats} />
-        <RecentProjectsSection />
         <ExperienceTableSection />
         <ContactSection />
       </main>

@@ -19,94 +19,143 @@ export const PROFILE_DATA = {
 
 export const PROJECTS_DATA = [
   {
+    id: 'ggf-fms',
+    title: 'GGF FMS Mobile',
+    client: 'Great Giant Foods (GGF)',
+    eyebrow: 'ENTERPRISE MOBILE SYSTEM',
+    badge: 'Enterprise Production',
+    tagline: 'Arsitektur Mobile Agrikultur Skala Industri untuk Great Giant Foods.',
+    description: 'Sistem aplikasi lapangan (Farm Management System) untuk operasional agroindustri perkebunan terbesar di Indonesia. Mendukung pemetaan plot GIS, pelaporan mandor offline-first, pelacakan GPS akurat, dan sinkronisasi data ribuan hektar perkebunan secara andal.',
+    image: '/images/projects/ggf-fms.jpg',
+    category: 'mobile',
+    categoryLabel: 'Enterprise Mobile App',
+    techStack: ['React Native', 'Offline SQLite', 'GIS / Maps', 'Background GPS', 'RESTful API'],
+    playStoreUrl: 'https://play.google.com/store/apps/details?id=com.ggfsystem.fmsmobile&hl=id',
+    demoUrl: null,
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Mobile Architecture & React Native Core Engineering' },
+      { label: 'Distribution', value: 'Google Play Store (Production Enterprise)' },
+      { label: 'Data Architecture', value: 'Offline-First SQLite Cache & Smart Background Sync' },
+      { label: 'Field Impact', value: 'Mendigitalkan inspeksi mandor & monitoring ribuan hektar perkebunan' }
+    ]
+  },
+  {
+    id: 'centris-ai',
+    title: 'Centris.ai',
+    client: 'Centris AI Platform',
+    eyebrow: 'AI AGENT & OMNICHANNEL CRM',
+    badge: 'AI Cloud Platform',
+    tagline: 'Platform CRM Berbasis AI & Otomasi Penjualan Generasi Baru.',
+    description: 'Ekosistem CRM modern yang menggabungkan asisten kecerdasan buatan, integrasi multi-kanal, Google OAuth auth flow, pipeline leads visual berkecepatan tinggi, dan automasi komunikasi pelanggan cerdas.',
+    image: '/images/projects/centris-ai.jpg',
+    category: 'web',
+    categoryLabel: 'AI & CRM Platform',
+    techStack: ['React.js', 'React Native', 'AI Agent Pipeline', 'Google OAuth', 'WebSocket', 'Tailwind CSS'],
+    liveUrl: 'https://centris.ai/',
+    demoUrl: 'https://centris.ai/',
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Frontend & Mobile Integration Engineer' },
+      { label: 'Authentication', value: 'Secure Google Sign-In & OAuth 2.0 Client Architecture' },
+      { label: 'Pipeline Engine', value: 'Real-time WebSocket Pipeline & Automated AI Routing' },
+      { label: 'Platforms', value: 'Web Cloud Dashboard & Mobile Client Sync' }
+    ]
+  },
+  {
+    id: 'rascal-republic',
+    title: 'Rascal Republic',
+    client: 'Rascal Republic Group',
+    eyebrow: 'LUXURY HOSPITALITY & EXPEDITIONS',
+    badge: 'Luxury Web Experience',
+    tagline: 'Luxury Private Yacht Charter & Bespoke Resort Investment Platform.',
+    description: 'Platform digital mewah untuk portofolio investasi pariwisata kelas dunia Rascal Republic & Rascal Voyages. Menghadirkan visual storytelling memukau, pemesanan ekspedisi yacht phinisi pribadi ke Raja Ampat & Komodo, dan portal investor global.',
+    image: '/images/projects/rascal-republic.jpg',
+    category: 'web',
+    categoryLabel: 'Luxury Web Platform',
+    techStack: ['Modern Web Architecture', 'Responsive UI/UX', 'Interactive Media', 'Performance Optimization'],
+    liveUrl: 'https://rascalrepublic.com/',
+    demoUrl: 'https://rascalrepublic.com/',
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Frontend Web Engineering & High-Fidelity UI' },
+      { label: 'Target Audience', value: 'High-Net-Worth International Travelers & Private Investors' },
+      { label: 'Core Experience', value: 'Ultra-Smooth Visual Storytelling & Private Charter Booking' },
+      { label: 'Global Reach', value: 'Southeast Asia, Singapore, UK, & Australia Operations' }
+    ]
+  },
+  {
+    id: 'polygon-bikes',
+    title: 'Polygon Bikes',
+    client: 'Polygon Bikes Global',
+    eyebrow: 'GLOBAL BRAND & E-COMMERCE',
+    badge: 'Interactive Brand Portal',
+    tagline: 'E-Commerce & Interactive Bike Geometry Selector untuk Brand Global.',
+    description: 'Platform digital global brand sepeda Polygon. Menampilkan katalog model balap dan MTB presisi, kalkulator geometri ukuran rangka sepeda interaktif, dealer locator berbasis peta, dan performa web berkecepatan tinggi.',
+    image: '/images/projects/polygon-bikes.jpg',
+    category: 'web',
+    categoryLabel: 'Interactive Brand Portal',
+    techStack: ['React.js', 'Interactive Geometry Canvas', 'GIS Dealer Locator', 'Modern CSS Architecture'],
+    liveUrl: null,
+    demoUrl: null,
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Frontend UI/UX & Interactive Engine Development' },
+      { label: 'Engineering Feature', value: 'Interactive Frame Geometry & Rider Sizing Calculator' },
+      { label: 'Mapping & Retail', value: 'Dynamic Store Locator & Dealer Discovery' },
+      { label: 'Optimization', value: 'Zero-Lag SVG Geometry Rendering & Asset Compression' }
+    ]
+  },
+  {
+    id: 'astra-motor',
+    title: 'Astra Motor',
+    client: 'Astra Motor (Honda Sales Operation)',
+    eyebrow: 'AUTOMOTIVE DEALERSHIP ECOSYSTEM',
+    badge: 'Automotive SaaS',
+    tagline: 'Sistem Manajemen Dealer, Booking Servis & Digital Katalog Astra Motor Honda.',
+    description: 'Sistem manajemen terintegrasi untuk dealer kendaraan Astra Motor Honda dan servis resmi AHASS. Mencakup pemantauan inventori unit realtime, simulasi kredit & pembiayaan, sistem reservasi antrean servis terjadwal, dan integrasi operasional customer service.',
+    image: '/images/projects/astra-motor.jpg',
+    category: 'web',
+    categoryLabel: 'Automotive SaaS & Portal',
+    techStack: ['React.js', 'Next.js', 'REST API', 'Real-time Scheduler', 'Tailwind CSS'],
+    liveUrl: null,
+    demoUrl: null,
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Full Stack Web & System Architecture' },
+      { label: 'Core Capabilities', value: 'Unit Inventory, Digital Service Queue, Financing Calculator' },
+      { label: 'Dealer Network', value: 'Integrasi Booking AHASS & Dealer Management System' },
+      { label: 'Security & Access', value: 'Role-Based Authentication & Encrypted Customer Vault' }
+    ]
+  },
+  {
     id: 'payaman-os',
     title: 'Payaman OS',
+    client: 'Open Source Lab',
+    eyebrow: 'RETRO SYSTEM EMULATION',
+    badge: 'Featured Open Source',
+    tagline: 'Retro, Monochrome Web-based Desktop OS terinspirasi Classic Mac OS.',
+    description: 'Retro, monochrome web-based desktop operating system terinspirasi Classic Mac OS (System 6/7) dengan sintesis audio Web Audio API, pixel art 1-bit, dan arsitektur modular.',
+    image: null,
     category: 'web',
     categoryLabel: 'Web Desktop OS',
-    description: 'Retro, monochrome web-based desktop operating system terinspirasi Classic Mac OS (System 6/7) dengan sintesis audio Web Audio API, pixel art 1-bit, dan arsitektur modular.',
     techStack: ['JavaScript', 'HTML5/Canvas', 'CSS Pixel Art', 'Web Audio Synth'],
     githubUrl: 'https://github.com/arifrohmanhakim/Payaman-OS',
     demoUrl: 'https://payamanos.vercel.app',
-    isFeatured: true
-  },
-  {
-    id: 'animalpedia',
-    title: 'Animalpedia Kids',
-    category: 'web',
-    categoryLabel: 'EdTech Web App',
-    description: 'Aplikasi edukasi interaktif anak-anak untuk mengenal fauna dunia. Dibangun dengan konsep visual crayon warna-warni, responsif, dan kaya animasi mikro.',
-    techStack: ['React', 'TypeScript', 'Vite', 'Zustand', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/arifrohmanhakim/animalpedia',
-    demoUrl: null,
-    isFeatured: true
-  },
-  {
-    id: 'doit',
-    title: 'Doit Digital Wallet',
-    category: 'mobile',
-    categoryLabel: 'Mobile App',
-    description: 'Aplikasi dompet digital (Digital Wallet) modern dengan navigasi intuitif, riwayat transaksi instan, dan performa tinggi pada platform Android & iOS.',
-    techStack: ['React Native', 'TypeScript', 'Mobile UI', 'REST API'],
-    githubUrl: 'https://github.com/arifrohmanhakim/doit',
-    demoUrl: null,
-    isFeatured: true
-  },
-  {
-    id: 'rn-web-maps',
-    title: 'react-native-web-maps',
-    category: 'library',
-    categoryLabel: 'Open Source Library',
-    description: 'Implementasi React Native for Web untuk react-native-maps menggunakan Google Maps JavaScript SDK, menjembatani navigasi peta multiplatform.',
-    techStack: ['React Native for Web', 'JavaScript', 'Google Maps API'],
-    githubUrl: 'https://github.com/arifrohmanhakim/rn-web-maps',
-    demoUrl: null,
-    isFeatured: false
-  },
-  {
-    id: 'sinau',
-    title: 'Sinau AI Ebook',
-    category: 'web',
-    categoryLabel: 'AI & E-Learning',
-    description: 'Platform pembaca dan pembelajaran buku interaktif yang terintegrasi dengan Google AI Studio untuk pemahaman konten mendalam.',
-    techStack: ['TypeScript', 'Google AI Studio', 'React', 'Vite'],
-    githubUrl: 'https://github.com/arifrohmanhakim/sinau',
-    demoUrl: null,
-    isFeatured: false
-  },
-  {
-    id: 'react-easy-query-builder',
-    title: 'React Easy Query Builder',
-    category: 'library',
-    categoryLabel: 'Frontend Tool',
-    description: 'Komponen visual query builder untuk React yang memungkinkan pengguna menyusun aturan filter kompleks dengan logika bersarang secara mudah.',
-    techStack: ['React', 'TypeScript', 'UI Component'],
-    githubUrl: 'https://github.com/arifrohmanhakim/react-easy-query-builder',
-    demoUrl: null,
-    isFeatured: false
-  },
-  {
-    id: 'ruangsemu',
-    title: 'Ruangsemu Platform',
-    category: 'web',
-    categoryLabel: 'Web Platform',
-    description: 'Aplikasi web modular berbasis Next.js App Router dengan rendering performan dan arsitektur skalabel.',
-    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/arifrohmanhakim/ruangsemu',
-    demoUrl: null,
-    isFeatured: false
-  },
-  {
-    id: 'api-central',
-    title: 'API Central Gateway',
-    category: 'backend',
-    categoryLabel: 'Backend Service',
-    description: 'Layanan manajemen dan orkestrasi REST API untuk mengintegrasikan kebutuhan backend multi-layanan.',
-    techStack: ['Node.js', 'Express', 'RESTful API', 'Microservices'],
-    githubUrl: 'https://github.com/arifrohmanhakim/api-central',
-    demoUrl: null,
-    isFeatured: false
+    isFeatured: false,
+    specs: [
+      { label: 'Role & Scope', value: 'Creator & Lead Architect' },
+      { label: 'Audio Engine', value: 'Native Web Audio API Synthesizer' },
+      { label: 'Rendering', value: '1-Bit Pixel Graphics Canvas & Window Manager' }
+    ]
   }
 ];
+
 
 export const SKILL_CATEGORIES = [
   {

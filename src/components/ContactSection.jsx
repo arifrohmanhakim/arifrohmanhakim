@@ -15,65 +15,66 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="apple-section">
+    <section id="contact" className="anthropic-section">
       <div className="container">
-        <div className="apple-contact-card apple-reveal-card">
-          <div className="apple-contact-ambient-glow"></div>
-          
-          <div className="apple-contact-content">
-            <span className="apple-eyebrow">READY TO COLLABORATE</span>
-            <h2 className="apple-contact-title">
-              Let&apos;s build something <br />
-              <span className="apple-headline-gradient">extraordinary together.</span>
-            </h2>
-            <p className="apple-contact-sub">
-              Terbuka untuk kolaborasi proyek inovatif, arsitektur frontend web/mobile performa tinggi, atau konsultasi rekayasa perangkat lunak.
-            </p>
+        <div className="anthropic-contact-box">
+          <div className="anthropic-eyebrow-row">
+            <span className="anthropic-eyebrow-index">05</span>
+            <span className="anthropic-eyebrow-divider">/</span>
+            <span className="anthropic-eyebrow-text">Inquiry &amp; Professional Collaboration</span>
+          </div>
 
-            <div className="apple-contact-actions-grid">
-              <a
-                href={PROFILE_DATA.upworkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="apple-primary-btn"
-              >
-                <UpworkIcon size={18} />
-                <span>Hire on Upwork</span>
-                <ArrowUpRight size={16} />
-              </a>
+          <h2 className="anthropic-headline">
+            Initiating dialogue. <br />
+            <em>Let&apos;s construct meaningful systems.</em>
+          </h2>
 
-              <a
-                href={PROFILE_DATA.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="apple-secondary-btn"
-              >
-                <LinkedinIcon size={18} />
-                <span>Connect on LinkedIn</span>
-                <ArrowUpRight size={16} />
-              </a>
+          <p className="anthropic-lead">
+            Terbuka untuk kolaborasi proyek berdampak tinggi: rekayasa arsitektur mobile, sistem web fullstack modern, atau konsultasi rekayasa perangkat lunak.
+          </p>
 
-              <a
-                href={PROFILE_DATA.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="apple-secondary-btn"
-              >
-                <GithubIcon size={18} />
-                <span>GitHub Profile</span>
-                <ArrowUpRight size={16} />
-              </a>
+          <div className="anthropic-contact-actions">
+            <a
+              href={PROFILE_DATA.upworkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="anthropic-btn-clay"
+            >
+              <UpworkIcon size={16} />
+              <span>Hire on Upwork</span>
+              <ArrowUpRight size={14} />
+            </a>
 
-              <button
-                type="button"
-                onClick={handleCopyGithub}
-                className="apple-tertiary-btn"
-                title="Salin tautan GitHub"
-              >
-                {copied ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
-                <span>{copied ? 'Tersalin!' : 'Copy GitHub'}</span>
-              </button>
-            </div>
+            <a
+              href={PROFILE_DATA.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="anthropic-btn-ghost"
+            >
+              <LinkedinIcon size={16} />
+              <span>Connect on LinkedIn</span>
+              <ArrowUpRight size={14} />
+            </a>
+
+            <a
+              href={PROFILE_DATA.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="anthropic-btn-ghost"
+            >
+              <GithubIcon size={16} />
+              <span>GitHub Profile</span>
+              <ArrowUpRight size={14} />
+            </a>
+
+            <button
+              onClick={handleCopyGithub}
+              className="anthropic-btn-outline"
+              title="Salin tautan profil GitHub"
+            >
+              {copied ? <Check size={14} /> : <Copy size={14} />}
+              <span>{copied ? 'Tersalin' : 'Salin URL'}</span>
+            </button>
           </div>
         </div>
       </div>

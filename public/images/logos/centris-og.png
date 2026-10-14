@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Centris — CS AI Terbaik untuk Customer Service Bisnis Anda</title>
+    <meta name="description" content="Tingkatkan customer service dengan CS AI dari Centris. Solusi AI untuk customer service otomatis, WhatsApp chatbot, dan CRM untuk bisnis Indonesia." />
+    <meta name="keywords" content="cs ai, customer service ai, ai customer service, chatbot cs, ai untuk cs, centris ai, ai chat customer service indonesia, chatbot whatsapp ai" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://centris.ai/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Centris — CS AI Terbaik untuk Customer Service Bisnis Anda" />
+    <meta property="og:description" content="Tingkatkan customer service dengan CS AI dari Centris. Solusi AI untuk customer service otomatis, WhatsApp chatbot, dan CRM untuk bisnis Indonesia." />
+    <meta property="og:url" content="https://centris.ai/" />
+    <meta property="og:image" content="https://centris.ai/og-image.png" />
+    <meta property="og:site_name" content="Centris" />
+    <meta property="og:locale" content="id_ID" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Centris — CS AI Terbaik untuk Customer Service Bisnis Anda" />
+    <meta name="twitter:description" content="Tingkatkan customer service dengan CS AI dari Centris. Solusi AI untuk customer service otomatis, WhatsApp chatbot, dan CRM untuk bisnis Indonesia." />
+    <meta name="twitter:image" content="https://centris.ai/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Centris",
+      "url": "https://centris.ai",
+      "description": "Platform CS AI untuk otomatisasi customer service dan penjualan via WhatsApp untuk bisnis Indonesia.",
+      "foundingDate": "2024",
+      "founder": { "@type": "Person", "name": "Tim Centris" },
+      "sameAs": [
+        "https://www.instagram.com/centris.ai/",
+        "https://www.tiktok.com/@centris.ai"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Centris AI",
+      "operatingSystem": "Web",
+      "applicationCategory": "BusinessApplication",
+      "description": "Platform AI untuk customer service dan CRM yang membantu bisnis mengotomatiskan chat WhatsApp, menghitung ongkir, membaca gambar, dan meningkatkan closing.",
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": "4",
+        "lowPrice": "0",
+        "highPrice": "828000",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
+    <script type="module" crossorigin src="/assets/index-BpegXXX3.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BVOBdauZ.css">
+  </head>
+  <body>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
+      />
+    </noscript>
+
+    <div id="root"></div>
+  </body>
+</html>
