@@ -140,13 +140,30 @@ button {
   border-radius: var(--radius-pill);
   color: var(--text-main);
   border: 1px solid var(--border-line);
+  background: rgba(23, 26, 36, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .theme-switch-btn:hover,
 .github-ghost-btn:hover {
-  border-color: var(--border-hover);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
   transform: translateY(-1px);
+}
+
+.github-ghost-btn.nav-linkedin-btn:hover {
+  color: #0a66c2;
+  border-color: rgba(10, 102, 194, 0.45);
+  box-shadow: 0 0 12px rgba(10, 102, 194, 0.2);
+}
+
+.github-ghost-btn.nav-upwork-btn:hover {
+  color: #14a800;
+  border-color: rgba(20, 168, 0, 0.45);
+  box-shadow: 0 0 12px rgba(20, 168, 0, 0.2);
 }
 
 .madison-pill-btn {
@@ -223,29 +240,51 @@ button {
   box-shadow: 0 0 10px var(--accent-dot);
 }
 
-.hero-hashtags-wrap {
+/* Scroll Guide Indicator di Bagian Bawah Stage */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+  flex-direction: column;
   align-items: center;
-  gap: 6px 10px;
-  max-width: 320px;
+  gap: 6px;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
-.hero-hashtag {
+.scroll-mouse-pill {
+  width: 18px;
+  height: 30px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.scroll-mouse-wheel {
+  width: 3px;
+  height: 6px;
+  border-radius: 2px;
+  background: #f59e0b;
+  animation: scrollWheelBounce 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollWheelBounce {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+.scroll-label {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   font-weight: 600;
+  letter-spacing: 0.18em;
   color: #94a3b8;
-  letter-spacing: -0.02em;
-  transition: all var(--transition-fast);
-  cursor: default;
-  user-select: none;
-}
-
-.hero-hashtag:hover {
-  color: #38bdf8;
-  transform: translateY(-1px);
 }
 
 /* Hero Grand Centerpiece Stage (Foto di Tengah & 3D Layering Efek Scroll) */
@@ -873,11 +912,6 @@ button {
   .hero-top-meta-bar {
     flex-direction: column;
     gap: 14px;
-  }
-
-  .hero-hashtags-wrap {
-    justify-content: flex-start;
-    max-width: 100%;
   }
 
   .hero-centerpiece-stage {

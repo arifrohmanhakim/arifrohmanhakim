@@ -1,5 +1,7 @@
 import React from 'react';
 import { GithubIcon } from './GithubIcon';
+import { LinkedinIcon } from './LinkedinIcon';
+import { UpworkIcon } from './UpworkIcon';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const Navbar = ({ isScrolled }) => {
@@ -20,7 +22,7 @@ export const Navbar = ({ isScrolled }) => {
           <a href="#experience" className="madison-nav-link">Experience</a>
         </nav>
 
-        {/* Right Actions */}
+        {/* Right Actions: Social Links & Contact CTA */}
         <div className="madison-nav-actions">
           <a
             href={PROFILE_DATA.githubUrl}
@@ -31,6 +33,28 @@ export const Navbar = ({ isScrolled }) => {
             title="Kunjungi GitHub"
           >
             <GithubIcon size={16} />
+          </a>
+
+          <a
+            href={PROFILE_DATA.linkedinUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-ghost-btn nav-linkedin-btn"
+            aria-label="LinkedIn"
+            title="Kunjungi LinkedIn"
+          >
+            <LinkedinIcon size={16} />
+          </a>
+
+          <a
+            href={PROFILE_DATA.upworkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="github-ghost-btn nav-upwork-btn"
+            aria-label="Upwork"
+            title="Hire on Upwork"
+          >
+            <UpworkIcon size={17} />
           </a>
 
           <a href="#contact" className="madison-pill-btn">

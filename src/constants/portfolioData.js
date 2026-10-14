@@ -6,6 +6,8 @@ export const PROFILE_DATA = {
   location: 'Yogyakarta, Indonesia',
   avatarUrl: 'https://avatars.githubusercontent.com/u/86143789?v=4',
   githubUrl: 'https://github.com/arifrohmanhakim',
+  linkedinUrl: 'https://www.linkedin.com/in/arif-rohman-hakim/',
+  upworkUrl: 'https://www.upwork.com/freelancers/~012a82c5794a5bc843',
   websiteUrl: 'https://payamanos.vercel.app',
   availableForHire: true,
   summaryCode: {

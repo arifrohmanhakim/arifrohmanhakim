@@ -20,22 +20,6 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
       <div className="madison-ambient-glow"></div>
 
       <div className="container madison-hero-wrapper">
-        {/* Top Header Row */}
-        {/* <div className="hero-top-meta-bar">
-          <div className="opportunity-badge">
-            <span className="dot-pulse"></span>
-            <span>Available for new opportunities</span>
-          </div>
-
-          <div className="hero-hashtags-wrap">
-            <span className="hero-hashtag">#React</span>
-            <span className="h6ero-hashtag">#ReactNative</span>
-            <span className="hero-hashtag">#TypeScript</span>
-            <span className="hero-hashtag">#HighPerformance</span>
-            <span className="hero-hashtag">#CreativeTech</span>
-          </div>
-        </div> */}
-
         {/* Hero Grand Stage with 3D Depth Layering */}
         <div className="hero-centerpiece-stage">
           {/* Layer 1 (Paling Belakang): Teks "Hey, there" Zoom In Saat Scroll */}
@@ -92,6 +76,14 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
               <h1 className="floating-name-text">ARIF</h1>
               <h1 className="floating-name-text">ROHMAN</h1>
             </div>
+          </div>
+
+          {/* Scroll Guide Indicator */}
+          <div className="hero-scroll-indicator" aria-hidden="true">
+            <div className="scroll-mouse-pill">
+              <div className="scroll-mouse-wheel"></div>
+            </div>
+            <span className="scroll-label">SCROLL TO DISCOVER</span>
           </div>
         </div>
       </div>
