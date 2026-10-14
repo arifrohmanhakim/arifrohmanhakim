@@ -17,7 +17,7 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
 
   return (
     <section id="hero" className="madison-hero-section">
-      <div className="madison-ambient-glow"></div>
+      {/* <div className="madison-ambient-glow"></div> */}
 
       <div className="container madison-hero-wrapper">
         {/* Hero Grand Stage with 3D Depth Layering */}
