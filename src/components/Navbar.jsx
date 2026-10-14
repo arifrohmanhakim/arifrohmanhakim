@@ -32,7 +32,7 @@ export const Navbar = ({ isScrolled }) => {
             aria-label="GitHub"
             title="Kunjungi GitHub"
           >
-            <GithubIcon size={16} />
+            <GithubIcon size={17} />
           </a>
 
           <a
@@ -43,7 +43,7 @@ export const Navbar = ({ isScrolled }) => {
             aria-label="LinkedIn"
             title="Kunjungi LinkedIn"
           >
-            <LinkedinIcon size={16} />
+            <LinkedinIcon size={17} />
           </a>
 
           <a

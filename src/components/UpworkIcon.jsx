@@ -1,16 +1,6 @@
 import React from 'react';
+import { FaUpwork } from 'react-icons/fa6';
 
-export const UpworkIcon = ({ size = 20, className = '' }) => {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="3 3.5 19 19"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-3.722 0-6.143 2.502-6.84 5.378-1.464-2.146-2.584-4.838-3.076-7.396H5.405v9.112c0 2.454 1.996 4.45 4.45 4.45 2.453 0 4.449-1.996 4.449-4.45v-1.026c.725.968 1.625 1.777 2.68 2.373l-1.91 8.941h3.336l1.371-6.425c.875.228 1.802.35 2.78.35 3.864 0 7.008-3.143 7.008-7.008 0-3.864-3.144-7.009-7.008-7.009z" />
-    </svg>
-  );
+export const UpworkIcon = ({ size = 18, className = '' }) => {
+  return <FaUpwork size={size} className={className} aria-hidden="true" />;
 };
