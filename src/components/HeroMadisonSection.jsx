@@ -21,16 +21,20 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
 
       <div className="container madison-hero-wrapper">
         {/* Top Header Row */}
-        <div className="hero-top-meta-bar">
+        {/* <div className="hero-top-meta-bar">
           <div className="opportunity-badge">
             <span className="dot-pulse"></span>
             <span>Available for new opportunities</span>
           </div>
 
-          <p className="hero-specialization">
-            Specialized in React, React Native, TypeScript, and High Performance Web Apps.
-          </p>
-        </div>
+          <div className="hero-hashtags-wrap">
+            <span className="hero-hashtag">#React</span>
+            <span className="h6ero-hashtag">#ReactNative</span>
+            <span className="hero-hashtag">#TypeScript</span>
+            <span className="hero-hashtag">#HighPerformance</span>
+            <span className="hero-hashtag">#CreativeTech</span>
+          </div>
+        </div> */}
 
         {/* Hero Grand Stage with 3D Depth Layering */}
         <div className="hero-centerpiece-stage">
@@ -55,7 +59,7 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             }}
           >
             <div className="floating-role-box">
-              <span className="role-headline-bold">FULL STACK &</span>
+              <span className="role-headline-bold">FRONTEND &</span>
               <span className="role-headline-bold">MOBILE ENGINEER</span>
             </div>
           </div>

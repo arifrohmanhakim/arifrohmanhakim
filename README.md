@@ -1,10 +1,10 @@
 <div align="center">
 
-# 👋 Halo, Saya Arif Rohman Hakim
+# 👋 Hi, I'm Arif Rohman Hakim
 
 ### Full Stack & Mobile Engineer • Creative Technologist
 
-**Berbasis di Yogyakarta, Indonesia**
+**Based in Yogyakarta, Indonesia**
 
 [![Portfolio / Payaman OS](https://img.shields.io/badge/Live_Showcase-Payaman_OS-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://payamanos.vercel.app)
 [![Upwork Profile](https://img.shields.io/badge/Upwork-Hire_Me-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~012a82c5794a5bc843)
@@ -12,13 +12,13 @@
 
 <br/>
 
-> _"Merancang produk digital dengan presisi, seni, dan performa tinggi — dari emulasi sistem retro 1-bit hingga arsitektur multiplatform modern."_
+> _"Crafting digital products with precision, craftsmanship, and peak performance — from 1-bit retro system emulation to modern multiplatform architectures."_
 
 ---
 
 </div>
 
-### 🛠️ Keahlian & Ekosistem Teknologi
+### 🛠️ Tech Stack & Ecosystem
 
 <p align="center">
   <img src="https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
@@ -33,7 +33,7 @@
 
 ---
 
-### 📊 Statistik Aktivitas GitHub
+### 📊 GitHub Activity & Insights
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=arifrohmanhakim&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&hide=issues,contribs&bg_color=00000000" alt="GitHub Stats" height="165" />
@@ -45,7 +45,7 @@
 ---
 
 <div align="center">
-  <sub>Dibuat dengan dedikasi clean code, standar rekayasa tinggi, dan performa tanpa kompromi.</sub>
+  <sub>Built with dedication to clean code, robust engineering standards, and uncompromising performance.</sub>
   <br/>
   <sub>© 2026 Arif Rohman Hakim • Yogyakarta, Indonesia</sub>
 </div>

@@ -78,7 +78,7 @@ export const HeroSection = () => {
 
             <div className="floating-badge badge-craft">
               <Sparkles size={13} className="text-amber" />
-              <span>Full Stack & Mobile</span>
+              <span>FrontEnd & Mobile</span>
             </div>
           </div>
         </div>

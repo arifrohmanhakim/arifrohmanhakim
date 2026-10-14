@@ -223,23 +223,38 @@ button {
   box-shadow: 0 0 10px var(--accent-dot);
 }
 
-.hero-specialization {
-  max-width: 290px;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: var(--text-muted);
-  font-weight: 500;
-  text-align: right;
+.hero-hashtags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px 10px;
+  max-width: 320px;
+}
+
+.hero-hashtag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: -0.02em;
+  transition: all var(--transition-fast);
+  cursor: default;
+  user-select: none;
+}
+
+.hero-hashtag:hover {
+  color: #38bdf8;
+  transform: translateY(-1px);
 }
 
 /* Hero Grand Centerpiece Stage (Foto di Tengah & 3D Layering Efek Scroll) */
 .hero-centerpiece-stage {
   position: relative;
-  min-height: 660px;
+  min-height: 720px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 10px;
 }
 
 /* Layer 1 (Paling Belakang): Teks Script Raksasa ("Hey, there") Zoom In Saat Scroll */
@@ -308,7 +323,7 @@ button {
 .hero-large-portrait-img {
   width: 100%;
   height: auto;
-  max-height: 700px;
+  max-height: 800px;
   object-fit: contain;
   display: block;
   filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.14));
@@ -860,13 +875,13 @@ button {
     gap: 14px;
   }
 
-  .hero-specialization {
-    text-align: left;
+  .hero-hashtags-wrap {
+    justify-content: flex-start;
     max-width: 100%;
   }
 
   .hero-centerpiece-stage {
-    min-height: 520px;
+    min-height: 720px;
     flex-direction: column;
     align-items: center;
   }
