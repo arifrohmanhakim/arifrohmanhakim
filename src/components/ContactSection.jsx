@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Copy, Check } from 'lucide-react';
+import { ArrowUpRight, Copy, Check, Mail } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
+import { LinkedinIcon } from './LinkedinIcon';
+import { UpworkIcon } from './UpworkIcon';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const ContactSection = () => {
@@ -13,35 +15,65 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="madison-contact-section">
+    <section id="contact" className="apple-section">
       <div className="container">
-        <div className="madison-contact-box">
-          <span className="contact-sub-kicker">TERTARIK BERKOLABORASI?</span>
-          <h2 className="contact-main-headline">
-            Mari wujudkan produk digital dengan standar rekayasa tertinggi.
-          </h2>
+        <div className="apple-contact-card apple-reveal-card">
+          <div className="apple-contact-ambient-glow"></div>
+          
+          <div className="apple-contact-content">
+            <span className="apple-eyebrow">READY TO COLLABORATE</span>
+            <h2 className="apple-contact-title">
+              Let&apos;s build something <br />
+              <span className="apple-headline-gradient">extraordinary together.</span>
+            </h2>
+            <p className="apple-contact-sub">
+              Terbuka untuk kolaborasi proyek inovatif, arsitektur frontend web/mobile performa tinggi, atau konsultasi rekayasa perangkat lunak.
+            </p>
 
-          <div className="contact-buttons-row">
-            <a
-              href={PROFILE_DATA.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="madison-primary-cta"
-            >
-              <GithubIcon size={18} />
-              <span>Kunjungi Profil GitHub</span>
-              <ArrowUpRight size={16} />
-            </a>
+            <div className="apple-contact-actions-grid">
+              <a
+                href={PROFILE_DATA.upworkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apple-primary-btn"
+              >
+                <UpworkIcon size={18} />
+                <span>Hire on Upwork</span>
+                <ArrowUpRight size={16} />
+              </a>
 
-            <button
-              type="button"
-              onClick={handleCopyGithub}
-              className="madison-secondary-cta"
-              title="Salin tautan profil"
-            >
-              {copied ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
-              <span>{copied ? 'Tersalin' : 'Salin URL GitHub'}</span>
-            </button>
+              <a
+                href={PROFILE_DATA.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apple-secondary-btn"
+              >
+                <LinkedinIcon size={18} />
+                <span>Connect on LinkedIn</span>
+                <ArrowUpRight size={16} />
+              </a>
+
+              <a
+                href={PROFILE_DATA.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apple-secondary-btn"
+              >
+                <GithubIcon size={18} />
+                <span>GitHub Profile</span>
+                <ArrowUpRight size={16} />
+              </a>
+
+              <button
+                type="button"
+                onClick={handleCopyGithub}
+                className="apple-tertiary-btn"
+                title="Salin tautan GitHub"
+              >
+                {copied ? <Check size={16} className="text-emerald" /> : <Copy size={16} />}
+                <span>{copied ? 'Tersalin!' : 'Copy GitHub'}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
