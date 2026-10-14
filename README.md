@@ -7,8 +7,8 @@
 **Berbasis di Yogyakarta, Indonesia**
 
 [![Portfolio / Payaman OS](https://img.shields.io/badge/Live_Showcase-Payaman_OS-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://payamanos.vercel.app)
-[![Upwork Profile](https://img.shields.io/badge/Upwork-Hire_Me-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~01717d44e6a048ffe0)
-[![GitHub Views](https://komarev.com/ghpvc/?username=arifrohmanhakim&style=for-the-badge&color=090a0f)](https://github.com/arifrohmanhakim)
+[![Upwork Profile](https://img.shields.io/badge/Upwork-Hire_Me-14a800?style=for-the-badge&logo=upwork&logoColor=white)](https://www.upwork.com/freelancers/~012a82c5794a5bc843)
+[![GitHub Views](https://komarev.com/ghpvc/?username=arifrohmanhakim&style=for-the-badge)](https://github.com/arifrohmanhakim)
 
 <br/>
 
