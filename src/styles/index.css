@@ -46,6 +46,7 @@ html {
 
 body {
   min-height: 100vh;
+  font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
