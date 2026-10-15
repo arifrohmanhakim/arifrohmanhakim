@@ -21,7 +21,7 @@ export const App = () => {
         <HeroMadisonSection scrollY={scrollY} />
         <RecentProjectsSection />
         <ServicesSection />
-        <VisionSection stats={gitHubStats} />
+       {/*  <VisionSection stats={gitHubStats} /> */}
         <ExperienceTableSection />
         <ContactSection />
       </main>

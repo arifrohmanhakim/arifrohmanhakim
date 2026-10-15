@@ -83,11 +83,27 @@
   z-index: 1;
   user-select: none;
   pointer-events: none;
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+  will-change: transform;
+  transition: transform 1.2s ease-out;
 }
 
-.apple-slide-card:hover .apple-slide-bg-img {
-  transform: scale(1.03);
+.apple-slide-card.is-active .apple-slide-bg-img {
+  animation: appleSlowZoom 9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.apple-slide-card.is-active:hover .apple-slide-bg-img {
+  transform: scale(1.085);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes appleSlowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.065);
+  }
 }
 
 /* Floating Mobile Companion Screen (Dual Web + Mobile Showcase) */
@@ -174,10 +190,59 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  text-align: left;
   width: 100%;
 }
 
-/* Slide Typography */
+/* Slide Typography & Entrance Animation (Apple Slide Down Effect) */
+.apple-slide-eyebrow-row,
+.apple-slide-title,
+.apple-slide-tagline {
+  opacity: 0;
+  transform: translateY(-22px);
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+}
+
+.apple-slide-card.is-active .apple-slide-eyebrow-row {
+  animation: appleSlideFadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+}
+
+.apple-slide-card.is-active .apple-slide-title {
+  animation: appleSlideFadeDown 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+}
+
+.apple-slide-card.is-active .apple-slide-tagline {
+  animation: appleSlideFadeDown 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
+}
+
+@keyframes appleSlideFadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-22px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes appleSlideFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
 .apple-slide-eyebrow-row {
   display: inline-flex;
   align-items: center;
@@ -230,6 +295,14 @@
   max-width: 100%;
   flex-wrap: wrap;
   gap: 16px;
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.apple-slide-card.is-active .apple-slide-footer {
+  animation: appleSlideFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.36s forwards;
 }
 
 .apple-slide-tech-row {
