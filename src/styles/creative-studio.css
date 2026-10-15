@@ -46,7 +46,6 @@
   font-weight: 800;
   line-height: 1.18;
   color: #ffffff;
-  letter-spacing: -0.03em;
   margin-bottom: 20px;
 }
 
@@ -175,7 +174,6 @@
   font-size: clamp(2rem, 3.2vw, 2.6rem);
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.03em;
   line-height: 1.15;
   margin-bottom: 12px;
 }
@@ -315,7 +313,6 @@
   font-size: 1.55rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.025em;
   margin-bottom: 8px;
 }
 
@@ -424,7 +421,6 @@
   font-size: 1.22rem;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.02em;
   margin-bottom: 10px;
 }
 
@@ -547,7 +543,6 @@
   font-size: 1.25rem;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -0.02em;
   margin-bottom: 6px;
 }
 
@@ -616,35 +611,197 @@
   gap: 14px;
 }
 
-/* Responsive */
+/* Responsive (Tablet & Mobile Friendly) */
 @media (max-width: 1024px) {
+  .creative-section {
+    padding: 90px 0;
+  }
+
   .creative-flagship-card {
     grid-template-columns: 1fr;
     gap: 36px;
     padding: 36px;
   }
+
   .creative-disciplines-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
+
   .creative-philosophy-layout {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .creative-journey-row {
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 26px 28px;
+  }
+
+  .creative-contact-canvas {
+    padding: 64px 36px;
+    border-radius: 28px;
   }
 }
 
 @media (max-width: 768px) {
   .creative-section {
-    padding: 80px 0;
+    padding: 60px 0;
   }
+
+  .creative-header {
+    margin-bottom: 38px;
+  }
+
+  .creative-headline {
+    font-size: clamp(1.85rem, 6.5vw, 2.4rem);
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .creative-lead {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .creative-flagship-card {
+    padding: 22px 18px;
+    border-radius: 22px;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .creative-card-visual {
+    border-radius: 16px;
+  }
+
+  .creative-card-title {
+    font-size: 1.65rem;
+  }
+
+  .creative-card-tagline {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  .creative-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .creative-tags-list {
+    margin-bottom: 22px;
+    gap: 6px;
+  }
+
   .creative-works-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
+
   .creative-disciplines-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
+
+  .creative-discipline-card {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .creative-discipline-title {
+    font-size: 1.15rem;
+  }
+
+  .creative-discipline-desc {
+    font-size: 0.88rem;
+  }
+
   .creative-journey-row {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 24px;
+    gap: 10px;
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+
+  .creative-journey-row:hover {
+    transform: none;
+  }
+
+  .creative-journey-period {
+    font-size: 0.88rem;
+  }
+
+  .creative-journey-role {
+    font-size: 1.12rem;
+    margin-bottom: 4px;
+  }
+
+  .creative-journey-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+
+  .creative-contact-canvas {
+    padding: 48px 20px;
+    border-radius: 24px;
+  }
+
+  .creative-contact-headline {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    margin-bottom: 14px;
+  }
+
+  .creative-contact-lead {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .creative-contact-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .creative-btn-primary,
+  .creative-btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .creative-section {
+    padding: 48px 0;
+  }
+
+  .creative-flagship-card {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .creative-discipline-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .creative-journey-row {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .creative-mini-pill {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+
+  .creative-contact-canvas {
+    padding: 38px 16px;
+    border-radius: 20px;
   }
 }

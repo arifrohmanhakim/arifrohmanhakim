@@ -269,7 +269,6 @@
   font-family: var(--font-display, var(--font-sans));
   font-size: clamp(1.4rem, 3.2vw, 1.4rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: #ffffff;
   line-height: 1.18;
   max-width: 780px;
@@ -481,45 +480,144 @@
   .apple-slide-card {
     --card-px: 32px;
     --card-py: 32px;
-    flex: 0 0 88vw;
+    flex: 0 0 86vw;
     min-height: 520px;
+    border-radius: 28px;
   }
+
   .apple-slide-floating-mobile {
-    width: 175px;
+    width: 160px;
     right: 4%;
     bottom: 12%;
+  }
+
+  .apple-slide-title {
+    font-size: 1.45rem;
   }
 }
 
 @media (max-width: 768px) {
   .apple-slider-section {
-    padding: 80px 0 60px;
+    padding: 60px 0 44px;
   }
+
+  .apple-slider-track {
+    padding: 10px 4vw 26px;
+    gap: 16px;
+  }
+
   .apple-slide-card {
     --card-px: 20px;
-    --card-py: 24px;
-    flex: 0 0 92vw;
+    --card-py: 22px;
+    flex: 0 0 90vw;
     min-height: 480px;
     aspect-ratio: auto;
-    border-radius: 26px;
+    border-radius: 24px;
   }
+
   .apple-slide-floating-mobile {
-    width: 120px;
-    right: 3%;
-    bottom: 16%;
+    width: 110px;
+    right: 14px;
+    bottom: 18%;
     border-width: 2px;
-    border-radius: 20px;
+    border-radius: 18px;
   }
+
   .apple-slide-title {
-    font-size: 1.55rem;
+    font-size: 1.32rem;
+    line-height: 1.22;
   }
+
+  .apple-slide-tagline {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
   .apple-slide-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
+    width: 100%;
   }
+
+  .apple-slide-tech-row {
+    gap: 6px;
+  }
+
+  .apple-slide-pill {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+  }
+
   .apple-slide-cta-row {
     width: 100%;
-    justify-content: space-between;
+    display: flex;
+    gap: 10px;
+  }
+
+  .apple-slide-btn-primary,
+  .apple-slide-btn-ghost {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+
+  .apple-slider-controls {
+    margin-top: 20px;
+    gap: 12px;
+  }
+
+  .apple-slider-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .apple-slider-track {
+    padding: 8px 3vw 20px;
+  }
+
+  .apple-slide-card {
+    --card-px: 16px;
+    --card-py: 18px;
+    flex: 0 0 93vw;
+    min-height: 490px;
+    border-radius: 20px;
+  }
+
+  .apple-slide-floating-mobile {
+    width: 86px;
+    right: 10px;
+    bottom: 23%;
+    border-radius: 14px;
+    opacity: 0.88;
+  }
+
+  .apple-slide-title {
+    font-size: 1.2rem;
+  }
+
+  .apple-slide-badge {
+    font-size: 0.7rem;
+  }
+
+  .apple-pagination-bar {
+    padding: 5px 12px;
+    gap: 6px;
+  }
+
+  .apple-page-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .apple-page-dot.is-active {
+    width: 18px;
+  }
+
+  .apple-playback-btn {
+    width: 32px;
+    height: 32px;
   }
 }

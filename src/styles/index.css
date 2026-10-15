@@ -1,7 +1,7 @@
 :root {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Google Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Cal Sans', 'Source Serif 4', Georgia, serif;
+  --font-serif: 'Source Serif 4', 'Cal Sans', 'Instrument Serif', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Permanent Default Dark Theme */
@@ -42,6 +42,8 @@ html {
   font-family: var(--font-sans);
   background-color: var(--bg-page);
   color: var(--text-main);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -51,6 +53,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-page);
+  overflow-x: hidden;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
 }
 
 a {
@@ -340,7 +348,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   font-weight: 900;
-  letter-spacing: -0.03em;
   line-height: 1.05;
   color: var(--text-main);
   white-space: nowrap;
@@ -398,9 +405,8 @@ button {
 
 .floating-iam-text {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.4vw, 3rem);
+  font-size: 4rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
   line-height: 1;
   color: var(--text-main);
   margin-bottom: 2px;
@@ -409,9 +415,8 @@ button {
 
 .floating-name-text {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 5.2vw, 3.5rem);
+  font-size: 4rem;
   font-weight: 900;
-  letter-spacing: -0.04em;
   line-height: 0.95;
   color: var(--text-main);
   white-space: nowrap;
@@ -458,7 +463,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.4vw, 3.8rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
   line-height: 1.08;
   color: #ffffff;
   margin-bottom: 16px;
@@ -641,7 +645,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
   line-height: 1;
   background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #f59e0b 100%);
   -webkit-background-clip: text;
@@ -759,7 +762,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.6rem, 5.5vw, 4.2rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
   line-height: 1.08;
   color: #f5f5f7;
   margin-bottom: 20px;
@@ -933,7 +935,6 @@ button {
   font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
   color: #f5f5f7;
   line-height: 1.2;
 }
@@ -955,7 +956,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.2vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: #f5f5f7;
   line-height: 1.12;
 }
@@ -1176,7 +1176,6 @@ button {
   font-family: var(--font-display);
   font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: -0.025em;
   color: #f5f5f7;
   margin-bottom: 8px;
 }
@@ -1404,7 +1403,6 @@ button {
   font-family: var(--font-display);
   font-size: 2.2rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
   color: #f5f5f7;
   line-height: 1.15;
   margin: 6px 0 10px 0;
@@ -1666,7 +1664,6 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.4vw, 3.6rem);
   font-weight: 900;
-  letter-spacing: -0.04em;
   line-height: 1.1;
   color: #ffffff;
   margin: 14px 0 16px;
@@ -1834,9 +1831,30 @@ button {
 /* ----------------------------------------------------
    RESPONSIVE DESIGN (TABLET & MOBILE)
    ---------------------------------------------------- */
+/* ----------------------------------------------------
+   RESPONSIVE DESIGN (TABLET & MOBILE FRIENDLY)
+   ---------------------------------------------------- */
 @media (max-width: 1040px) {
-  .hero-grid-stage {
-    grid-template-columns: 1fr 340px 1fr;
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .hero-centerpiece-stage {
+    min-height: 600px;
+  }
+
+  .giant-script-background {
+    font-size: clamp(3.6rem, 10vw, 7rem);
+    top: 90px;
+  }
+
+  .hero-center-portrait-wrap {
+    max-width: 440px;
+  }
+
+  .hero-large-portrait-img {
+    max-height: 640px;
   }
 
   .apple-hero-product-card {
@@ -1867,53 +1885,160 @@ button {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  /* Navbar Mobile */
+  .madison-nav-inner {
+    height: 66px;
+  }
+
+  .madison-brand {
+    font-size: 1.8rem;
+  }
+
   .madison-nav-menu {
     display: none;
   }
 
-  .hero-top-meta-bar {
-    flex-direction: column;
-    gap: 14px;
+  .madison-nav-actions {
+    gap: 8px;
+  }
+
+  .github-ghost-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .madison-pill-btn {
+    padding: 8px 18px;
+    font-size: 0.84rem;
+  }
+
+  /* Hero Section Mobile */
+  .madison-hero-section {
+    padding: 12px 0 40px;
+    overflow: hidden;
   }
 
   .hero-centerpiece-stage {
-    min-height: 720px;
+    min-height: auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
   }
 
   .giant-script-background {
-    font-size: clamp(3.6rem, 16vw, 6rem);
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    font-size: clamp(3rem, 14vw, 4.6rem);
+    opacity: 0.25;
+    justify-content: center;
+    gap: 16px;
     padding: 0 10px;
   }
 
   .hero-center-portrait-wrap {
-    max-width: 380px;
+    order: 1;
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-large-portrait-img {
+    max-height: 420px;
+    margin: 0 auto;
+  }
+
+  .portrait-bottom-fade {
+    height: 60px;
+  }
+
+  /* Nonaktifkan transform horizontal di mobile agar teks tidak bergeser keluar layar */
+  .hero-name-layer-front,
+  .hero-role-layer-back {
+    transform: none !important;
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    pointer-events: auto;
   }
 
   .hero-name-layer-front {
-    position: relative;
-    bottom: auto;
-    left: auto;
+    order: 2;
+    margin-top: -24px;
+    z-index: 4;
+  }
+
+  .floating-name-box {
+    align-items: center;
     text-align: center;
-    margin-top: 16px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .floating-iam-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f59e0b;
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    text-shadow: none;
+  }
+
+  .floating-name-text {
+    font-size: clamp(2.4rem, 10vw, 3.2rem);
+    line-height: 1;
+    white-space: normal;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
   }
 
   .hero-role-layer-back {
+    order: 3;
+    margin-top: 12px;
+    z-index: 3;
+  }
+
+  .floating-role-box {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .role-headline-bold {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .hero-scroll-indicator {
+    order: 4;
     position: relative;
     bottom: auto;
-    right: auto;
-    text-align: center;
-    margin-top: 8px;
+    margin-top: 24px;
   }
 
-  .apple-hero-product-card {
-    padding: 30px 20px;
-    border-radius: 26px;
+  /* Apple Detail Modal Mobile */
+  .apple-modal-backdrop {
+    padding: 12px;
   }
 
-  .apple-grid-card-content {
-    padding: 24px 20px 26px;
+  .apple-modal-sheet {
+    border-radius: 22px;
+    max-height: 94vh;
   }
 
   .apple-modal-content-grid {
@@ -1921,42 +2046,80 @@ button {
   }
 
   .apple-modal-media-col {
-    padding: 28px 20px;
+    padding: 22px 16px;
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .apple-modal-specs-col {
-    padding: 28px 20px;
+    padding: 24px 16px;
   }
 
-  .apple-bento-grid {
-    grid-template-columns: 1fr;
+  .apple-modal-title {
+    font-size: 1.6rem;
   }
 
-  .apple-timeline-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    padding: 24px 20px;
+  .apple-modal-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
   }
 
-  .apple-contact-card {
-    padding: 44px 24px;
-    border-radius: 28px;
+  .apple-btn-modal-primary,
+  .apple-btn-modal-ghost {
+    width: 100%;
+    justify-content: center;
   }
 
-  .apple-headline-huge {
-    font-size: clamp(2.1rem, 7.5vw, 3rem);
-  }
-
-  .apple-pro-display-frame {
-    aspect-ratio: auto;
-    min-height: 280px;
-  }
-
+  /* Footer Mobile */
   .madison-footer-inner {
     flex-direction: column;
     align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .madison-brand {
+    font-size: 1.6rem;
+  }
+
+  .madison-nav-actions {
+    gap: 6px;
+  }
+
+  .github-ghost-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .madison-pill-btn {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+  }
+
+  .hero-center-portrait-wrap {
+    max-width: 260px;
+  }
+
+  .hero-large-portrait-img {
+    max-height: 360px;
+  }
+
+  .floating-name-text {
+    font-size: 2.2rem;
+  }
+
+  .apple-modal-close-btn {
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
   }
 }
 
