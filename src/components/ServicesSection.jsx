@@ -1,70 +1,56 @@
 import React from 'react';
-import { Code2, Smartphone, Sparkles, Globe, Terminal, Cpu } from 'lucide-react';
+import { Smartphone, Layout, Sparkles, Server } from 'lucide-react';
 
 export const ServicesSection = () => {
   const disciplines = [
     {
-      num: '02.01',
-      icon: <Code2 size={20} className="anthropic-discipline-icon" />,
-      title: 'Web Systems Architecture',
-      tag: 'Zero-Bloat Engineering',
-      desc: 'Membangun aplikasi web berperforma tinggi dari nol menggunakan React 19, Next.js, dan optimasi arsitektur modular dengan rendering efisien.'
+      icon: <Smartphone size={22} />,
+      title: 'Mobile Experience (Sejak 2017)',
+      desc: 'Mendesain dan merekayasa aplikasi mobile (React Native & Native Android/iOS) yang tangguh di lapangan: dari sinkronisasi offline SQLite, pelacakan spasial GIS, hingga performa 60 FPS yang mulus di tangan pengguna.'
     },
     {
-      num: '02.02',
-      icon: <Smartphone size={20} className="anthropic-discipline-icon" />,
-      title: 'Enterprise Mobile Engineering',
-      tag: 'Native Performance & Offline-First',
-      desc: 'Merancang arsitektur mobile berskala tinggi untuk Android & iOS menggunakan React Native, sinkronisasi offline SQLite, dan pelacakan GPS lapangan.'
+      icon: <Layout size={22} />,
+      title: 'Modern Web & Creative UI',
+      desc: 'Menciptakan antarmuka web modern dengan React 19 dan Next.js yang memadukan keindahan visual, tipografi anggun, dan micro-interactions yang hidup tanpa mengorbankan performa kecepatan muat.'
     },
     {
-      num: '02.03',
-      icon: <Sparkles size={20} className="anthropic-discipline-icon" />,
-      title: 'Creative Systems & Emulation',
-      tag: 'Experimental Computing',
-      desc: 'Eksplorasi komputasi unik seperti Payaman OS (emulasi retro Mac 1-bit), sintesis Web Audio API native, dan interaksi canvas berkecepatan tinggi.'
+      icon: <Sparkles size={22} />,
+      title: 'Creative Systems & Payaman OS',
+      desc: 'Eksplorasi batas kreatif komputasi web: merancang emulasi retro 1-bit Mac (Payaman OS), visual query builder dinamis, serta engine synthesizer audio web native.'
     },
     {
-      num: '02.04',
-      icon: <Globe size={20} className="anthropic-discipline-icon" />,
-      title: 'Open Source Tools & Spatial GIS',
-      tag: 'Multiplatform Infrastructure',
-      desc: 'Pengembangan pustaka frontend visual, integrasi pemetaan GIS / GeoJSON interaktif, visual query builders, dan kontribusi ekosistem global.'
+      icon: <Server size={22} />,
+      title: 'Fullstack & Cloud Architecture',
+      desc: 'Menghubungkan arsitektur frontend dengan fondasi backend yang solid (Node.js/Express, PHP, RESTful API & database SQL/NoSQL) dengan pemrosesan efisien dan standar keamanan yang terjaga.'
     }
   ];
 
   return (
-    <section id="services" className="anthropic-section">
+    <section id="services" className="creative-section">
       <div className="container">
-        <div className="anthropic-header-block">
-          <div className="anthropic-eyebrow-row">
-            <span className="anthropic-eyebrow-index">02</span>
-            <span className="anthropic-eyebrow-divider">/</span>
-            <span className="anthropic-eyebrow-text">Core Engineering Disciplines</span>
+        <div className="creative-header">
+          <div className="creative-eyebrow">
+            <span className="creative-eyebrow-line"></span>
+            <span>Disiplin &amp; Keahlian</span>
           </div>
 
-          <h2 className="anthropic-headline">
-            Depth in fundamentals. <br />
-            <em>Speed in execution.</em>
+          <h2 className="creative-headline">
+            Perkawinan antara arsitektur logika <em>dan rasa desain.</em>
           </h2>
 
-          <p className="anthropic-lead">
-            Pendekatan rekayasa perangkat lunak yang berlandaskan modularitas, efisiensi komputasi, dan kejelasan kode yang dapat dirawat dalam jangka panjang.
+          <p className="creative-lead">
+            Bukan sekadar menulis baris kode, melainkan merancang sistem yang luwes, andal, dan menyenangkan saat disentuh oleh manusia.
           </p>
         </div>
 
-        <div className="anthropic-disciplines-grid">
+        <div className="creative-disciplines-grid">
           {disciplines.map((item, index) => (
-            <div key={index} className="anthropic-discipline-card">
-              <div className="anthropic-card-head">
-                <span className="anthropic-card-idx">{item.num}</span>
-                <span className="anthropic-discipline-tag">{item.tag}</span>
+            <div key={index} className="creative-discipline-card">
+              <div className="creative-discipline-icon-box">
+                {item.icon}
               </div>
-              <div className="anthropic-discipline-body">
-                <div className="anthropic-icon-badge">{item.icon}</div>
-                <h3 className="anthropic-discipline-title">{item.title}</h3>
-                <p className="anthropic-discipline-desc">{item.desc}</p>
-              </div>
+              <h3 className="creative-discipline-title">{item.title}</h3>
+              <p className="creative-discipline-desc">{item.desc}</p>
             </div>
           ))}
         </div>

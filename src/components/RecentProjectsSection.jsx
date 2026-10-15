@@ -1,182 +1,204 @@
-import React, { useState } from 'react';
-import { ArrowUpRight, ArrowRight, Sparkles } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ArrowUpRight, ArrowRight, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
+import { DeviceMockup } from './DeviceMockup';
+import { useAppleSlider } from '../hooks/useAppleSlider';
 
 export const RecentProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [cardWidth, setCardWidth] = useState(0);
+  const firstCardRef = useRef(null);
 
-  const heroProject = PROJECTS_DATA[0];
-  const gridProjects = PROJECTS_DATA.slice(1, 5);
+  const projects = PROJECTS_DATA;
+  const totalSlides = projects.length;
 
-  const handleOpenDetail = (project) => {
-    setSelectedProject(project);
-  };
+  const {
+    currentIndex,
+    isPlaying,
+    isDragging,
+    dragOffset,
+    nextSlide,
+    prevSlide,
+    goToSlide,
+    togglePlay,
+    dragHandlers
+  } = useAppleSlider({ totalSlides, autoplayInterval: 5000 });
 
-  const handleCloseDetail = () => {
-    setSelectedProject(null);
-  };
+  // Ukur lebar kartu aktif untuk menghitung pergeseran translasi yang presisi
+  useEffect(() => {
+    const updateCardMetrics = () => {
+      if (firstCardRef.current) {
+        const gap = 28;
+        setCardWidth(firstCardRef.current.offsetWidth + gap);
+      }
+    };
+
+    updateCardMetrics();
+    window.addEventListener('resize', updateCardMetrics);
+    return () => window.removeEventListener('resize', updateCardMetrics);
+  }, []);
+
+  const trackTransform = cardWidth > 0
+    ? `translate3d(${-currentIndex * cardWidth + dragOffset}px, 0, 0)`
+    : `translate3d(${dragOffset}px, 0, 0)`;
 
   return (
-    <section id="projects" className="anthropic-section">
-      <div className="container">
-        <div className="anthropic-header-block">
-          <div className="anthropic-eyebrow-row">
-            <span className="anthropic-eyebrow-index">01</span>
-            <span className="anthropic-eyebrow-divider">/</span>
-            <span className="anthropic-eyebrow-text">Applied Systems &amp; Engineering Deployments</span>
+    <section id="projects" className="apple-slider-section">
+      <div className="container apple-slider-header-wrap">
+        <div className="creative-header" style={{ marginBottom: 0 }}>
+          <div className="creative-eyebrow">
+            <span className="creative-eyebrow-line"></span>
+            <span>Karya Terpilih</span>
           </div>
 
-          <h2 className="anthropic-headline">
-            Rigorous software engineering. <br />
-            <em>Built for real-world resilience.</em>
+          <h2 className="creative-headline">
+            Keunggulan demi keunggulan. <br />
+            <em>Dirancang dengan presisi &amp; rasa.</em>
           </h2>
 
-          <p className="anthropic-lead">
-            Kompilasi sistem produksi lintas domain: arsitektur mobile enterprise agrikultur skala nasional,
-            portal luxury yachting, ekosistem CRM cerdas AI, hingga platform otomotif Astra Motor Honda.
+          <p className="creative-lead">
+            Jelajahi inovasi produksi: dari pemetaan cerdas perkebunan nasional, ekosistem otomotif Astra Motor Honda, CRM kecerdasan buatan, hingga resort mewah Samara Lombok &amp; e-commerce global.
           </p>
-        </div>
-
-        {heroProject && (
-          <article className="anthropic-hero-card">
-            <div className="anthropic-hero-card-grid">
-              <div className="anthropic-hero-content">
-                <div className="anthropic-card-top-meta">
-                  <span className="anthropic-card-index">01.01</span>
-                  <div className="anthropic-brand-chip">
-                    {getProjectBrandLogo(heroProject.id, 24)}
-                  </div>
-                  <span className="anthropic-badge-tag">{heroProject.eyebrow}</span>
-                </div>
-
-                <h3 className="anthropic-card-title">{heroProject.title}</h3>
-                <p className="anthropic-card-tagline">{heroProject.tagline}</p>
-                <p className="anthropic-card-desc">{heroProject.description}</p>
-
-                <div className="anthropic-specs-pill-list">
-                  {heroProject.techStack.map((tech, i) => (
-                    <span key={i} className="anthropic-spec-tag">{tech}</span>
-                  ))}
-                </div>
-
-                <div className="anthropic-cta-group">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenDetail(heroProject)}
-                    className="anthropic-btn-clay"
-                    aria-label={`Pelajari arsitektur ${heroProject.title}`}
-                  >
-                    <span>Pelajari Arsitektur</span>
-                    <ArrowRight size={15} />
-                  </button>
-
-                  {heroProject.playStoreUrl && (
-                    <a
-                      href={heroProject.playStoreUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="anthropic-btn-ghost"
-                    >
-                      <FaGooglePlay size={13} />
-                      <span>Google Play</span>
-                      <ArrowUpRight size={13} />
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              <div 
-                className="anthropic-hero-visual-frame"
-                onClick={() => handleOpenDetail(heroProject)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Buka visual dan spesifikasi ${heroProject.title}`}
-              >
-                <div className="anthropic-img-container">
-                  <img
-                    src={heroProject.image}
-                    alt={heroProject.title}
-                    className="anthropic-hero-img"
-                    loading="lazy"
-                  />
-                  <div className="anthropic-view-prompt">
-                    <span>Lihat Dossier Teknis</span>
-                    <ArrowRight size={13} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        )}
-
-        <div className="anthropic-grid-cards">
-          {gridProjects.map((project, idx) => (
-            <article key={project.id} className="anthropic-item-card">
-              <div 
-                className="anthropic-item-visual-frame"
-                onClick={() => handleOpenDetail(project)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Buka detail ${project.title}`}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="anthropic-item-img"
-                  loading="lazy"
-                />
-                <div className="anthropic-item-visual-badge">
-                  <span className="anthropic-brand-chip-small">
-                    {getProjectBrandLogo(project.id, 20)}
-                  </span>
-                  <span className="anthropic-item-index-num">01.0{idx + 2}</span>
-                </div>
-              </div>
-
-              <div className="anthropic-item-content">
-                <span className="anthropic-item-eyebrow">{project.eyebrow}</span>
-                <h3 className="anthropic-item-title">{project.title}</h3>
-                <p className="anthropic-item-tagline">{project.tagline}</p>
-                <p className="anthropic-item-desc">{project.description}</p>
-
-                <div className="anthropic-item-tags">
-                  {project.techStack.slice(0, 4).map((tech, i) => (
-                    <span key={i} className="anthropic-mini-tag">{tech}</span>
-                  ))}
-                </div>
-
-                <div className="anthropic-item-footer">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenDetail(project)}
-                    className="anthropic-item-link-btn"
-                  >
-                    <span>Dossier Proyek</span>
-                    <ArrowRight size={14} />
-                  </button>
-
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="anthropic-item-ext-link"
-                    >
-                      <span>Situs Resmi</span>
-                      <ArrowUpRight size={13} />
-                    </a>
-                  )}
-                </div>
-              </div>
-            </article>
-          ))}
         </div>
       </div>
 
-      <ProjectDetailModal project={selectedProject} onClose={handleCloseDetail} />
+      {/* Horizontal Slider Viewport with Pointer Drag Handlers */}
+      <div
+        className="apple-slider-viewport"
+        {...dragHandlers}
+      >
+        <div
+          className={`apple-slider-track ${isDragging ? 'is-dragging' : ''}`}
+          style={{ transform: trackTransform }}
+        >
+          {projects.map((project, index) => {
+            const isActive = index === currentIndex;
+
+            return (
+              <article
+                key={project.id}
+                ref={index === 0 ? firstCardRef : null}
+                className={`apple-slide-card ${isActive ? 'is-active' : ''}`}
+                onClick={() => {
+                  if (!isActive) goToSlide(index);
+                }}
+              >
+                {/* Brand Emblem & Eyebrow */}
+                <div className="apple-slide-eyebrow-row">
+                  <div className="apple-slide-brand-chip">
+                    {getProjectBrandLogo(project.id, 22)}
+                  </div>
+                  <span className="apple-slide-badge">{project.eyebrow}</span>
+                </div>
+
+                {/* Title & Tagline */}
+                <h3 className="apple-slide-title">{project.title}</h3>
+                <p className="apple-slide-tagline">{project.tagline}</p>
+
+                {/* Visual Showcase Stage (MacBook Pro & iPhone 16 Pro Mockups) */}
+                <DeviceMockup
+                  project={project}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedProject(project);
+                  }}
+                  promptText="Lihat Detail Arsitektur"
+                />
+
+                {/* Slide Footer */}
+                <div className="apple-slide-footer">
+                  <div className="apple-slide-tech-row">
+                    {project.techStack.map((tech, i) => (
+                      <span key={i} className="apple-slide-pill">{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="apple-slide-cta-row">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project);
+                      }}
+                      className="apple-slide-btn-primary"
+                    >
+                      <span>Detail Proyek</span>
+                      <ArrowRight size={14} />
+                    </button>
+
+                    {project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="apple-slide-btn-ghost"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <FaGooglePlay size={13} />
+                        <span>Google Play</span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="apple-slide-btn-ghost"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <span>Situs Resmi</span>
+                        <ArrowUpRight size={13} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Apple-style Dot Bar & Autoplay Controls */}
+      <div className="apple-slider-controls-bar">
+        {/* Pill Dot Navigation */}
+        <div className="apple-dot-nav-pill" role="tablist" aria-label="Navigasi slide proyek">
+          {projects.map((project, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <button
+                key={project.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-label={`Pindah ke slide ${index + 1}: ${project.title}`}
+                className={`apple-dot-btn ${isActive ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+              >
+                <span className="apple-dot-shape"></span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Play/Pause Button */}
+        <button
+          type="button"
+          onClick={togglePlay}
+          className="apple-playback-btn"
+          aria-label={isPlaying ? 'Jeda perputaran otomatis' : 'Putar otomatis slide'}
+          title={isPlaying ? 'Jeda Autoplay' : 'Mulai Autoplay'}
+        >
+          {isPlaying ? <Pause size={15} /> : <Play size={15} style={{ marginLeft: 2 }} />}
+        </button>
+      </div>
+
+      {/* Modal Detail Proyek */}
+      <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>
   );
 };

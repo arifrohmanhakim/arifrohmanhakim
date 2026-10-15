@@ -1,80 +1,43 @@
 import React from 'react';
-import { ShieldCheck, Cpu, Terminal, GitBranch } from 'lucide-react';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
-export const VisionSection = ({ stats }) => {
+export const VisionSection = () => {
   return (
-    <section id="vision" className="anthropic-section">
+    <section id="vision" className="creative-section">
       <div className="container">
-        <div className="anthropic-header-block">
-          <div className="anthropic-eyebrow-row">
-            <span className="anthropic-eyebrow-index">03</span>
-            <span className="anthropic-eyebrow-divider">/</span>
-            <span className="anthropic-eyebrow-text">Principles &amp; Empirical Metrics</span>
-          </div>
-
-          <h2 className="anthropic-headline">
-            Clear abstractions. <br />
-            <em>Measurable reliability.</em>
-          </h2>
-
-          <p className="anthropic-lead">
-            Menghindari kompleksitas yang tidak esensial. Setiap baris kode ditulis untuk kejelasan logis, efisiensi waktu respon, dan skalabilitas jangka panjang.
-          </p>
-        </div>
-
-        <div className="anthropic-vision-grid">
-          <div className="anthropic-metrics-stack">
-            <div className="anthropic-metric-card">
-              <div className="anthropic-metric-header">
-                <Terminal size={18} className="anthropic-metric-icon" />
-                <span className="anthropic-metric-category">OPEN REPOSITORIES</span>
-              </div>
-              <div className="anthropic-metric-val">{stats.publicRepos || 12}+</div>
-              <div className="anthropic-metric-name">Public Repositories di GitHub</div>
-              <p className="anthropic-metric-explanation">
-                Pustaka open source mandiri, emulasi retro OS, modul mapping spatial, dan visual query builder.
-              </p>
+        <div className="creative-philosophy-layout">
+          {/* Kolom Kiri: Kutipan Filosofi */}
+          <div className="creative-quote-box">
+            <div className="creative-eyebrow">
+              <span className="creative-eyebrow-line"></span>
+              <span>Filosofi Berkarya</span>
             </div>
 
-            <div className="anthropic-metric-card">
-              <div className="anthropic-metric-header">
-                <Cpu size={18} className="anthropic-metric-icon" />
-                <span className="anthropic-metric-category">COMPUTATION LATENCY</span>
-              </div>
-              <div className="anthropic-metric-val">&lt; 16ms</div>
-              <div className="anthropic-metric-name">60/120 FPS Interaction Budget</div>
-              <p className="anthropic-metric-explanation">
-                Animasi berbasis CSS hardware compositor native, state management modular tanpa re-render berlebihan.
-              </p>
-            </div>
+            <blockquote className="creative-quote-text">
+              &ldquo;Kode yang hebat bekerja secara senyap dan presisi di balik layar, memberi ruang penuh bagi <em>pengalaman manusia yang bermakna.</em>&rdquo;
+            </blockquote>
 
-            <div className="anthropic-metric-card">
-              <div className="anthropic-metric-header">
-                <ShieldCheck size={18} className="anthropic-metric-icon" />
-                <span className="anthropic-metric-category">CODE CRAFTSMANSHIP</span>
+            <p className="creative-lead" style={{ marginBottom: '28px' }}>
+              Berbasis di Yogyakarta, saya melihat setiap proyek digital sebagai karya kriya modern—memadukan ketahanan arsitektur sistem, efisiensi eksekusi, dan keanggunan antarmuka yang ramah bagi penggunanya.
+            </p>
+
+            <div className="creative-author-signature">
+              <span className="creative-author-dot"></span>
+              <div>
+                <div className="creative-author-name">{PROFILE_DATA.name}</div>
+                <div className="creative-author-role">Software Engineer &amp; Kreator Payaman OS</div>
               </div>
-              <div className="anthropic-metric-val">100%</div>
-              <div className="anthropic-metric-name">Separation of Concerns</div>
-              <p className="anthropic-metric-explanation">
-                Penamaan deskriptif (self-documenting), custom hooks modular, serta sanitasi dan validasi data ketat di semua layer.
-              </p>
             </div>
           </div>
 
-          <div className="anthropic-workspace-panel">
-            <div className="anthropic-workspace-frame">
-              <img
-                src="/workstation.jpg"
-                alt="Engineering Lab Workstation"
-                className="anthropic-workspace-photo"
-                loading="lazy"
-              />
-              <div className="anthropic-workspace-overlay" />
-              <div className="anthropic-workspace-footer">
-                <span className="anthropic-mono-pill">PRIMARY WORKSTATION // YOGYAKARTA</span>
-              </div>
-            </div>
+          {/* Kolom Kanan: Foto Studio Workspace Minimalis */}
+          <div className="creative-workspace-card">
+            <img
+              src="/workspace.png"
+              alt="Studio Ruang Kerja Arif Rohman Hakim"
+              className="creative-workspace-img"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

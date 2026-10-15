@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Copy, Check, Mail } from 'lucide-react';
+import { ArrowUpRight, Copy, Check } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { LinkedinIcon } from './LinkedinIcon';
 import { UpworkIcon } from './UpworkIcon';
@@ -15,65 +15,65 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="anthropic-section">
+    <section id="contact" className="creative-section">
       <div className="container">
-        <div className="anthropic-contact-box">
-          <div className="anthropic-eyebrow-row">
-            <span className="anthropic-eyebrow-index">05</span>
-            <span className="anthropic-eyebrow-divider">/</span>
-            <span className="anthropic-eyebrow-text">Inquiry &amp; Professional Collaboration</span>
+        <div className="creative-contact-canvas">
+          <div className="creative-eyebrow" style={{ justifyContent: 'center' }}>
+            <span className="creative-eyebrow-line"></span>
+            <span>Inisiasi Kolaborasi</span>
+            <span className="creative-eyebrow-line"></span>
           </div>
 
-          <h2 className="anthropic-headline">
-            Initiating dialogue. <br />
-            <em>Let&apos;s construct meaningful systems.</em>
+          <h2 className="creative-contact-headline">
+            Punya ide berani yang ingin <em>kita wujudkan bersama?</em>
           </h2>
 
-          <p className="anthropic-lead">
-            Terbuka untuk kolaborasi proyek berdampak tinggi: rekayasa arsitektur mobile, sistem web fullstack modern, atau konsultasi rekayasa perangkat lunak.
+          <p className="creative-contact-lead">
+            Saya selalu terbuka untuk mendiskusikan peluang kolaborasi baru: perancangan arsitektur mobile, pengembangan platform web kreatif modern, atau konsultasi teknis tingkat lanjut.
           </p>
 
-          <div className="anthropic-contact-actions">
+          <div className="creative-contact-actions">
             <a
               href={PROFILE_DATA.upworkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="anthropic-btn-clay"
+              className="creative-btn-primary"
             >
-              <UpworkIcon size={16} />
+              <UpworkIcon size={18} />
               <span>Hire on Upwork</span>
-              <ArrowUpRight size={14} />
+              <ArrowUpRight size={15} />
             </a>
 
             <a
               href={PROFILE_DATA.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="anthropic-btn-ghost"
+              className="creative-btn-outline"
             >
-              <LinkedinIcon size={16} />
-              <span>Connect on LinkedIn</span>
-              <ArrowUpRight size={14} />
+              <LinkedinIcon size={18} />
+              <span>Connect di LinkedIn</span>
+              <ArrowUpRight size={15} />
             </a>
 
             <a
               href={PROFILE_DATA.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="anthropic-btn-ghost"
+              className="creative-btn-outline"
             >
-              <GithubIcon size={16} />
-              <span>GitHub Profile</span>
-              <ArrowUpRight size={14} />
+              <GithubIcon size={18} />
+              <span>GitHub</span>
+              <ArrowUpRight size={15} />
             </a>
 
             <button
+              type="button"
               onClick={handleCopyGithub}
-              className="anthropic-btn-outline"
-              title="Salin tautan profil GitHub"
+              className="creative-btn-outline"
+              title="Salin tautan GitHub"
             >
-              {copied ? <Check size={14} /> : <Copy size={14} />}
-              <span>{copied ? 'Tersalin' : 'Salin URL'}</span>
+              {copied ? <Check size={16} className="text-amber" /> : <Copy size={16} />}
+              <span>{copied ? 'Tautan Tersalin!' : 'Salin Profil'}</span>
             </button>
           </div>
         </div>

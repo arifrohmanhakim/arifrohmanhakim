@@ -50,6 +50,26 @@ export const AstraMotorLogo = ({ className = '', size = 32 }) => (
   />
 );
 
+export const SamaraLogo = ({ className = '', size = 32 }) => (
+  <img
+    src="/images/logos/samara-lombok.png"
+    alt="Samara Lombok Official Logo"
+    className={`apple-brand-official-logo samara-logo-img ${className}`}
+    style={{ height: size, width: 'auto', objectFit: 'contain' }}
+    loading="lazy"
+  />
+);
+
+export const PayamanLogo = ({ className = '', size = 32 }) => (
+  <img
+    src="/images/logos/payaman-os.png"
+    alt="Payaman OS Official Logo"
+    className={`apple-brand-official-logo payaman-logo-img ${className}`}
+    style={{ height: size, width: 'auto', objectFit: 'contain' }}
+    loading="lazy"
+  />
+);
+
 export const getProjectBrandLogo = (id, size = 32) => {
   switch (id) {
     case 'ggf-fms':
@@ -58,11 +78,15 @@ export const getProjectBrandLogo = (id, size = 32) => {
       return <CentrisLogo size={size} />;
     case 'rascal-republic':
       return <RascalRepublicLogo size={size} />;
+    case 'samara-lombok':
+      return <SamaraLogo size={size} />;
     case 'polygon-bikes':
       return <PolygonLogo size={size} />;
     case 'astra-motor':
     case 'atra-motor':
       return <AstraMotorLogo size={size} />;
+    case 'payaman-os':
+      return <PayamanLogo size={size} />;
     default:
       return null;
   }

@@ -1,0 +1,420 @@
+/* ----------------------------------------------------
+   APPLE DEVICE MOCKUPS (MacBook Pro & iPhone 16 Pro)
+   Pure CSS High-Fidelity Responsive Device Hardware
+   ---------------------------------------------------- */
+
+/* Wrapper Stage */
+.device-stage-container {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+/* ====================================================
+   1. MACBOOK PRO M3/M4 (Space Black Edition)
+   ==================================================== */
+.macbook-pro-mockup {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.75));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.device-stage-container:hover .macbook-pro-mockup {
+  transform: translateY(-6px) scale(1.01);
+  filter: drop-shadow(0 38px 70px rgba(0, 0, 0, 0.9));
+}
+
+/* Display Lid (Top Shell) */
+.macbook-lid {
+  width: 100%;
+  background: #0d0e12;
+  border-radius: 18px 18px 0 0;
+  padding: 10px 10px 0;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.18);
+  position: relative;
+}
+
+/* Screen Bezel & Container */
+.macbook-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #000000;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MacBook Notch (Top Center Camera & Mic) */
+.macbook-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 14px;
+  background: #0d0e12;
+  border-radius: 0 0 8px 8px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.macbook-camera-lens {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #03141f;
+  box-shadow: inset 0 0 2px #00e5ff;
+}
+
+.macbook-sensor-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Screen Image */
+.macbook-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Subtle Screen Reflection Glare */
+.macbook-screen-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 28%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* MacBook Bottom Base (Aluminium Chin & Lip) */
+.macbook-base {
+  width: 108%;
+  height: 14px;
+  background: linear-gradient(180deg, #2a2c35 0%, #15161d 60%, #0e0f14 100%);
+  border-radius: 0 0 18px 18px;
+  position: relative;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.28),
+              0 14px 28px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+}
+
+/* Center Finger Notch for Opening Lid */
+.macbook-base-lip {
+  width: 76px;
+  height: 5px;
+  background: #0d0e12;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Base Shadow Feet */
+.macbook-feet-shadow {
+  position: absolute;
+  bottom: -10px;
+  width: 90%;
+  height: 12px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.85) 0%, transparent 75%);
+  pointer-events: none;
+}
+
+
+/* ====================================================
+   2. IPHONE 16 PRO (Titanium Frame & Dynamic Island)
+   ==================================================== */
+.iphone-16-mockup {
+  width: 290px;
+  aspect-ratio: 9 / 19.5;
+  background: #000000;
+  border-radius: 46px;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  /* Natural Titanium Rim */
+  border: 3.5px solid #4a4b52;
+  box-shadow:
+    inset 0 0 0 1.5px #18191d,
+    inset 0 0 4px rgba(255, 255, 255, 0.15),
+    0 24px 60px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.device-stage-container:hover .iphone-16-mockup {
+  transform: translateY(-6px) scale(1.02);
+  filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.95));
+}
+
+/* iPhone Screen Area */
+.iphone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 38px;
+  overflow: hidden;
+  background: #0a0b10;
+  display: flex;
+  flex-direction: column;
+}
+
+/* iPhone Top Status Bar & Dynamic Island */
+.iphone-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  padding: 8px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.iphone-status-time {
+  letter-spacing: -0.01em;
+}
+
+/* Dynamic Island */
+.iphone-dynamic-island {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 22px;
+  background: #000000;
+  border-radius: 18px;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 9px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.iphone-camera-sensor {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #03141f;
+  box-shadow: inset 0 0 2px #00a2ff;
+}
+
+/* iOS Right Status Icons */
+.iphone-status-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.iphone-battery-icon {
+  width: 19px;
+  height: 9.5px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1px;
+}
+
+.iphone-battery-level {
+  width: 75%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 1px;
+}
+
+.iphone-battery-nipple {
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  width: 2px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 0 1px 1px 0;
+}
+
+/* iPhone Screen Image */
+.iphone-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* iPhone Bottom Home Bar */
+.iphone-home-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 108px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  z-index: 12;
+  pointer-events: none;
+}
+
+
+/* ====================================================
+   3. DUAL DEVICE STAGE (MacBook Pro + Floating iPhone 16 Pro)
+   ==================================================== */
+.mockup-dual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* Floating iPhone di Samping Kanan MacBook */
+.dual-floating-iphone {
+  position: absolute;
+  right: -14px;
+  bottom: -22px;
+  width: 210px;
+  z-index: 8;
+  transform: rotate(-2.5deg);
+  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.85));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.device-stage-container:hover .dual-floating-iphone {
+  transform: rotate(-1deg) translateY(-8px) scale(1.03);
+  filter: drop-shadow(0 32px 55px rgba(0, 0, 0, 0.95));
+}
+
+/* Overlay Tap Prompt */
+.device-tap-prompt {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.device-stage-container:hover .device-tap-prompt {
+  background: rgba(245, 158, 11, 0.95);
+  color: #000000;
+  border-color: #f59e0b;
+}
+
+
+/* ====================================================
+   RESPONSIVE DESIGN
+   ==================================================== */
+@media (max-width: 900px) {
+  .mockup-dual-stage {
+    max-width: 94%;
+  }
+
+  .dual-floating-iphone {
+    width: 160px;
+    right: -4px;
+    bottom: -14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .macbook-lid {
+    border-radius: 12px 12px 0 0;
+    padding: 6px 6px 0;
+  }
+
+  .macbook-notch {
+    width: 64px;
+    height: 10px;
+  }
+
+  .macbook-base {
+    height: 10px;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .macbook-base-lip {
+    width: 52px;
+    height: 4px;
+  }
+
+  .iphone-16-mockup {
+    width: 230px;
+    border-radius: 36px;
+    padding: 7px;
+  }
+
+  .iphone-screen {
+    border-radius: 30px;
+  }
+
+  .dual-floating-iphone {
+    width: 125px;
+    right: 2px;
+    bottom: -8px;
+  }
+
+  .device-tap-prompt {
+    display: none;
+  }
+}

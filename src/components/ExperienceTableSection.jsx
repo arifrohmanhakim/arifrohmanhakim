@@ -1,69 +1,56 @@
 import React from 'react';
-import { Calendar, CheckCircle2 } from 'lucide-react';
 
 export const ExperienceTableSection = () => {
-  const experiences = [
+  const journeys = [
     {
-      period: '2024 - Sekarang',
-      status: 'Current Focus',
-      role: 'Full Stack & Modern Web Systems',
-      desc: 'Merancang arsitektur web modern dengan React 19, Next.js, dan optimasi komputasi interaktif berskala industri.',
-      skills: ['React 19', 'Next.js', 'TypeScript', 'Web Audio Synth', 'Tailwind CSS', 'Vite']
+      period: '2024 — Sekarang',
+      role: 'Modern Web Architecture & Creative Systems',
+      desc: 'Mengeksplorasi ekosistem React 19, arsitektur serverless Next.js, emulasi retro computing Payaman OS, dan pengalaman audio visual modern.',
+      tags: ['React 19', 'Next.js', 'TypeScript', 'Web Audio API', 'Creative UI']
     },
     {
-      period: '2022 - 2024',
-      status: 'Specialized Track',
-      role: 'Enterprise Mobile Engineering',
-      desc: 'Membangun aplikasi mobile perkebunan skala ribuan hektar (GGF FMS) serta aplikasi konsumen dengan performa tinggi pada platform Android & iOS.',
-      skills: ['React Native', 'React Native for Web', 'Offline SQLite', 'GIS / Maps', 'REST APIs']
+      period: '2022 — 2024',
+      role: 'Enterprise Scale Mobile Architecture',
+      desc: 'Merancang dan memelihara aplikasi lapangan GGF FMS untuk pemantauan ribuan hektar agroindustri, integrasi GIS satelit, NDVI drone, dan sinkronisasi data offline-first SQLite.',
+      tags: ['React Native', 'Offline SQLite', 'GIS Satelit', 'Android & iOS', 'Background GPS']
     },
     {
-      period: '2021 - Sekarang',
-      status: 'Continuous R&D',
-      role: 'Applied Systems & Open Source Innovation',
-      desc: 'Riset mandiri emulasi retro OS (Payaman OS 1-bit), pustaka query visual, dan integrasi kecerdasan buatan terapan.',
-      skills: ['Payaman OS', 'GIS / GeoJSON', 'Node.js', 'Visual Query Builders', 'AI Integrations']
+      period: '2017 — 2022',
+      role: 'Mobile Native & Fullstack Foundations',
+      desc: 'Mengembangkan fondasi pengembangan aplikasi seluler sejak 2017, integrasi backend RESTful API dengan Node.js/PHP, serta perancangan antarmuka pengguna yang berorientasi solusi nyata.',
+      tags: ['Mobile Development', 'Android Java', 'Node.js', 'PHP', 'UI/UX Design']
     }
   ];
 
   return (
-    <section id="experience" className="anthropic-section">
+    <section id="experience" className="creative-section">
       <div className="container">
-        <div className="anthropic-header-block">
-          <div className="anthropic-eyebrow-row">
-            <span className="anthropic-eyebrow-index">04</span>
-            <span className="anthropic-eyebrow-divider">/</span>
-            <span className="anthropic-eyebrow-text">Chronological Trajectory &amp; Track Record</span>
+        <div className="creative-header">
+          <div className="creative-eyebrow">
+            <span className="creative-eyebrow-line"></span>
+            <span>Perjalanan &amp; Jejak Karya</span>
           </div>
 
-          <h2 className="anthropic-headline">
-            Years of deliberate craft. <br />
-            <em>Proven in production environments.</em>
+          <h2 className="creative-headline">
+            Dedikasi bertahun-tahun dalam <em>mengasah keahlian.</em>
           </h2>
 
-          <p className="anthropic-lead">
-            Evolusi teknis dari fondasi rekayasa logika, arsitektur aplikasi mobile di lapangan, hingga pengembangan sistem web fullstack yang resilien.
+          <p className="creative-lead">
+            Perjalanan yang dibangun dari rasa penasaran teknis, pengalaman nyata menguji aplikasi di lapangan, dan komitmen menghasilkan karya berkualitas tinggi.
           </p>
         </div>
 
-        <div className="anthropic-timeline-stack">
-          {experiences.map((item, index) => (
-            <div key={index} className="anthropic-timeline-row">
-              <div className="anthropic-timeline-meta">
-                <div className="anthropic-period-badge">
-                  <Calendar size={13} className="anthropic-period-icon" />
-                  <span>{item.period}</span>
-                </div>
-                <span className="anthropic-status-text">{item.status}</span>
-              </div>
-
-              <div className="anthropic-timeline-content">
-                <h3 className="anthropic-timeline-role">{item.role}</h3>
-                <p className="anthropic-timeline-desc">{item.desc}</p>
-                <div className="anthropic-timeline-skills">
-                  {item.skills.map((skill, i) => (
-                    <span key={i} className="anthropic-skill-pill">
-                      {skill}
+        <div className="creative-journey-stack">
+          {journeys.map((item, index) => (
+            <div key={index} className="creative-journey-row">
+              <div className="creative-journey-period">{item.period}</div>
+              <div>
+                <h3 className="creative-journey-role">{item.role}</h3>
+                <p className="creative-journey-desc">{item.desc}</p>
+                <div className="creative-journey-tags">
+                  {item.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="creative-mini-pill">
+                      {tag}
                     </span>
                   ))}
                 </div>

@@ -88,70 +88,167 @@ export const PROJECTS_DATA = [
     ]
   },
   {
-    id: 'polygon-bikes',
-    title: 'Polygon Bikes',
-    client: 'Polygon Bikes Global',
-    eyebrow: 'GLOBAL BRAND & E-COMMERCE',
-    badge: 'Interactive Brand Portal',
-    tagline: 'E-Commerce & Interactive Bike Geometry Selector untuk Brand Global.',
-    description: 'Platform digital global brand sepeda Polygon. Menampilkan katalog model balap dan MTB presisi, kalkulator geometri ukuran rangka sepeda interaktif, dealer locator berbasis peta, dan performa web berkecepatan tinggi.',
-    image: '/images/projects/polygon-bikes.jpg',
+    id: 'samara-lombok',
+    title: 'Samara Lombok',
+    client: 'Samara Group (Destination by Hyatt)',
+    eyebrow: 'LUXURY HOSPITALITY & REAL ESTATE',
+    badge: 'Masterplanned Resort Portal',
+    tagline: 'Portal Investasi Villa Mewah & Masterplanned Resort Seluas 150 Hektar di Lombok.',
+    description: 'Platform digital eksklusif untuk Samara Lombok, destinasi hospitality dan investasi real estate terpadu seluas 150 hektar di Lombok Selatan. Mengintegrasikan showcase portofolio villa mewah (Samara Bay, Samara Beach, & Samara Hills), Destination by Hyatt pertama di Asia Tenggara, visual storytelling sinematik lanskap alam, serta enquiry funnel interaktif bagi investor internasional.',
+    image: '/images/projects/samara/samara-aerial.jpg',
+    deviceType: 'dual',
+    screenshots: [
+      {
+        url: '/images/projects/samara/samara-aerial.jpg',
+        title: 'Masterplan Aerial View'
+      },
+      {
+        url: '/images/projects/samara/samara-villa.jpg',
+        title: 'Koleksi Villa & Arsitektur'
+      },
+      {
+        url: '/images/projects/samara/samara-resort.webp',
+        title: 'Resort Lifestyle & Wellness'
+      },
+      {
+        url: '/images/projects/samara/samara-map.jpg',
+        title: 'Peta Lokasi & Aksesibilitas'
+      }
+    ],
     category: 'web',
-    categoryLabel: 'Interactive Brand Portal',
-    techStack: ['React.js', 'Interactive Geometry Canvas', 'GIS Dealer Locator', 'Modern CSS Architecture'],
-    liveUrl: null,
+    categoryLabel: 'Luxury Real Estate & Resort',
+    techStack: ['WordPress Enterprise', 'Custom Theme Architecture', 'High-Res Media Streaming', 'Interactive Investor Funnel', 'Global CDN & Performance'],
+    liveUrl: 'https://samaralombok.com/',
     demoUrl: null,
     githubUrl: null,
     isFeatured: true,
     specs: [
-      { label: 'Role & Scope', value: 'Frontend UI/UX & Interactive Engine Development' },
-      { label: 'Engineering Feature', value: 'Interactive Frame Geometry & Rider Sizing Calculator' },
-      { label: 'Mapping & Retail', value: 'Dynamic Store Locator & Dealer Discovery' },
-      { label: 'Optimization', value: 'Zero-Lag SVG Geometry Rendering & Asset Compression' }
+      { label: 'Role & Scope', value: 'High-Fidelity Web Engineering, Performance & Interactive Funnel' },
+      { label: 'Kemitraan Global', value: 'Destination by Hyatt Pertama di Asia Tenggara & Rascal Voyages' },
+      { label: 'Skala Kawasan', value: '150 Hektar Masterplan, 3 Hotel Butik, 500 Villa, & 12 F&B Outlets' },
+      { label: 'Target Investor', value: 'High-Net-Worth International Buyers & Global Lifestyle Seekers' }
+    ]
+  },
+  {
+    id: 'polygon-bikes',
+    title: 'Polygon Bikes',
+    client: 'Polygon Bikes (PT Insera Sena)',
+    eyebrow: 'GLOBAL MULTILINGUAL E-COMMERCE',
+    badge: '10-Language Global Store',
+    tagline: 'Mendorong Brand Sepeda Indonesia ke Panggung Global dengan E-Commerce Multibahasa.',
+    description: 'Pengembangan dan pemeliharaan platform e-commerce global untuk Polygon Bikes (PT Insera Sena) yang mendistribusikan produknya ke 500+ outlet di 33 negara. Menghadirkan dukungan 10 bahasa (Asia-Pasifik, Eropa, hingga Amerika Serikat), fitur Custom Bike interaktif yang memungkinkan pelanggan merakit sepeda impian secara digital, Global Dealer Locator berbasis peta, serta optimasi performa server untuk lonjakan traffic internasional.',
+    image: '/images/projects/polygon/polygon-banner.png',
+    deviceType: 'dual',
+    screenshots: [
+      {
+        url: '/images/projects/polygon/polygon-banner.png',
+        title: 'Global Showcase Banner'
+      },
+      {
+        url: '/images/projects/polygon/polygon-home.jpg',
+        title: 'E-Commerce Homepage'
+      },
+      {
+        url: '/images/projects/polygon/polygon-katalog.jpg',
+        title: 'Katalog Sepeda Gunung'
+      },
+      {
+        url: '/images/projects/polygon/polygon-collosus.jpg',
+        title: 'Detail Seri Collosus DH'
+      },
+      {
+        url: '/images/projects/polygon/polygon-dealer-map.jpg',
+        title: 'Global Dealer Locator'
+      }
+    ],
+    category: 'web',
+    categoryLabel: 'Global Multilingual E-Commerce',
+    techStack: ['WordPress Enterprise', 'WooCommerce Architecture', 'Multilingual Engine (10 Languages)', 'Custom Bike Configurator', 'Global Dealer Locator (33 Countries)', 'High-Traffic Server Optimization'],
+    liveUrl: 'https://www.polygonbikes.com/',
+    demoUrl: null,
+    githubUrl: null,
+    isFeatured: true,
+    specs: [
+      { label: 'Role & Scope', value: 'Global E-Commerce Architecture & Full Lifecycle Web Maintenance' },
+      { label: 'Cakupan Global', value: 'Dukungan 10 Bahasa Meliputi Kawasan Asia-Pasifik, Eropa, & Amerika Serikat' },
+      { label: 'Fitur Unggulan', value: 'Custom Bike Configurator Digital & Global Dealer Locator (500+ Outlet di 33 Negara)' },
+      { label: 'Skalabilitas & SEO', value: 'WooCommerce Enterprise Skalabilitas Tinggi & Optimasi SEO Mesin Pencari Organik' }
     ]
   },
   {
     id: 'astra-motor',
     title: 'Astra Motor',
-    client: 'Astra Motor (Honda Sales Operation)',
-    eyebrow: 'AUTOMOTIVE DEALERSHIP ECOSYSTEM',
-    badge: 'Automotive SaaS',
-    tagline: 'Sistem Manajemen Dealer, Booking Servis & Digital Katalog Astra Motor Honda.',
-    description: 'Sistem manajemen terintegrasi untuk dealer kendaraan Astra Motor Honda dan servis resmi AHASS. Mencakup pemantauan inventori unit realtime, simulasi kredit & pembiayaan, sistem reservasi antrean servis terjadwal, dan integrasi operasional customer service.',
-    image: '/images/projects/astra-motor.jpg',
+    client: 'Astra Motor (PT Astra International Tbk)',
+    eyebrow: 'SHOWROOM & RETAIL ECOSYSTEM',
+    badge: 'Dual Web Ecosystem',
+    tagline: 'Pintu Digital Menjelajahi Showroom Motor Honda Tanpa Batas.',
+    description: 'Pengembangan arsitektur web ganda (Main Dealer & Retail) untuk Astra Motor (PT Astra International Tbk – Honda Sales Operation). Menghadirkan showroom digital interaktif dengan katalog elektronik motor Honda lengkap dengan spesifikasi dan harga, pencari jaringan dealer terdekat berbasis peta interaktif, sistem keanggotaan (membership), serta kalkulator simulasi kredit transparan untuk calon konsumen di seluruh Indonesia.',
+    image: '/images/projects/astra/astra-desktop-1.png',
+    screenshots: [
+      {
+        url: '/images/projects/astra/astra-desktop-1.png',
+        title: 'Showroom Digital & Home'
+      },
+      {
+        url: '/images/projects/astra/astra-dealer-map.png',
+        title: 'Peta Lokasi Dealer'
+      },
+      {
+        url: '/images/projects/astra/astra-desktop-2.png',
+        title: 'Katalog & Spesifikasi Motor'
+      },
+      {
+        url: '/images/projects/astra/astra-desktop-3.png',
+        title: 'Simulasi Kredit & Retail'
+      },
+      {
+        url: '/images/projects/astra/astra-home.png',
+        title: 'Laptop Showcase'
+      }
+    ],
     category: 'web',
-    categoryLabel: 'Automotive SaaS & Portal',
-    techStack: ['React.js', 'Next.js', 'REST API', 'Real-time Scheduler', 'Tailwind CSS'],
-    liveUrl: null,
+    categoryLabel: 'Automotive Enterprise Portal',
+    techStack: ['WordPress Enterprise', 'Custom PHP/MySQL', 'Interactive GIS Dealer Locator', 'Credit Financing Engine', 'SEO & Performance Architecture'],
+    liveUrl: 'https://www.astramotor.co.id/',
     demoUrl: null,
     githubUrl: null,
     isFeatured: true,
     specs: [
-      { label: 'Role & Scope', value: 'Full Stack Web & System Architecture' },
-      { label: 'Core Capabilities', value: 'Unit Inventory, Digital Service Queue, Financing Calculator' },
-      { label: 'Dealer Network', value: 'Integrasi Booking AHASS & Dealer Management System' },
-      { label: 'Security & Access', value: 'Role-Based Authentication & Encrypted Customer Vault' }
+      { label: 'Role & Scope', value: 'Full Web Design & Custom Enterprise Development (Main Dealer & Retail)' },
+      { label: 'Dual System', value: 'Website Terpisah untuk Main Dealer Astra Motor dan Retail Astra Motor' },
+      { label: 'Katalog & Dealer Map', value: 'E-Catalogue Spesifikasi/Harga Motor Honda & Interactive Dealer Locator' },
+      { label: 'Fitur Khusus Retail', value: 'Sistem Keanggotaan Konsumen & Simulasi Angsuran/Kredit Transparan' },
+      { label: 'Performa & SEO', value: 'Arsitektur Ramah Mesin Pencari (SEO-Friendly) & Kecepatan Akses Tinggi' }
     ]
   },
   {
     id: 'payaman-os',
     title: 'Payaman OS',
-    client: 'Open Source Lab',
-    eyebrow: 'RETRO SYSTEM EMULATION',
-    badge: 'Featured Open Source',
-    tagline: 'Retro, Monochrome Web-based Desktop OS terinspirasi Classic Mac OS.',
-    description: 'Retro, monochrome web-based desktop operating system terinspirasi Classic Mac OS (System 6/7) dengan sintesis audio Web Audio API, pixel art 1-bit, dan arsitektur modular.',
-    image: null,
+    client: 'Personal Project & Open Source Lab',
+    eyebrow: 'RETRO COMPUTING EMULATION',
+    badge: 'Classic Mac OS in Browser',
+    tagline: 'Retro Monochrome Web-based Desktop OS terinspirasi Classic Macintosh System 6/7.',
+    description: 'Sistem operasi desktop berbasis web yang merekayasa ulang pengalaman komputasi klasik Macintosh (System 6 & 7) secara otentik langsung di peramban. Dilengkapi pemutar musik iTunes retro dengan Web Audio API synth, monitor sistem real-time, widget analog clock, sticky notes yang dapat diatur ukurannya, game klasik Minesweeper & Snake 8-bit, serta window management berbasis kanvas 1-bit pixel art.',
+    image: '/images/projects/payaman-os.png',
+    deviceType: 'macbook',
+    screenshots: [
+      {
+        url: '/images/projects/payaman-os.png',
+        title: 'Desktop & Retro iTunes'
+      }
+    ],
     category: 'web',
-    categoryLabel: 'Web Desktop OS',
-    techStack: ['JavaScript', 'HTML5/Canvas', 'CSS Pixel Art', 'Web Audio Synth'],
-    githubUrl: 'https://github.com/arifrohmanhakim/Payaman-OS',
+    categoryLabel: 'Retro Web OS Emulation',
+    techStack: ['JavaScript (ES6+)', 'Web Audio API Synth', 'Window Manager Architecture', '1-Bit Pixel Graphics Canvas', 'Virtual File System & State'],
+    liveUrl: 'https://payamanos.vercel.app',
     demoUrl: 'https://payamanos.vercel.app',
-    isFeatured: false,
+    githubUrl: 'https://github.com/arifrohmanhakim/Payaman-OS',
+    isFeatured: true,
     specs: [
-      { label: 'Role & Scope', value: 'Creator & Lead Architect' },
-      { label: 'Audio Engine', value: 'Native Web Audio API Synthesizer' },
-      { label: 'Rendering', value: '1-Bit Pixel Graphics Canvas & Window Manager' }
+      { label: 'Role & Scope', value: 'Creator & Lead System Architect' },
+      { label: 'Audio Engine', value: 'Native Web Audio API Synthesizer & iTunes Retro Audio Player' },
+      { label: 'Window Manager', value: 'Custom Multi-Window Drag, Resize, & Z-Index Virtual Desktop Manager' },
+      { label: 'Aplikasi Bawaan', value: 'System Monitor, Stickies, Analog Clock, Minesweeper, & Snake 8-Bit' }
     ]
   }
 ];
