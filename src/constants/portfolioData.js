@@ -27,6 +27,7 @@ export const PROJECTS_DATA = [
     tagline: 'Arsitektur Mobile Agrikultur Skala Industri untuk Great Giant Foods.',
     description: 'Sistem aplikasi lapangan (Farm Management System) untuk operasional agroindustri perkebunan terbesar di Indonesia. Mendukung pemetaan plot GIS, pelaporan mandor offline-first, pelacakan GPS akurat, dan sinkronisasi data ribuan hektar perkebunan secara andal.',
     image: '/images/projects/ggf-fms.jpg',
+    mockupType: 'mobile',
     category: 'mobile',
     categoryLabel: 'Enterprise Mobile App',
     techStack: ['React Native', 'Offline SQLite', 'GIS / Maps', 'Background GPS', 'RESTful API'],
@@ -50,6 +51,7 @@ export const PROJECTS_DATA = [
     tagline: 'Platform CRM Berbasis AI & Otomasi Penjualan Generasi Baru.',
     description: 'Ekosistem CRM modern yang menggabungkan asisten kecerdasan buatan, integrasi multi-kanal, Google OAuth auth flow, pipeline leads visual berkecepatan tinggi, dan automasi komunikasi pelanggan cerdas.',
     image: '/images/projects/centris-ai.jpg',
+    mockupType: 'dual',
     category: 'web',
     categoryLabel: 'AI & CRM Platform',
     techStack: ['React.js', 'React Native', 'AI Agent Pipeline', 'Google OAuth', 'WebSocket', 'Tailwind CSS'],
@@ -72,7 +74,14 @@ export const PROJECTS_DATA = [
     badge: 'Luxury Web Experience',
     tagline: 'Luxury Private Yacht Charter & Bespoke Resort Investment Platform.',
     description: 'Platform digital mewah untuk portofolio investasi pariwisata kelas dunia Rascal Republic & Rascal Voyages. Menghadirkan visual storytelling memukau, pemesanan ekspedisi yacht phinisi pribadi ke Raja Ampat & Komodo, dan portal investor global.',
-    image: '/images/projects/rascal-republic.jpg',
+    image: '/images/projects/rascal-republic-projects.jpg',
+    screenshots: [
+      {
+        url: '/images/projects/rascal-republic-projects.jpg',
+        title: 'Rascal Republic Projects Portfolio'
+      }
+    ],
+    mockupType: 'macbook-bleed',
     category: 'web',
     categoryLabel: 'Luxury Web Platform',
     techStack: ['Modern Web Architecture', 'Responsive UI/UX', 'Interactive Media', 'Performance Optimization'],
@@ -96,7 +105,7 @@ export const PROJECTS_DATA = [
     tagline: 'Portal Investasi Villa Mewah & Masterplanned Resort Seluas 150 Hektar di Lombok.',
     description: 'Platform digital eksklusif untuk Samara Lombok, destinasi hospitality dan investasi real estate terpadu seluas 150 hektar di Lombok Selatan. Mengintegrasikan showcase portofolio villa mewah (Samara Bay, Samara Beach, & Samara Hills), Destination by Hyatt pertama di Asia Tenggara, visual storytelling sinematik lanskap alam, serta enquiry funnel interaktif bagi investor internasional.',
     image: '/images/projects/samara/samara-aerial.jpg',
-    deviceType: 'dual',
+    mockupType: 'ipad-keyboard',
     screenshots: [
       {
         url: '/images/projects/samara/samara-aerial.jpg',
@@ -138,7 +147,7 @@ export const PROJECTS_DATA = [
     tagline: 'Mendorong Brand Sepeda Indonesia ke Panggung Global dengan E-Commerce Multibahasa.',
     description: 'Pengembangan dan pemeliharaan platform e-commerce global untuk Polygon Bikes (PT Insera Sena) yang mendistribusikan produknya ke 500+ outlet di 33 negara. Menghadirkan dukungan 10 bahasa (Asia-Pasifik, Eropa, hingga Amerika Serikat), fitur Custom Bike interaktif yang memungkinkan pelanggan merakit sepeda impian secara digital, Global Dealer Locator berbasis peta, serta optimasi performa server untuk lonjakan traffic internasional.',
     image: '/images/projects/polygon/polygon-banner.png',
-    deviceType: 'dual',
+    mockupType: 'macbook-bleed',
     screenshots: [
       {
         url: '/images/projects/polygon/polygon-banner.png',
@@ -184,6 +193,7 @@ export const PROJECTS_DATA = [
     tagline: 'Pintu Digital Menjelajahi Showroom Motor Honda Tanpa Batas.',
     description: 'Pengembangan arsitektur web ganda (Main Dealer & Retail) untuk Astra Motor (PT Astra International Tbk – Honda Sales Operation). Menghadirkan showroom digital interaktif dengan katalog elektronik motor Honda lengkap dengan spesifikasi dan harga, pencari jaringan dealer terdekat berbasis peta interaktif, sistem keanggotaan (membership), serta kalkulator simulasi kredit transparan untuk calon konsumen di seluruh Indonesia.',
     image: '/images/projects/astra/astra-desktop-1.png',
+    mockupType: 'dual',
     screenshots: [
       {
         url: '/images/projects/astra/astra-desktop-1.png',
@@ -230,7 +240,7 @@ export const PROJECTS_DATA = [
     tagline: 'Retro Monochrome Web-based Desktop OS terinspirasi Classic Macintosh System 6/7.',
     description: 'Sistem operasi desktop berbasis web yang merekayasa ulang pengalaman komputasi klasik Macintosh (System 6 & 7) secara otentik langsung di peramban. Dilengkapi pemutar musik iTunes retro dengan Web Audio API synth, monitor sistem real-time, widget analog clock, sticky notes yang dapat diatur ukurannya, game klasik Minesweeper & Snake 8-bit, serta window management berbasis kanvas 1-bit pixel art.',
     image: '/images/projects/payaman-os.png',
-    deviceType: 'macbook',
+    mockupType: 'macbook',
     screenshots: [
       {
         url: '/images/projects/payaman-os.png',

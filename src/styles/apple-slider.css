@@ -31,6 +31,7 @@
 
 .apple-slider-track {
   display: flex;
+  align-items: flex-start;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
   gap: 28px;
@@ -41,34 +42,109 @@
   transition: none;
 }
 
-/* Individual Slide Card */
+/* Individual Slide Card (Full Canvas Immersive Poster) */
 .apple-slide-card {
-  flex: 0 0 min(980px, 86vw);
-  background: #141416;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  --card-px: 48px;
+  --card-py: 38px;
+  flex: 0 0 min(960px, 86vw);
+  min-height: 640px;
+  aspect-ratio: 16 / 9.6;
+  background: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 36px;
-  padding: 56px 64px 48px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease, border-color 0.4s ease;
   opacity: 0.38;
   transform: scale(0.94);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
 }
 
 .apple-slide-card.is-active {
   opacity: 1;
   transform: scale(1);
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 32px 90px rgba(0, 0, 0, 0.85);
 }
 
 .apple-slide-card:hover {
-  border-color: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Background Canvas Image */
+.apple-slide-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-slide-card:hover .apple-slide-bg-img {
+  transform: scale(1.03);
+}
+
+/* Vignette Gradients (Melindungi Keterbacaan Teks Header & Footer) */
+.apple-slide-gradient-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 58%;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 11, 16, 0.94) 0%,
+    rgba(10, 11, 16, 0.8) 36%,
+    rgba(10, 11, 16, 0.32) 74%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.apple-slide-gradient-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    0deg,
+    rgba(10, 11, 16, 0.96) 0%,
+    rgba(10, 11, 16, 0.82) 40%,
+    rgba(10, 11, 16, 0.28) 78%,
+    transparent 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Content Layer (Header di Atas & Footer di Bawah) */
+.apple-slide-content-layer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: var(--card-py) var(--card-px);
+  box-sizing: border-box;
+}
+
+.apple-slide-header-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
 
 /* Slide Typography */
@@ -76,17 +152,13 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .apple-slide-brand-chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 12px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .apple-slide-badge {
@@ -100,76 +172,23 @@
 
 .apple-slide-title {
   font-family: var(--font-display, var(--font-sans));
-  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-size: clamp(1.4rem, 3.2vw, 1.4rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   color: #ffffff;
-  line-height: 1.15;
-  margin-bottom: 12px;
+  line-height: 1.18;
   max-width: 780px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
 }
 
 .apple-slide-tagline {
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-size: clamp(0.80rem, 1.5vw, 0.8rem);
   font-weight: 400;
-  color: #94a3b8;
+  color: #e2e8f0;
   line-height: 1.5;
-  margin-bottom: 36px;
   max-width: 680px;
-}
-
-/* Slide Visual Display */
-.apple-slide-visual-stage {
-  position: relative;
-  width: 100%;
-  max-width: 820px;
-  aspect-ratio: 16 / 9;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #090a0f;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  cursor: pointer;
-  margin-bottom: 36px;
-}
-
-.apple-slide-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.apple-slide-visual-stage:hover .apple-slide-img {
-  transform: scale(1.03);
-}
-
-.apple-slide-visual-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.6) 100%);
-  pointer-events: none;
-}
-
-.apple-slide-tap-prompt {
-  position: absolute;
-  bottom: 16px;
-  right: 18px;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ffffff;
-  pointer-events: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
 }
 
 /* Slide Footer & Tags */
@@ -178,9 +197,9 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: 820px;
+  max-width: 100%;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 16px;
 }
 
 .apple-slide-tech-row {
@@ -194,9 +213,12 @@
   font-weight: 600;
   padding: 5px 12px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .apple-slide-cta-row {
@@ -351,8 +373,10 @@
 /* Responsive */
 @media (max-width: 1024px) {
   .apple-slide-card {
+    --card-px: 32px;
+    --card-py: 32px;
     flex: 0 0 88vw;
-    padding: 40px 32px 36px;
+    min-height: 480px;
   }
 }
 
@@ -361,16 +385,20 @@
     padding: 80px 0 60px;
   }
   .apple-slide-card {
+    --card-px: 20px;
+    --card-py: 24px;
     flex: 0 0 92vw;
-    padding: 32px 20px 28px;
+    min-height: 460px;
+    aspect-ratio: auto;
     border-radius: 26px;
   }
   .apple-slide-title {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
   }
   .apple-slide-footer {
     flex-direction: column;
     align-items: flex-start;
+    gap: 14px;
   }
   .apple-slide-cta-row {
     width: 100%;

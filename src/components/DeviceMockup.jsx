@@ -66,22 +66,101 @@ export const IPhone16Mockup = ({ image, alt, isFloating = false }) => (
   </div>
 );
 
+export const IPadMagicKeyboardMockup = ({ image, alt }) => (
+  <div className="ipad-keyboard-mockup">
+    {/* Magnetic Apple Pencil Pro */}
+    <div className="apple-pencil" aria-hidden="true">
+      <div className="pencil-tip"></div>
+      <div className="pencil-body">
+        <span className="pencil-accent"></span>
+      </div>
+    </div>
+
+    {/* Floating iPad Pro Screen */}
+    <div className="ipad-floating-screen">
+      <div className="ipad-bezel">
+        <div className="ipad-camera" aria-hidden="true"></div>
+        <img
+          src={image}
+          alt={alt}
+          className="ipad-display-img"
+          loading="lazy"
+          draggable="false"
+        />
+        <div className="ipad-screen-glare" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    {/* Cantilever Magnetic Hinge & Floating Ambient Shadow */}
+    <div className="ipad-cantilever-hinge" aria-hidden="true">
+      <div className="ipad-hinge-bar"></div>
+      <div className="ipad-cantilever-shadow"></div>
+    </div>
+
+    {/* Magic Keyboard Deck & Chiclet Keys Surface */}
+    <div className="magic-keyboard-deck" aria-hidden="true">
+      <div className="keyboard-keys-surface">
+        <div className="key-row key-row-fn">
+          {[...Array(14)].map((_, i) => (
+            <span key={i} className="chiclet-key"></span>
+          ))}
+        </div>
+        <div className="key-row">
+          {[...Array(14)].map((_, i) => (
+            <span key={i} className="chiclet-key"></span>
+          ))}
+        </div>
+        <div className="key-row">
+          {[...Array(14)].map((_, i) => (
+            <span key={i} className="chiclet-key"></span>
+          ))}
+        </div>
+        <div className="key-row">
+          {[...Array(13)].map((_, i) => (
+            <span key={i} className="chiclet-key"></span>
+          ))}
+        </div>
+        <div className="key-row">
+          {[...Array(12)].map((_, i) => (
+            <span key={i} className="chiclet-key"></span>
+          ))}
+        </div>
+        <div className="key-row">
+          <span className="chiclet-key mod-key"></span>
+          <span className="chiclet-key mod-key"></span>
+          <span className="chiclet-key mod-key"></span>
+          <span className="chiclet-key spacebar-key"></span>
+          <span className="chiclet-key mod-key"></span>
+          <span className="chiclet-key mod-key"></span>
+          <span className="chiclet-key arrow-cluster"></span>
+        </div>
+      </div>
+
+      <div className="keyboard-trackpad"></div>
+      <div className="keyboard-base-lip"></div>
+    </div>
+  </div>
+);
+
 export const DeviceMockup = ({
   project,
-  onClick,
-  promptText = 'Lihat Detail Arsitektur'
+  onClick
 }) => {
-  const isMobileProject = project.category === 'mobile';
-  const isDualDevice = project.id === 'astra-motor' || project.id === 'centris-ai' || project.deviceType === 'dual';
+  const mockupType = project.mockupType || (
+    project.category === 'mobile'
+      ? 'mobile'
+      : (project.id === 'astra-motor' || project.id === 'centris-ai' || project.deviceType === 'dual')
+      ? 'dual'
+      : 'macbook'
+  );
 
-  // Pilih gambar untuk iPhone sekunder (jika dual)
   const mobileImage =
     project.mobileImage ||
     (project.screenshots && project.screenshots[1] ? project.screenshots[1].url : project.image);
 
   return (
     <div
-      className="device-stage-container"
+      className={`device-stage-container ${mockupType === 'macbook-bleed' ? 'stage-bleed-right' : ''}`}
       onClick={onClick}
       role="button"
       tabIndex={0}
@@ -93,24 +172,20 @@ export const DeviceMockup = ({
         }
       }}
     >
-      {isDualDevice ? (
+      {mockupType === 'ipad-keyboard' ? (
+        <IPadMagicKeyboardMockup image={project.image} alt={project.title} />
+      ) : mockupType === 'dual' ? (
         <div className="mockup-dual-stage">
           <MacBookProMockup image={project.image} alt={project.title} />
           <IPhone16Mockup image={mobileImage} alt={`${project.title} Tampilan Mobile`} isFloating={true} />
         </div>
-      ) : isMobileProject ? (
+      ) : mockupType === 'mobile' ? (
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
           <IPhone16Mockup image={project.image} alt={project.title} />
         </div>
       ) : (
         <MacBookProMockup image={project.image} alt={project.title} />
       )}
-
-      {/* Interactive Hover Tap Prompt */}
-      <div className="device-tap-prompt">
-        <span>{promptText}</span>
-        <ArrowRight size={13} />
-      </div>
     </div>
   );
 };

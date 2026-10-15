@@ -4,7 +4,6 @@ import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
-import { DeviceMockup } from './DeviceMockup';
 import { useAppleSlider } from '../hooks/useAppleSlider';
 
 export const RecentProjectsSection = () => {
@@ -83,78 +82,93 @@ export const RecentProjectsSection = () => {
                 ref={index === 0 ? firstCardRef : null}
                 className={`apple-slide-card ${isActive ? 'is-active' : ''}`}
                 onClick={() => {
-                  if (!isActive) goToSlide(index);
+                  if (!isActive) {
+                    goToSlide(index);
+                  } else {
+                    setSelectedProject(project);
+                  }
                 }}
               >
-                {/* Brand Emblem & Eyebrow */}
-                <div className="apple-slide-eyebrow-row">
-                  <div className="apple-slide-brand-chip">
-                    {getProjectBrandLogo(project.id, 22)}
-                  </div>
-                  <span className="apple-slide-badge">{project.eyebrow}</span>
-                </div>
-
-                {/* Title & Tagline */}
-                <h3 className="apple-slide-title">{project.title}</h3>
-                <p className="apple-slide-tagline">{project.tagline}</p>
-
-                {/* Visual Showcase Stage (MacBook Pro & iPhone 16 Pro Mockups) */}
-                <DeviceMockup
-                  project={project}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedProject(project);
-                  }}
-                  promptText="Lihat Detail Arsitektur"
+                {/* Full-Bleed Background Canvas Image */}
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="apple-slide-bg-img"
+                  loading="lazy"
+                  draggable="false"
                 />
 
-                {/* Slide Footer */}
-                <div className="apple-slide-footer">
-                  <div className="apple-slide-tech-row">
-                    {project.techStack.map((tech, i) => (
-                      <span key={i} className="apple-slide-pill">{tech}</span>
-                    ))}
+                {/* Top Vignette Gradient Overlay */}
+                <div className="apple-slide-gradient-top" aria-hidden="true"></div>
+
+                {/* Bottom Vignette Gradient Overlay */}
+                <div className="apple-slide-gradient-bottom" aria-hidden="true"></div>
+
+                {/* Layer Konten (Header di Atas & Footer di Bawah) */}
+                <div className="apple-slide-content-layer">
+                  {/* Top Header Content */}
+                  <div className="apple-slide-header-area">
+                    <div className="apple-slide-eyebrow-row">
+                      <div className="apple-slide-brand-chip">
+                        {getProjectBrandLogo(project.id, 28)}
+                      </div>
+                    </div>
+
+                    <h3 className="apple-slide-title">{project.title}</h3>
+                    <p className="apple-slide-tagline">{project.tagline}</p>
                   </div>
 
-                  <div className="apple-slide-cta-row">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(project);
-                      }}
-                      className="apple-slide-btn-primary"
-                    >
-                      <span>Detail Proyek</span>
-                      <ArrowRight size={14} />
-                    </button>
+                  {/* Bottom Footer Content (Teknologi & Aksi) */}
+                  <div
+                    className="apple-slide-footer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="apple-slide-tech-row">
+                      {project.techStack.map((tech, i) => (
+                        <span key={i} className="apple-slide-pill">{tech}</span>
+                      ))}
+                    </div>
 
-                    {project.playStoreUrl && (
-                      <a
-                        href={project.playStoreUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="apple-slide-btn-ghost"
-                        onClick={(e) => e.stopPropagation()}
+                    <div className="apple-slide-cta-row">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedProject(project);
+                        }}
+                        className="apple-slide-btn-primary"
                       >
-                        <FaGooglePlay size={13} />
-                        <span>Google Play</span>
-                        <ArrowUpRight size={12} />
-                      </a>
-                    )}
+                        <span>Detail Proyek</span>
+                        <ArrowRight size={14} />
+                      </button>
 
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="apple-slide-btn-ghost"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <span>Situs Resmi</span>
-                        <ArrowUpRight size={13} />
-                      </a>
-                    )}
+                      {project.playStoreUrl && (
+                        <a
+                          href={project.playStoreUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="apple-slide-btn-ghost"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <FaGooglePlay size={13} />
+                          <span>Google Play</span>
+                          <ArrowUpRight size={12} />
+                        </a>
+                      )}
+
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="apple-slide-btn-ghost"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <span>Situs Resmi</span>
+                          <ArrowUpRight size={13} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </article>
