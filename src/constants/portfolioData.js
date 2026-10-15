@@ -24,9 +24,20 @@ export const PROJECTS_DATA = [
     client: 'Great Giant Foods (GGF)',
     eyebrow: 'ENTERPRISE MOBILE SYSTEM',
     badge: 'Enterprise Production',
-    tagline: 'Arsitektur Mobile Agrikultur Skala Industri untuk Great Giant Foods.',
-    description: 'Sistem aplikasi lapangan (Farm Management System) untuk operasional agroindustri perkebunan terbesar di Indonesia. Mendukung pemetaan plot GIS, pelaporan mandor offline-first, pelacakan GPS akurat, dan sinkronisasi data ribuan hektar perkebunan secara andal.',
-    image: '/images/projects/ggf-fms.jpg',
+    tagline: 'Ekosistem Manajemen Perkebunan Presisi: Web Kanban Terintegrasi & Mobile App Offline-First.',
+    description: 'Sistem aplikasi lapangan (Farm Management System) untuk operasional agroindustri perkebunan terbesar di Indonesia (Great Giant Foods). Mendukung kolaborasi tim via Web Kanban catatan lokasi, pemetaan plot GIS, pelaporan mandor offline-first, pelacakan GPS akurat, dan sinkronisasi data ribuan hektar perkebunan secara andal.',
+    image: '/images/projects/ggf/ggf-web-kanban.png',
+    mobileImage: '/images/projects/ggf/ggf-mobile.png',
+    screenshots: [
+      {
+        url: '/images/projects/ggf/ggf-web-kanban.png',
+        title: 'Web Kanban Catatan Lokasi & Monitoring Kolaboratif'
+      },
+      {
+        url: '/images/projects/ggf/ggf-mobile.png',
+        title: 'Mobile App Mandor Lapangan (Offline SQLite, Weather & GIS)'
+      }
+    ],
     mockupType: 'mobile',
     category: 'mobile',
     categoryLabel: 'Enterprise Mobile App',
@@ -50,7 +61,17 @@ export const PROJECTS_DATA = [
     badge: 'AI Cloud Platform',
     tagline: 'Platform CRM Berbasis AI & Otomasi Penjualan Generasi Baru.',
     description: 'Ekosistem CRM modern yang menggabungkan asisten kecerdasan buatan, integrasi multi-kanal, Google OAuth auth flow, pipeline leads visual berkecepatan tinggi, dan automasi komunikasi pelanggan cerdas.',
-    image: '/images/projects/centris-ai.jpg',
+    image: '/images/projects/centris/centris-hero.png',
+    screenshots: [
+      {
+        url: '/images/projects/centris/centris-hero.png',
+        title: 'Centris AI Platform Hero Dashboard'
+      },
+      {
+        url: '/images/projects/centris/centris-1.jpg',
+        title: 'Omnichannel CRM & Pipeline Showcase'
+      }
+    ],
     mockupType: 'dual',
     category: 'web',
     categoryLabel: 'AI & CRM Platform',

@@ -90,6 +90,36 @@
   transform: scale(1.03);
 }
 
+/* Floating Mobile Companion Screen (Dual Web + Mobile Showcase) */
+.apple-slide-floating-mobile {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  width: 220px;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transform: rotate(-2deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+  pointer-events: none;
+}
+
+.apple-slide-card:hover .apple-slide-floating-mobile {
+  transform: rotate(0deg) translateY(-8px) scale(1.03);
+  box-shadow: 0 32px 75px rgba(0, 0, 0, 0.95);
+}
+
+.apple-slide-floating-mobile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
 /* Vignette Gradients (Melindungi Keterbacaan Teks Header & Footer) */
 .apple-slide-gradient-top {
   position: absolute;
@@ -376,7 +406,12 @@
     --card-px: 32px;
     --card-py: 32px;
     flex: 0 0 88vw;
-    min-height: 480px;
+    min-height: 520px;
+  }
+  .apple-slide-floating-mobile {
+    width: 175px;
+    right: 4%;
+    bottom: 12%;
   }
 }
 
@@ -388,9 +423,16 @@
     --card-px: 20px;
     --card-py: 24px;
     flex: 0 0 92vw;
-    min-height: 460px;
+    min-height: 480px;
     aspect-ratio: auto;
     border-radius: 26px;
+  }
+  .apple-slide-floating-mobile {
+    width: 120px;
+    right: 3%;
+    bottom: 16%;
+    border-width: 2px;
+    border-radius: 20px;
   }
   .apple-slide-title {
     font-size: 1.55rem;

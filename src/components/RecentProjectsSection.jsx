@@ -98,6 +98,19 @@ export const RecentProjectsSection = () => {
                   draggable="false"
                 />
 
+                {/* Floating Mobile Companion View (jika proyek memiliki mobileImage) */}
+                {project.mobileImage && (
+                  <div className="apple-slide-floating-mobile" aria-hidden="true">
+                    <img
+                      src={project.mobileImage}
+                      alt={`${project.title} Mobile View`}
+                      className="apple-slide-floating-mobile-img"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                )}
+
                 {/* Top Vignette Gradient Overlay */}
                 <div className="apple-slide-gradient-top" aria-hidden="true"></div>
 
