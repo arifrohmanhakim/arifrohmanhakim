@@ -1,231 +1,264 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowUpRight, ArrowRight, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
-import { useAppleSlider } from '../hooks/useAppleSlider';
 
 export const RecentProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [cardWidth, setCardWidth] = useState(0);
-  const firstCardRef = useRef(null);
 
-  const projects = PROJECTS_DATA;
-  const totalSlides = projects.length;
-
-  const {
-    currentIndex,
-    isPlaying,
-    isDragging,
-    dragOffset,
-    nextSlide,
-    prevSlide,
-    goToSlide,
-    togglePlay,
-    dragHandlers
-  } = useAppleSlider({ totalSlides, autoplayInterval: 5000 });
-
-  // Ukur lebar kartu aktif untuk menghitung pergeseran translasi yang presisi
-  useEffect(() => {
-    const updateCardMetrics = () => {
-      if (firstCardRef.current) {
-        const gap = 28;
-        setCardWidth(firstCardRef.current.offsetWidth + gap);
-      }
-    };
-
-    updateCardMetrics();
-    window.addEventListener('resize', updateCardMetrics);
-    return () => window.removeEventListener('resize', updateCardMetrics);
-  }, []);
-
-  const trackTransform = cardWidth > 0
-    ? `translate3d(${-currentIndex * cardWidth + dragOffset}px, 0, 0)`
-    : `translate3d(${dragOffset}px, 0, 0)`;
+  const ggfProject = PROJECTS_DATA.find((p) => p.id === 'ggf-fms') || PROJECTS_DATA[0];
+  const astraProject = PROJECTS_DATA.find((p) => p.id === 'astra-motor' || p.id === 'atra-motor') || PROJECTS_DATA[1];
+  const centrisProject = PROJECTS_DATA.find((p) => p.id === 'centris-ai') || PROJECTS_DATA[2];
+  const smallProjects = PROJECTS_DATA.filter(
+    (p) => !['ggf-fms', 'astra-motor', 'atra-motor', 'centris-ai'].includes(p.id)
+  );
 
   return (
-    <section id="projects" className="apple-slider-section">
-      <div className="container apple-slider-header-wrap">
-        <div className="creative-header" style={{ marginBottom: 0 }}>
+    <section id="projects" className="bento-projects-section">
+      <div className="container">
+        {/* Section Header */}
+        <div className="bento-projects-header">
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Karya Terpilih</span>
           </div>
 
           <h2 className="creative-headline">
-            Keunggulan demi keunggulan. <br />
+            Solusi Nyata Skala Enterprise. <br />
             <em>Dirancang dengan presisi &amp; rasa.</em>
           </h2>
 
           <p className="creative-lead">
-            Jelajahi inovasi produksi: dari pemetaan cerdas perkebunan nasional, ekosistem otomotif Astra Motor Honda, CRM kecerdasan buatan, hingga resort mewah Samara Lombok &amp; e-commerce global.
+            Eksplorasi ekosistem produksi: dari digitalisasi perkebunan agroindustri nasional, portal diler Astra Motor Honda, CRM AI multi-kanal, hingga resor mewah &amp; e-commerce global.
           </p>
         </div>
-      </div>
 
-      {/* Horizontal Slider Viewport with Pointer Drag Handlers */}
-      <div
-        className="apple-slider-viewport"
-        {...dragHandlers}
-      >
-        <div
-          className={`apple-slider-track ${isDragging ? 'is-dragging' : ''}`}
-          style={{ transform: trackTransform }}
-        >
-          {projects.map((project, index) => {
-            const isActive = index === currentIndex;
+        {/* Bento Grid Layout */}
+        <div className="bento-grid">
+          {/* 1. HERO FLAGSHIP CARD: GGF FMS (SPAN 12) */}
+          {ggfProject && (
+            <article
+              className="bento-card bento-card-flagship"
+              onClick={() => setSelectedProject(ggfProject)}
+            >
+              <div className="bento-flagship-info">
+                <div>
+                  <div className="bento-flagship-meta">
+                    <div className="bento-brand-badge" title={ggfProject.client}>
+                      {getProjectBrandLogo(ggfProject.id, 28)}
+                    </div>
+                  </div>
 
-            return (
-              <article
-                key={project.id}
-                ref={index === 0 ? firstCardRef : null}
-                className={`apple-slide-card ${isActive ? 'is-active' : ''}`}
-                onClick={() => {
-                  if (!isActive) {
-                    goToSlide(index);
-                  } else {
-                    setSelectedProject(project);
-                  }
-                }}
-              >
-                {/* Full-Bleed Background Canvas Image */}
+                  <h3 className="bento-flagship-title">{ggfProject.title}</h3>
+                  <p className="bento-flagship-tagline">{ggfProject.tagline}</p>
+                  <p className="bento-flagship-desc">{ggfProject.description}</p>
+
+                  <div className="bento-tech-row">
+                    {ggfProject.techStack.map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bento-actions-row" onClick={(e) => e.stopPropagation()}>
+                  <button
+                    type="button"
+                    className="bento-btn-primary"
+                    onClick={() => setSelectedProject(ggfProject)}
+                  >
+                    <span>Detail Spesifikasi</span>
+                    <ArrowRight size={16} />
+                  </button>
+
+                  {ggfProject.playStoreUrl && (
+                    <a
+                      href={ggfProject.playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bento-btn-ghost"
+                    >
+                      <FaGooglePlay size={14} />
+                      <span>Google Play</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Visual Side: Web Kanban + Floating Mobile Companion */}
+              <div className="bento-flagship-visual">
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="apple-slide-bg-img"
+                  src={ggfProject.image}
+                  alt={ggfProject.title}
+                  className="bento-flagship-main-img"
                   loading="lazy"
-                  draggable="false"
                 />
+                <div className="bento-visual-gradient"></div>
 
-                {/* Floating Mobile Companion View (jika proyek memiliki mobileImage) */}
-                {project.mobileImage && (
-                  <div className="apple-slide-floating-mobile" aria-hidden="true">
+                {ggfProject.mobileImage && (
+                  <div className="bento-floating-mobile">
                     <img
-                      src={project.mobileImage}
-                      alt={`${project.title} Mobile View`}
-                      className="apple-slide-floating-mobile-img"
+                      src={ggfProject.mobileImage}
+                      alt={`${ggfProject.title} Mobile`}
+                      className="bento-floating-mobile-img"
                       loading="lazy"
-                      draggable="false"
                     />
                   </div>
                 )}
+              </div>
+            </article>
+          )}
 
-                {/* Top Vignette Gradient Overlay */}
-                <div className="apple-slide-gradient-top" aria-hidden="true"></div>
+          {/* 2. MEDIUM CARD: Astra Motor Honda (SPAN 6) */}
+          {astraProject && (
+            <article
+              className="bento-card bento-card-medium"
+              onClick={() => setSelectedProject(astraProject)}
+            >
+              <div className="bento-card-media-wrap">
+                <img
+                  src={astraProject.image}
+                  alt={astraProject.title}
+                  className="bento-card-media-img"
+                  loading="lazy"
+                />
+                <div className="bento-card-media-overlay"></div>
 
-                {/* Bottom Vignette Gradient Overlay */}
-                <div className="apple-slide-gradient-bottom" aria-hidden="true"></div>
+                {astraProject.mobileImage && (
+                  <div className="bento-medium-companion-phone">
+                    <img
+                      src={astraProject.mobileImage}
+                      alt={`${astraProject.title} Mobile`}
+                      className="bento-floating-mobile-img"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+              </div>
 
-                {/* Layer Konten (Header di Atas & Footer di Bawah) */}
-                <div className="apple-slide-content-layer">
-                  {/* Top Header Content */}
-                  <div className="apple-slide-header-area">
-                    <div className="apple-slide-eyebrow-row">
-                      <div className="apple-slide-brand-chip">
-                        {getProjectBrandLogo(project.id, 28)}
-                      </div>
+              <div className="bento-card-body">
+                <div>
+                  <div className="bento-card-top-row">
+                    <div className="bento-brand-badge" title={astraProject.client}>
+                      {getProjectBrandLogo(astraProject.id, 26)}
                     </div>
-
-                    <h3 className="apple-slide-title">{project.title}</h3>
-                    <p className="apple-slide-tagline">{project.tagline}</p>
                   </div>
 
-                  {/* Bottom Footer Content (Teknologi & Aksi) */}
-                  <div
-                    className="apple-slide-footer"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <div className="apple-slide-tech-row">
-                      {project.techStack.map((tech, i) => (
-                        <span key={i} className="apple-slide-pill">{tech}</span>
-                      ))}
-                    </div>
+                  <h3 className="bento-card-title">{astraProject.title}</h3>
+                  <p className="bento-card-tagline">{astraProject.tagline}</p>
 
-                    <div className="apple-slide-cta-row">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedProject(project);
-                        }}
-                        className="apple-slide-btn-primary"
-                      >
-                        <span>Detail Proyek</span>
-                        <ArrowRight size={14} />
-                      </button>
-
-                      {project.playStoreUrl && (
-                        <a
-                          href={project.playStoreUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="apple-slide-btn-ghost"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <FaGooglePlay size={13} />
-                          <span>Google Play</span>
-                          <ArrowUpRight size={12} />
-                        </a>
-                      )}
-
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="apple-slide-btn-ghost"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <span>Situs Resmi</span>
-                          <ArrowUpRight size={13} />
-                        </a>
-                      )}
-                    </div>
+                  <div className="bento-tech-row">
+                    {astraProject.techStack.slice(0, 3).map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
                   </div>
                 </div>
-              </article>
-            );
-          })}
+
+                <div className="bento-card-footer">
+                  <span className="bento-explore-link">
+                    <span>Lihat Arsitektur &amp; Fitur</span>
+                    <ArrowRight size={15} />
+                  </span>
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 3. MEDIUM CARD: Centris.ai (SPAN 6) */}
+          {centrisProject && (
+            <article
+              className="bento-card bento-card-medium"
+              onClick={() => setSelectedProject(centrisProject)}
+            >
+              <div className="bento-card-media-wrap">
+                <img
+                  src={centrisProject.image}
+                  alt={centrisProject.title}
+                  className="bento-card-media-img"
+                  loading="lazy"
+                />
+                <div className="bento-card-media-overlay"></div>
+              </div>
+
+              <div className="bento-card-body">
+                <div>
+                  <div className="bento-card-top-row">
+                    <div className="bento-brand-badge" title={centrisProject.client}>
+                      {getProjectBrandLogo(centrisProject.id, 26)}
+                    </div>
+                  </div>
+
+                  <h3 className="bento-card-title">{centrisProject.title}</h3>
+                  <p className="bento-card-tagline">{centrisProject.tagline}</p>
+
+                  <div className="bento-tech-row">
+                    {centrisProject.techStack.slice(0, 3).map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bento-card-footer">
+                  <span className="bento-explore-link">
+                    <span>Lihat Arsitektur &amp; Fitur</span>
+                    <ArrowRight size={15} />
+                  </span>
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 4, 5, 6. SMALL CARDS: Rascal Republic, Polygon Bikes, Samara Lombok (SPAN 4) */}
+          {smallProjects.map((project) => (
+            <article
+              key={project.id}
+              className="bento-card bento-card-small"
+              onClick={() => setSelectedProject(project)}
+            >
+              <div className="bento-card-media-wrap">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="bento-card-media-img"
+                  loading="lazy"
+                />
+                <div className="bento-card-media-overlay"></div>
+              </div>
+
+              <div className="bento-card-body">
+                <div>
+                  <div className="bento-card-top-row">
+                    <div className="bento-brand-badge" title={project.client}>
+                      {getProjectBrandLogo(project.id, 24)}
+                    </div>
+                  </div>
+
+                  <h3 className="bento-card-title">{project.title}</h3>
+                  <p className="bento-card-tagline">{project.tagline}</p>
+                </div>
+
+                <div className="bento-card-footer">
+                  <span className="bento-explore-link">
+                    <span>Detail Proyek</span>
+                    <ArrowRight size={14} />
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
 
-      {/* Apple-style Dot Bar & Autoplay Controls */}
-      <div className="apple-slider-controls-bar">
-        {/* Pill Dot Navigation */}
-        <div className="apple-dot-nav-pill" role="tablist" aria-label="Navigasi slide proyek">
-          {projects.map((project, index) => {
-            const isActive = index === currentIndex;
-            return (
-              <button
-                key={project.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                aria-label={`Pindah ke slide ${index + 1}: ${project.title}`}
-                className={`apple-dot-btn ${isActive ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-              >
-                <span className="apple-dot-shape"></span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Play/Pause Button */}
-        <button
-          type="button"
-          onClick={togglePlay}
-          className="apple-playback-btn"
-          aria-label={isPlaying ? 'Jeda perputaran otomatis' : 'Putar otomatis slide'}
-          title={isPlaying ? 'Jeda Autoplay' : 'Mulai Autoplay'}
-        >
-          {isPlaying ? <Pause size={15} /> : <Play size={15} style={{ marginLeft: 2 }} />}
-        </button>
-      </div>
-
-      {/* Modal Detail Proyek */}
-      <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      {/* Modal Detail Proyek Spesifikasi Teknis */}
+      {selectedProject && (
+        <ProjectDetailModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };
+
+export default RecentProjectsSection;

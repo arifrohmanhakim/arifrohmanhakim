@@ -4,6 +4,7 @@ import App from './App';
 import './styles/index.css';
 import './styles/creative-studio.css';
 import './styles/apple-slider.css';
+import './styles/bento-projects.css';
 import './styles/device-mockups.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -250,19 +250,27 @@
   margin-bottom: 12px;
 }
 
-.apple-slide-brand-chip {
+/* Emblem Logo Murni (Minimalis, Tajam & Sangat Kontras) */
+.apple-slide-brand-emblem-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 42px;
+  min-width: 56px;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.apple-slide-badge {
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #f59e0b;
+.apple-slide-card:hover .apple-slide-brand-emblem-badge {
+  background: #ffffff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 18px rgba(255, 255, 255, 0.25);
 }
 
 .apple-slide-title {
@@ -563,6 +571,13 @@
     font-size: 0.8rem;
   }
 
+  .apple-slide-brand-emblem-badge {
+    height: 36px;
+    min-width: 48px;
+    padding: 4px 12px;
+    margin-bottom: 10px;
+  }
+
   .apple-slider-controls {
     margin-top: 20px;
     gap: 12px;
@@ -574,6 +589,13 @@
 }
 
 @media (max-width: 480px) {
+  .apple-slide-brand-emblem-badge {
+    height: 32px;
+    min-width: 42px;
+    padding: 3px 10px;
+    margin-bottom: 8px;
+  }
+
   .apple-slider-track {
     padding: 8px 3vw 20px;
   }

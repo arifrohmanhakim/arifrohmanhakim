@@ -2,9 +2,9 @@ import React from 'react';
 
 export const GgfLogo = ({ className = '', size = 32 }) => (
   <img
-    src="/images/logos/ggf-logo.png"
+    src="/images/logos/fms-logo.png"
     alt="Great Giant Foods Official Logo"
-    className={`apple-brand-official-logo ggf-logo-img ${className}`}
+    className={`apple-brand-official-logo fms-logo-img ${className}`}
     style={{ height: size, width: 'auto', objectFit: 'contain' }}
     loading="lazy"
   />

@@ -65,8 +65,9 @@
   color: #94a3b8;
   font-weight: 400;
   max-width: 680px;
-  margin-left: auto;
-  margin-right: auto;
+  border-left: 4px solid #fcd34d;
+  padding-left: 2.4rem;
+  margin-left: 0;
 }
 
 /* ----------------------------------------------------

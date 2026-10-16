@@ -20,13 +20,13 @@ export const PROFILE_DATA = {
 export const PROJECTS_DATA = [
   {
     id: 'ggf-fms',
-    title: 'GGF FMS Mobile',
+    title: 'Field Management System',
     client: 'Great Giant Foods (GGF)',
     eyebrow: 'ENTERPRISE MOBILE SYSTEM',
     badge: 'Enterprise Production',
-    tagline: 'Ekosistem Manajemen Perkebunan Presisi: Web Kanban Terintegrasi & Mobile App Offline-First.',
-    description: 'Sistem aplikasi lapangan (Farm Management System) untuk operasional agroindustri perkebunan terbesar di Indonesia (Great Giant Foods). Mendukung kolaborasi tim via Web Kanban catatan lokasi, pemetaan plot GIS, pelaporan mandor offline-first, pelacakan GPS akurat, dan sinkronisasi data ribuan hektar perkebunan secara andal.',
-    image: '/images/projects/ggf/ggf-web-kanban.png',
+    tagline: 'Smart Fertilizer Planning for Precision Agriculture.',
+    description: 'Field Management System (FMS) is a web and mobile-based digital platform to optimize on-field fertilizer planning and activities with high precision based on digital recommendations from the R&D team, complete with early warning and crop simulation features',
+    image: '/images/projects/ggf/ggf-land.webp',
     mobileImage: '/images/projects/ggf/ggf-mobile.png',
     screenshots: [
       {
