@@ -65,16 +65,6 @@ export const ContactSection = () => {
               <span>GitHub</span>
               <ArrowUpRight size={15} />
             </a>
-
-            <button
-              type="button"
-              onClick={handleCopyGithub}
-              className="creative-btn-outline"
-              title="Salin tautan GitHub"
-            >
-              {copied ? <Check size={16} className="text-amber" /> : <Copy size={16} />}
-              <span>{copied ? 'Tautan Tersalin!' : 'Salin Profil'}</span>
-            </button>
           </div>
         </div>
       </div>

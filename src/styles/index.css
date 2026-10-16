@@ -346,6 +346,8 @@ button {
   flex-direction: column;
   text-align: right;
   max-width: 480px;
+  overflow: hidden;
+  padding: 2px 4px;
 }
 
 .role-headline-bold {
@@ -405,6 +407,8 @@ button {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  overflow: hidden;
+  padding: 2px 4px;
 }
 
 .floating-iam-text {
@@ -425,6 +429,83 @@ button {
   color: var(--text-main);
   white-space: nowrap;
   text-shadow: 0 3px 24px rgba(0, 0, 0, 0.95);
+}
+
+/* ----------------------------------------------------
+   HERO TEXT ENTRY ANIMATIONS (REVEAL & SOFT BLUR)
+   ---------------------------------------------------- */
+@keyframes revealUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInBlur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.giant-script-background span {
+  display: inline-block;
+  animation: fadeInBlur 1.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.script-word-left {
+  animation-delay: 0.2s;
+}
+
+.script-word-right {
+  animation-delay: 0.4s;
+}
+
+.floating-name-box *,
+.floating-role-box * {
+  display: block;
+  animation: revealUp 1s cubic-bezier(0.77, 0, 0.175, 1) both;
+}
+
+.floating-name-box .floating-iam-text {
+  animation-delay: 0.5s;
+}
+
+.floating-name-box h1:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.floating-name-box h1:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.floating-role-box span:nth-child(1) {
+  animation-delay: 0.9s;
+}
+
+.floating-role-box span:nth-child(2) {
+  animation-delay: 1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .giant-script-background span,
+  .floating-name-box *,
+  .floating-role-box * {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
 
 /* ====================================================

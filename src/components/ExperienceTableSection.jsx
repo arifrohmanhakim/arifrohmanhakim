@@ -29,6 +29,7 @@ export const ExperienceTableSection = () => {
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Perjalanan &amp; Jejak Karya</span>
+            <span className="creative-eyebrow-line"></span>
           </div>
 
           <h2 className="creative-headline">

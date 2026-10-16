@@ -88,6 +88,7 @@ export const RecentProjectsSection = () => {
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Karya Terpilih</span>
+            <span className="creative-eyebrow-line"></span>
           </div>
 
           <h2 className="creative-headline">
@@ -96,7 +97,7 @@ export const RecentProjectsSection = () => {
           </h2>
 
           <p className="creative-lead">
-            Eksplorasi ekosistem produksi: dari digitalisasi perkebunan agroindustri nasional, portal diler Astra Motor Honda, CRM AI multi-kanal, hingga resor mewah &amp; e-commerce global.
+            Eksplorasi ekosistem produksi: dari digitalisasi perkebunan agroindustri nasional, portal diler otomotif terkemuka, CRM AI multi-kanal, hingga resor mewah & e-commerce global
           </p>
         </div>
 
@@ -128,7 +129,7 @@ export const RecentProjectsSection = () => {
                   </div>
                 </div>
 
-                <div className="bento-actions-row" onClick={(e) => e.stopPropagation()}>
+                {/* <div className="bento-actions-row" onClick={(e) => e.stopPropagation()}>
                   <button
                     type="button"
                     className="bento-btn-primary"
@@ -149,7 +150,7 @@ export const RecentProjectsSection = () => {
                       <span>Google Play</span>
                     </a>
                   )}
-                </div>
+                </div> */}
               </div>
 
               {/* Visual Side: Web Kanban + Floating Mobile Companion */}
@@ -225,12 +226,12 @@ export const RecentProjectsSection = () => {
                   <p className="bento-card-tagline">{astraProject.tagline}</p>
                 </div>
 
-                <div className="bento-card-footer">
+                {/* <div className="bento-card-footer">
                   <span className="bento-explore-link">
                     <span>Lihat Arsitektur &amp; Fitur</span>
                     <ArrowRight size={15} />
                   </span>
-                </div>
+                </div> */}
               </div>
             </article>
           )}
@@ -263,12 +264,12 @@ export const RecentProjectsSection = () => {
                   <p className="bento-card-tagline">{polygonProject.tagline}</p>
                 </div>
 
-                <div className="bento-card-footer">
+                {/* <div className="bento-card-footer">
                   <span className="bento-explore-link">
                     <span>Lihat Arsitektur &amp; Fitur</span>
                     <ArrowRight size={15} />
                   </span>
-                </div>
+                </div> */}
               </div>
             </article>
           )}
@@ -292,22 +293,22 @@ export const RecentProjectsSection = () => {
 
               <div className="bento-card-body">
                 <div>
-                  <div className="bento-card-top-row">
+                  {/* <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={project.client}>
                       {getProjectBrandLogo(project.id, 24)}
                     </div>
-                  </div>
+                  </div> */}
 
                   <h3 className="bento-card-title">{project.title}</h3>
                   <p className="bento-card-tagline">{project.tagline}</p>
                 </div>
 
-                <div className="bento-card-footer">
+                {/* <div className="bento-card-footer">
                   <span className="bento-explore-link">
                     <span>Detail Proyek</span>
                     <ArrowRight size={14} />
                   </span>
-                </div>
+                </div> */}
               </div>
             </article>
           ))}

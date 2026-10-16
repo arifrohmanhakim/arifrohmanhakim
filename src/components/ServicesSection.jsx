@@ -32,6 +32,7 @@ export const ServicesSection = () => {
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Disiplin &amp; Keahlian</span>
+            <span className="creative-eyebrow-line"></span>
           </div>
 
           <h2 className="creative-headline">
