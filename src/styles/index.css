@@ -39,6 +39,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
   font-family: var(--font-sans);
   background-color: var(--bg-page);
   color: var(--text-main);
@@ -86,11 +87,14 @@ button {
    NAVBAR (GAYA MADISON DRIBBBLE)
    ---------------------------------------------------- */
 .madison-navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 99;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
   background: transparent;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), border-color var(--transition-fast), backdrop-filter var(--transition-fast);
 }
 
 .madison-navbar.scrolled {
@@ -199,7 +203,7 @@ button {
 .madison-hero-section {
   position: relative;
   overflow: hidden;
-  padding: 20px 0 60px;
+  padding: 104px 0 60px;
   /* background: var(--bg-hero); */
 }
 
@@ -1917,9 +1921,13 @@ button {
     font-size: 0.84rem;
   }
 
+  html {
+    scroll-padding-top: 72px;
+  }
+
   /* Hero Section Mobile */
   .madison-hero-section {
-    padding: 12px 0 40px;
+    padding: 80px 0 40px;
     overflow: hidden;
   }
 

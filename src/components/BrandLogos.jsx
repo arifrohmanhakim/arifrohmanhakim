@@ -42,7 +42,7 @@ export const PolygonLogo = ({ className = '', size = 32 }) => (
 
 export const AstraMotorLogo = ({ className = '', size = 32 }) => (
   <img
-    src="/images/logos/astra-motor.svg"
+    src="/images/logos/astra-motor.png"
     alt="Astra Motor Official Logo"
     className={`apple-brand-official-logo astra-logo-img ${className}`}
     style={{ height: size, width: 'auto', objectFit: 'contain' }}

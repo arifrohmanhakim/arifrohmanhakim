@@ -273,9 +273,9 @@
   z-index: 3;
 }
 
-.bento-card:hover .bento-floating-mobile {
-  transform: translateY(-52%) scale(1.03);
-  box-shadow: 0 32px 75px rgba(0, 0, 0, 0.98);
+.bento-floating-mobile.second{
+  right: 15%;
+  top: 90%;
 }
 
 .bento-floating-mobile-img {

@@ -28,6 +28,7 @@ export const PROJECTS_DATA = [
     description: 'Field Management System (FMS) is a web and mobile-based digital platform to optimize on-field fertilizer planning and activities with high precision based on digital recommendations from the R&D team, complete with early warning and crop simulation features',
     image: '/images/projects/ggf/ggf-land.webp',
     mobileImage: '/images/projects/ggf/ggf-mobile.png',
+    mobileImageSecond: '/images/projects/ggf/ggf-mobile2.png',
     screenshots: [
       {
         url: '/images/projects/ggf/ggf-web-kanban.png',
@@ -167,7 +168,7 @@ export const PROJECTS_DATA = [
     badge: '10-Language Global Store',
     tagline: 'Mendorong Brand Sepeda Indonesia ke Panggung Global dengan E-Commerce Multibahasa.',
     description: 'Pengembangan dan pemeliharaan platform e-commerce global untuk Polygon Bikes (PT Insera Sena) yang mendistribusikan produknya ke 500+ outlet di 33 negara. Menghadirkan dukungan 10 bahasa (Asia-Pasifik, Eropa, hingga Amerika Serikat), fitur Custom Bike interaktif yang memungkinkan pelanggan merakit sepeda impian secara digital, Global Dealer Locator berbasis peta, serta optimasi performa server untuk lonjakan traffic internasional.',
-    image: '/images/projects/polygon/polygon-banner.png',
+    image: '/images/projects/polygon/polygon-banner1.jpg',
     mockupType: 'macbook-bleed',
     screenshots: [
       {
@@ -274,7 +275,7 @@ export const PROJECTS_DATA = [
     liveUrl: 'https://payamanos.vercel.app',
     demoUrl: 'https://payamanos.vercel.app',
     githubUrl: 'https://github.com/arifrohmanhakim/Payaman-OS',
-    isFeatured: true,
+    isFeatured: false,
     specs: [
       { label: 'Role & Scope', value: 'Creator & Lead System Architect' },
       { label: 'Audio Engine', value: 'Native Web Audio API Synthesizer & iTunes Retro Audio Player' },

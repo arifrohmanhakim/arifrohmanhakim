@@ -10,9 +10,9 @@ export const RecentProjectsSection = () => {
 
   const ggfProject = PROJECTS_DATA.find((p) => p.id === 'ggf-fms') || PROJECTS_DATA[0];
   const astraProject = PROJECTS_DATA.find((p) => p.id === 'astra-motor' || p.id === 'atra-motor') || PROJECTS_DATA[1];
-  const centrisProject = PROJECTS_DATA.find((p) => p.id === 'centris-ai') || PROJECTS_DATA[2];
+  const polygonProject = PROJECTS_DATA.find((p) => p.id === 'polygon-bikes') || PROJECTS_DATA[2];
   const smallProjects = PROJECTS_DATA.filter(
-    (p) => !['ggf-fms', 'astra-motor', 'atra-motor', 'centris-ai'].includes(p.id)
+    (p) => !['ggf-fms', 'astra-motor', 'polygon-bikes', 'payaman-os'].includes(p.id)
   );
 
   return (
@@ -47,7 +47,7 @@ export const RecentProjectsSection = () => {
                 <div>
                   <div className="bento-flagship-meta">
                     <div className="bento-brand-badge" title={ggfProject.client}>
-                      {getProjectBrandLogo(ggfProject.id, 28)}
+                      {getProjectBrandLogo(ggfProject.id, 20)}
                     </div>
                   </div>
 
@@ -97,6 +97,15 @@ export const RecentProjectsSection = () => {
                 <div className="bento-visual-gradient"></div>
 
                 {ggfProject.mobileImage && (
+                  <>
+                  <div className="bento-floating-mobile second">
+                    <img
+                      src={ggfProject.mobileImageSecond}
+                      alt={`${ggfProject.title} Mobile`}
+                      className="bento-floating-mobile-img"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="bento-floating-mobile">
                     <img
                       src={ggfProject.mobileImage}
@@ -105,6 +114,7 @@ export const RecentProjectsSection = () => {
                       loading="lazy"
                     />
                   </div>
+                  </>
                 )}
               </div>
             </article>
@@ -147,12 +157,6 @@ export const RecentProjectsSection = () => {
 
                   <h3 className="bento-card-title">{astraProject.title}</h3>
                   <p className="bento-card-tagline">{astraProject.tagline}</p>
-
-                  <div className="bento-tech-row">
-                    {astraProject.techStack.slice(0, 3).map((tech, i) => (
-                      <span key={i} className="bento-tech-pill">{tech}</span>
-                    ))}
-                  </div>
                 </div>
 
                 <div className="bento-card-footer">
@@ -166,15 +170,15 @@ export const RecentProjectsSection = () => {
           )}
 
           {/* 3. MEDIUM CARD: Centris.ai (SPAN 6) */}
-          {centrisProject && (
+          {polygonProject && (
             <article
               className="bento-card bento-card-medium"
-              onClick={() => setSelectedProject(centrisProject)}
+              onClick={() => setSelectedProject(polygonProject)}
             >
               <div className="bento-card-media-wrap">
                 <img
-                  src={centrisProject.image}
-                  alt={centrisProject.title}
+                  src={polygonProject.image}
+                  alt={polygonProject.title}
                   className="bento-card-media-img"
                   loading="lazy"
                 />
@@ -184,19 +188,13 @@ export const RecentProjectsSection = () => {
               <div className="bento-card-body">
                 <div>
                   <div className="bento-card-top-row">
-                    <div className="bento-brand-badge" title={centrisProject.client}>
-                      {getProjectBrandLogo(centrisProject.id, 26)}
+                    <div className="bento-brand-badge" title={polygonProject.client}>
+                      {getProjectBrandLogo(polygonProject.id, 26)}
                     </div>
                   </div>
 
-                  <h3 className="bento-card-title">{centrisProject.title}</h3>
-                  <p className="bento-card-tagline">{centrisProject.tagline}</p>
-
-                  <div className="bento-tech-row">
-                    {centrisProject.techStack.slice(0, 3).map((tech, i) => (
-                      <span key={i} className="bento-tech-pill">{tech}</span>
-                    ))}
-                  </div>
+                  <h3 className="bento-card-title">{polygonProject.title}</h3>
+                  <p className="bento-card-tagline">{polygonProject.tagline}</p>
                 </div>
 
                 <div className="bento-card-footer">
