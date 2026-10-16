@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
@@ -7,6 +7,9 @@ import { getProjectBrandLogo } from './BrandLogos';
 
 export const RecentProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const flagshipRef = useRef(null);
+  const mobilePrimaryRef = useRef(null);
+  const mobileSecondRef = useRef(null);
 
   const ggfProject = PROJECTS_DATA.find((p) => p.id === 'ggf-fms') || PROJECTS_DATA[0];
   const astraProject = PROJECTS_DATA.find((p) => p.id === 'astra-motor' || p.id === 'atra-motor') || PROJECTS_DATA[1];
@@ -14,6 +17,68 @@ export const RecentProjectsSection = () => {
   const smallProjects = PROJECTS_DATA.filter(
     (p) => !['ggf-fms', 'astra-motor', 'polygon-bikes', 'payaman-os'].includes(p.id)
   );
+
+  useEffect(() => {
+    if (typeof CSS !== 'undefined' && CSS.supports && CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+      return;
+    }
+
+    const card = flagshipRef.current;
+    if (!card) return;
+
+    let isVisible = false;
+    let rafId = null;
+
+    const updateParallax = () => {
+      if (!isVisible || !card) return;
+      const rect = card.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const totalDist = windowHeight + rect.height;
+      const currentPos = windowHeight - rect.top;
+      const progress = Math.min(Math.max(currentPos / totalDist, 0), 1);
+
+      const upOffset = 50 - progress * 120;
+      const downOffset = -50 + progress * 120;
+
+      if (mobilePrimaryRef.current) {
+        mobilePrimaryRef.current.style.transform = `translateY(calc(-50% + ${upOffset.toFixed(1)}px))`;
+      }
+      if (mobileSecondRef.current) {
+        mobileSecondRef.current.style.transform = `translateY(calc(-50% + ${downOffset.toFixed(1)}px))`;
+      }
+    };
+
+    const handleScroll = () => {
+      if (!rafId) {
+        rafId = requestAnimationFrame(() => {
+          updateParallax();
+          rafId = null;
+        });
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          window.addEventListener('scroll', handleScroll, { passive: true });
+          updateParallax();
+        } else {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(card);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
     <section id="projects" className="bento-projects-section">
@@ -40,6 +105,7 @@ export const RecentProjectsSection = () => {
           {/* 1. HERO FLAGSHIP CARD: GGF FMS (SPAN 12) */}
           {ggfProject && (
             <article
+              ref={flagshipRef}
               className="bento-card bento-card-flagship"
               onClick={() => setSelectedProject(ggfProject)}
             >
@@ -98,7 +164,7 @@ export const RecentProjectsSection = () => {
 
                 {ggfProject.mobileImage && (
                   <>
-                  <div className="bento-floating-mobile second">
+                  <div ref={mobileSecondRef} className="bento-floating-mobile second">
                     <img
                       src={ggfProject.mobileImageSecond}
                       alt={`${ggfProject.title} Mobile`}
@@ -106,7 +172,7 @@ export const RecentProjectsSection = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="bento-floating-mobile">
+                  <div ref={mobilePrimaryRef} className="bento-floating-mobile">
                     <img
                       src={ggfProject.mobileImage}
                       alt={`${ggfProject.title} Mobile`}
