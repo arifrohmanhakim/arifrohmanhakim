@@ -6,7 +6,7 @@ import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
 import { useSectionHeaderParallax } from '../hooks/useSectionHeaderParallax';
 
-export const RecentProjectsSection = () => {
+export const RecentProjectsSection = ({ onNavigateProjects }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const headerRef = useSectionHeaderParallax();
   const flagshipRef = useRef(null);
@@ -337,6 +337,23 @@ export const RecentProjectsSection = () => {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Call to Action: View All Projects Archive */}
+        <div className="bento-archive-cta-wrap">
+          <a
+            href="/projects"
+            className="bento-archive-cta-btn"
+            onClick={(e) => {
+              if (onNavigateProjects) {
+                e.preventDefault();
+                onNavigateProjects();
+              }
+            }}
+          >
+            <span>Explore All 7 Projects &amp; Case Studies</span>
+            <ArrowRight size={17} />
+          </a>
         </div>
       </div>
 

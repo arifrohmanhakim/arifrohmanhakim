@@ -4,22 +4,75 @@ import { GithubIcon } from './GithubIcon';
 import { LinkedinIcon } from './LinkedinIcon';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
-export const Navbar = ({ isScrolled }) => {
+export const Navbar = ({ isScrolled, currentView = 'home', onNavigateHome, onNavigateProjects }) => {
+  const handleNavClick = (e, targetHash) => {
+    if (currentView === 'projects') {
+      e.preventDefault();
+      onNavigateHome?.();
+      setTimeout(() => {
+        const el = document.querySelector(targetHash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 50);
+    }
+  };
+
   return (
     <header className={`madison-navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container madison-nav-inner">
         {/* Brand Logo */}
-        <a href="#hero" className="madison-brand" aria-label="Arif Rohman Hakim">
+        <a
+          href="#hero"
+          className="madison-brand"
+          aria-label="Arif Rohman Hakim"
+          onClick={(e) => {
+            if (currentView === 'projects') {
+              e.preventDefault();
+              onNavigateHome?.();
+            }
+          }}
+        >
           <span>Arif.</span>
         </a>
 
-        {/* Center Menu Links Matching Exact Sections */}
+        {/* Center Menu Links */}
         <nav className="madison-nav-menu" aria-label="Primary Navigation">
-          <a href="#hero" className="madison-nav-link">Home</a>
-          <a href="#projects" className="madison-nav-link">Works</a>
-          <a href="#experience" className="madison-nav-link">Experience</a>
-          <a href="#services" className="madison-nav-link">Services</a>
-          <a href="#contact" className="madison-nav-link">Contact</a>
+          <a
+            href="#hero"
+            className="madison-nav-link"
+            onClick={(e) => handleNavClick(e, '#hero')}
+          >
+            Home
+          </a>
+          <a
+            href="#projects"
+            className="madison-nav-link"
+            onClick={(e) => handleNavClick(e, '#projects')}
+          >
+            Works
+          </a>
+          <a
+            href="#experience"
+            className="madison-nav-link"
+            onClick={(e) => handleNavClick(e, '#experience')}
+          >
+            Experience
+          </a>
+          <a
+            href="#services"
+            className="madison-nav-link"
+            onClick={(e) => handleNavClick(e, '#services')}
+          >
+            Services
+          </a>
+          <a
+            href="#contact"
+            className="madison-nav-link"
+            onClick={(e) => handleNavClick(e, '#contact')}
+          >
+            Contact
+          </a>
         </nav>
 
         {/* Right Actions */}

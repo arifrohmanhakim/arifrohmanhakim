@@ -92,7 +92,7 @@ export const PROJECTS_DATA = [
       }
     ],
     mockupType: 'dual',
-    category: 'web',
+    category: 'ai',
     categoryLabel: 'AI & CRM Platform',
     techStack: ['React.js', 'React Native', 'AI Agent Pipeline', 'Google OAuth', 'WebSocket', 'Tailwind CSS'],
     liveUrl: 'https://centris.ai/',
@@ -317,7 +317,7 @@ export const PROJECTS_DATA = [
         title: 'Desktop & Retro iTunes'
       }
     ],
-    category: 'web',
+    category: 'labs',
     categoryLabel: 'Retro Web OS Emulation',
     techStack: ['JavaScript (ES6+)', 'Web Audio API Synth', 'Window Manager Architecture', '1-Bit Pixel Graphics Canvas', 'Virtual File System & State'],
     liveUrl: 'https://payamanos.vercel.app',
@@ -413,3 +413,14 @@ export const SERVICES_DATA = [
     desc: 'Exploring creative engineering frontiers: browser-based retro OS emulations, custom canvas window managers, and native Web Audio API synthesis.'
   }
 ];
+
+export const CATEGORY_FILTERS = [
+  { key: 'all', label: 'All Projects', count: 7 },
+  { key: 'mobile', label: 'Mobile Apps', count: 1 },
+  { key: 'web', label: 'Enterprise Web', count: 4 },
+  { key: 'ai', label: 'AI & SaaS', count: 1 },
+  { key: 'labs', label: 'Labs & Open Source', count: 1 }
+];
+
+export const PROJECT_CATEGORY_TABS = CATEGORY_FILTERS;
+
