@@ -36,20 +36,22 @@
 .creative-section#services .creative-discipline-card .creative-discipline-desc {
   color: #333;
 }
-/* Header Editorial Kreatif (Centered & Modern Typo) */
-.creative-header {
+/* Header Editorial Kreatif (Centered & Modern Typo + Vertical Scroll Parallax) */
+.creative-header,
+.bento-projects-header {
   margin-bottom: 64px;
-  max-width: 820px;
+  max-width: 840px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  overflow: visible;
 }
 
 .creative-eyebrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 700;
@@ -57,13 +59,18 @@
   text-transform: uppercase;
   color: #f59e0b;
   margin-bottom: 16px;
+  will-change: transform;
+  transition: transform 0.05s ease-out;
 }
 
 .creative-eyebrow-line {
-  width: 24px;
+  width: 28px;
   height: 1.5px;
   background: #f59e0b;
-  opacity: 0.8;
+  opacity: 0.85;
+  transform-origin: center;
+  will-change: transform;
+  transition: transform 0.05s ease-out;
 }
 
 .creative-headline {
@@ -74,6 +81,8 @@
   color: #ffffff;
   margin-bottom: 20px;
   text-align: center;
+  will-change: transform;
+  transition: transform 0.05s ease-out;
 }
 
 .creative-headline em {
@@ -92,6 +101,18 @@
   color: #94a3b8;
   font-weight: 400;
   text-align: center;
+  will-change: transform;
+  transition: transform 0.05s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .creative-eyebrow,
+  .creative-headline,
+  .creative-lead,
+  .creative-eyebrow-line {
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ----------------------------------------------------

@@ -4,9 +4,11 @@ import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
 import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
+import { useSectionHeaderParallax } from '../hooks/useSectionHeaderParallax';
 
 export const RecentProjectsSection = () => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const headerRef = useSectionHeaderParallax();
   const flagshipRef = useRef(null);
   const mobilePrimaryRef = useRef(null);
   const mobileSecondRef = useRef(null);
@@ -84,7 +86,7 @@ export const RecentProjectsSection = () => {
     <section id="projects" className="bento-projects-section">
       <div className="container">
         {/* Section Header */}
-        <div className="bento-projects-header">
+        <div ref={headerRef} className="bento-projects-header">
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Karya Terpilih</span>

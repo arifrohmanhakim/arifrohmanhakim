@@ -1,6 +1,8 @@
 import React from 'react';
+import { useSectionHeaderParallax } from '../hooks/useSectionHeaderParallax';
 
 export const ExperienceTableSection = () => {
+  const headerRef = useSectionHeaderParallax();
   const journeys = [
     {
       period: '2024 — Sekarang',
@@ -25,7 +27,7 @@ export const ExperienceTableSection = () => {
   return (
     <section id="experience" className="creative-section">
       <div className="container">
-        <div className="creative-header">
+        <div ref={headerRef} className="creative-header">
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Perjalanan &amp; Jejak Karya</span>

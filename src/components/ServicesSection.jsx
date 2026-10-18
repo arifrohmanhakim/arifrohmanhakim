@@ -1,7 +1,9 @@
 import React from 'react';
 import { Smartphone, Layout, Sparkles, Server } from 'lucide-react';
+import { useSectionHeaderParallax } from '../hooks/useSectionHeaderParallax';
 
 export const ServicesSection = () => {
+  const headerRef = useSectionHeaderParallax();
   const disciplines = [
     {
       icon: <Smartphone size={22} />,
@@ -28,7 +30,7 @@ export const ServicesSection = () => {
   return (
     <section id="services" className="creative-section">
       <div className="container">
-        <div className="creative-header">
+        <div ref={headerRef} className="creative-header">
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
             <span>Disiplin &amp; Keahlian</span>
