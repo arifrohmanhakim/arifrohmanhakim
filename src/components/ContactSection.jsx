@@ -71,17 +71,6 @@ export const ContactSection = () => {
 
             <div className="creative-secondary-links">
               <a
-                href={PROFILE_DATA.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="creative-btn-pill"
-                title="WhatsApp Direct Contact"
-              >
-                <span>WhatsApp ({PROFILE_DATA.phone})</span>
-                <ArrowUpRight size={13} />
-              </a>
-
-              <a
                 href={PROFILE_DATA.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
