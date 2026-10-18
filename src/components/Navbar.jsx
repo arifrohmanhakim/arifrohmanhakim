@@ -6,9 +6,9 @@ import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const Navbar = ({ isScrolled, currentView = 'home', onNavigateHome, onNavigateProjects }) => {
   const handleNavClick = (e, targetHash) => {
-    if (currentView === 'projects') {
+    if (currentView !== 'home') {
       e.preventDefault();
-      onNavigateHome?.();
+      onNavigateHome?.(targetHash);
       setTimeout(() => {
         const el = document.querySelector(targetHash);
         if (el) {
@@ -27,7 +27,7 @@ export const Navbar = ({ isScrolled, currentView = 'home', onNavigateHome, onNav
           className="madison-brand"
           aria-label="Arif Rohman Hakim"
           onClick={(e) => {
-            if (currentView === 'projects') {
+            if (currentView !== 'home') {
               e.preventDefault();
               onNavigateHome?.();
             }

@@ -7,6 +7,7 @@ import './styles/apple-slider.css';
 import './styles/bento-projects.css';
 import './styles/device-mockups.css';
 import './styles/projects-page.css';
+import './styles/project-detail.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

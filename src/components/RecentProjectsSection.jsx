@@ -2,12 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { PROJECTS_DATA } from '../constants/portfolioData';
-import { ProjectDetailModal } from './ProjectDetailModal';
 import { getProjectBrandLogo } from './BrandLogos';
 import { useSectionHeaderParallax } from '../hooks/useSectionHeaderParallax';
 
-export const RecentProjectsSection = ({ onNavigateProjects }) => {
-  const [selectedProject, setSelectedProject] = useState(null);
+export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) => {
   const headerRef = useSectionHeaderParallax();
   const flagshipRef = useRef(null);
   const mobilePrimaryRef = useRef(null);
@@ -109,7 +107,7 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
             <article
               ref={flagshipRef}
               className="bento-card bento-card-flagship"
-              onClick={() => setSelectedProject(ggfProject)}
+              onClick={() => onSelectProject?.(ggfProject.id)}
             >
               <div className="bento-flagship-info">
                 <div>
@@ -141,7 +139,7 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
                   <button
                     type="button"
                     className="bento-btn-primary"
-                    onClick={() => setSelectedProject(ggfProject)}
+                    onClick={() => onSelectProject?.(ggfProject.id)}
                   >
                     <span>Read FMS Case Study</span>
                     <ArrowRight size={15} />
@@ -200,7 +198,7 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
           {centrisProject && (
             <article
               className="bento-card bento-card-medium"
-              onClick={() => setSelectedProject(centrisProject)}
+              onClick={() => onSelectProject?.(centrisProject.id)}
             >
               <div className="bento-card-media-wrap">
                 <img
@@ -247,7 +245,7 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
           {astraProject && (
             <article
               className="bento-card bento-card-medium"
-              onClick={() => setSelectedProject(astraProject)}
+              onClick={() => onSelectProject?.(astraProject.id)}
             >
               <div className="bento-card-media-wrap">
                 <img
@@ -295,7 +293,7 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
             <article
               key={project.id}
               className="bento-card bento-card-small"
-              onClick={() => setSelectedProject(project)}
+              onClick={() => onSelectProject?.(project.id)}
             >
               <div className="bento-card-media-wrap">
                 <img
@@ -356,14 +354,6 @@ export const RecentProjectsSection = ({ onNavigateProjects }) => {
           </a>
         </div>
       </div>
-
-      {/* Modal Detail Proyek Spesifikasi Teknis & Case Study */}
-      {selectedProject && (
-        <ProjectDetailModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </section>
   );
 };

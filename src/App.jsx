@@ -11,35 +11,53 @@ import { ExperienceTableSection } from './components/ExperienceTableSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ProjectsPage } from './pages/ProjectsPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
 
 export const App = () => {
   const gitHubStats = useGitHubProfile();
   const { scrollY, isScrolled } = useScrollProgress();
 
-  const isProjectsRoute = () => {
+  const getRouteInfo = () => {
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
-    return (
+
+    // Check project detail path: /project/:id or hash #/project/:id
+    const projectDetailMatch = path.match(/^\/project\/([a-z0-9_-]+)/i);
+    if (projectDetailMatch) {
+      return { view: 'project-detail', projectId: projectDetailMatch[1] };
+    }
+
+    const projectHashMatch = hash.match(/^#\/project\/([a-z0-9_-]+)/i);
+    if (projectHashMatch) {
+      return { view: 'project-detail', projectId: projectHashMatch[1] };
+    }
+
+    // Check all projects archive path
+    if (
       path.endsWith('/projects') ||
       path.endsWith('/projects/') ||
       path.endsWith('projects.html') ||
       hash.includes('projects')
-    );
+    ) {
+      return { view: 'projects', projectId: null };
+    }
+
+    return { view: 'home', projectId: null };
   };
 
-  const [currentView, setCurrentView] = useState(() => (isProjectsRoute() ? 'projects' : 'home'));
+  const [routeState, setRouteState] = useState(() => getRouteInfo());
 
   useEffect(() => {
-    const handlePopState = () => {
-      setCurrentView(isProjectsRoute() ? 'projects' : 'home');
+    const handleLocationChange = () => {
+      setRouteState(getRouteInfo());
       window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
-    window.addEventListener('popstate', handlePopState);
-    window.addEventListener('hashchange', handlePopState);
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
     return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handlePopState);
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
     };
   }, []);
 
@@ -49,7 +67,7 @@ export const App = () => {
       return;
     }
     window.history.pushState(null, '', `/${targetHash}`);
-    setCurrentView('home');
+    setRouteState({ view: 'home', projectId: null });
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     if (targetHash) {
@@ -64,7 +82,13 @@ export const App = () => {
 
   const navigateToProjects = () => {
     window.history.pushState(null, '', '/projects');
-    setCurrentView('projects');
+    setRouteState({ view: 'projects', projectId: null });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const navigateToProject = (id) => {
+    window.history.pushState(null, '', `/project/${id}`);
+    setRouteState({ view: 'project-detail', projectId: id });
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
@@ -72,18 +96,31 @@ export const App = () => {
     <div className="madison-portfolio-app">
       <Navbar
         isScrolled={isScrolled}
-        currentView={currentView}
+        currentView={routeState.view}
         onNavigateHome={navigateToHome}
         onNavigateProjects={navigateToProjects}
       />
       <main id="main-content">
-        {currentView === 'projects' ? (
-          <ProjectsPage onNavigateHome={navigateToHome} />
+        {routeState.view === 'project-detail' ? (
+          <ProjectDetailPage
+            projectId={routeState.projectId}
+            onNavigateHome={navigateToHome}
+            onNavigateProjects={navigateToProjects}
+            onSelectProject={navigateToProject}
+          />
+        ) : routeState.view === 'projects' ? (
+          <ProjectsPage
+            onNavigateHome={navigateToHome}
+            onSelectProject={navigateToProject}
+          />
         ) : (
           <>
             <HeroMadisonSection scrollY={scrollY} />
             <TechStackMarquee />
-            <RecentProjectsSection onNavigateProjects={navigateToProjects} />
+            <RecentProjectsSection
+              onNavigateProjects={navigateToProjects}
+              onSelectProject={navigateToProject}
+            />
             <ServicesSection />
             {/* <VisionSection stats={gitHubStats} /> */}
             <ExperienceTableSection />

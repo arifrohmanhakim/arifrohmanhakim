@@ -3,12 +3,10 @@ import { ArrowLeft, ArrowUpRight, Search, X, FileText, Mail, ArrowRight } from '
 import { FaGooglePlay, FaGithub } from 'react-icons/fa6';
 import { PROJECTS_DATA, PROJECT_CATEGORY_TABS, PROFILE_DATA } from '../constants/portfolioData';
 import { getProjectBrandLogo } from '../components/BrandLogos';
-import { ProjectDetailModal } from '../components/ProjectDetailModal';
 
-export const ProjectsPage = ({ onNavigateHome }) => {
+export const ProjectsPage = ({ onNavigateHome, onSelectProject }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects = useMemo(() => {
     return PROJECTS_DATA.filter((project) => {
@@ -131,7 +129,7 @@ export const ProjectsPage = ({ onNavigateHome }) => {
                 <article
                   key={project.id}
                   className="archive-project-card"
-                  onClick={() => setSelectedProject(project)}
+                  onClick={() => onSelectProject?.(project.id)}
                 >
                   <div className="archive-card-media">
                     <img
@@ -163,7 +161,7 @@ export const ProjectsPage = ({ onNavigateHome }) => {
                         className="archive-card-title"
                         onClick={(e) => {
                           e.stopPropagation();
-                          setSelectedProject(project);
+                          onSelectProject?.(project.id);
                         }}
                       >
                         {project.title}
@@ -190,7 +188,7 @@ export const ProjectsPage = ({ onNavigateHome }) => {
                       <button
                         type="button"
                         className="archive-btn-case-study"
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => onSelectProject?.(project.id)}
                       >
                         <span>Case Study</span>
                         <ArrowRight size={13} />
@@ -289,14 +287,6 @@ export const ProjectsPage = ({ onNavigateHome }) => {
           </div>
         </section>
       </div>
-
-      {/* Project Detail Modal */}
-      {selectedProject && (
-        <ProjectDetailModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </div>
   );
 };
