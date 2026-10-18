@@ -15,9 +15,9 @@ export const RecentProjectsSection = () => {
 
   const ggfProject = PROJECTS_DATA.find((p) => p.id === 'ggf-fms') || PROJECTS_DATA[0];
   const astraProject = PROJECTS_DATA.find((p) => p.id === 'astra-motor' || p.id === 'atra-motor') || PROJECTS_DATA[1];
-  const polygonProject = PROJECTS_DATA.find((p) => p.id === 'polygon-bikes') || PROJECTS_DATA[2];
+  const centrisProject = PROJECTS_DATA.find((p) => p.id === 'centris-ai') || PROJECTS_DATA[2];
   const smallProjects = PROJECTS_DATA.filter(
-    (p) => !['ggf-fms', 'astra-motor', 'polygon-bikes', 'payaman-os'].includes(p.id)
+    (p) => !['ggf-fms', 'astra-motor', 'centris-ai', 'payaman-os'].includes(p.id)
   );
 
   useEffect(() => {
@@ -89,17 +89,16 @@ export const RecentProjectsSection = () => {
         <div ref={headerRef} className="bento-projects-header">
           <div className="creative-eyebrow">
             <span className="creative-eyebrow-line"></span>
-            <span>Karya Terpilih</span>
+            <span>Selected Works</span>
             <span className="creative-eyebrow-line"></span>
           </div>
 
           <h2 className="creative-headline">
-            Solusi Nyata Skala Enterprise. <br />
-            <em>Dirancang dengan presisi &amp; rasa.</em>
+            Enterprise Mobile &amp; Web Systems.
           </h2>
 
           <p className="creative-lead">
-            Eksplorasi ekosistem produksi: dari digitalisasi perkebunan agroindustri nasional, portal diler otomotif terkemuka, CRM AI multi-kanal, hingga resor mewah & e-commerce global
+            Battle-tested production architectures: from offline-first agro-industrial field operations and AI CRM pipelines, to nationwide automotive portals and global multilingual e-commerce.
           </p>
         </div>
 
@@ -116,29 +115,36 @@ export const RecentProjectsSection = () => {
                 <div>
                   <div className="bento-flagship-meta">
                     <div className="bento-brand-badge" title={ggfProject.client}>
-                      {getProjectBrandLogo(ggfProject.id, 20)}
+                      {getProjectBrandLogo(ggfProject.id, 22)}
                     </div>
                   </div>
 
                   <h3 className="bento-flagship-title">{ggfProject.title}</h3>
                   <p className="bento-flagship-tagline">{ggfProject.tagline}</p>
-                  <p className="bento-flagship-desc">{ggfProject.description}</p>
+                  <div style={{marginBottom: 14}}>
+                    <span className="bento-role-text">{ggfProject.role}</span>
+                    <span className="bento-meta-sep">•</span>
+                    <span className="bento-year-text">{ggfProject.year}</span>
+                  </div>
+                  <p className="bento-scope-note">
+                    <strong>My Contribution:</strong> {ggfProject.scopeNote}
+                  </p>
 
                   <div className="bento-tech-row">
-                    {ggfProject.techStack.map((tech, i) => (
+                    {ggfProject.primaryStack.map((tech, i) => (
                       <span key={i} className="bento-tech-pill">{tech}</span>
                     ))}
                   </div>
                 </div>
 
-                {/* <div className="bento-actions-row" onClick={(e) => e.stopPropagation()}>
+                <div className="bento-actions-row" onClick={(e) => e.stopPropagation()}>
                   <button
                     type="button"
                     className="bento-btn-primary"
                     onClick={() => setSelectedProject(ggfProject)}
                   >
-                    <span>Detail Spesifikasi</span>
-                    <ArrowRight size={16} />
+                    <span>Read FMS Case Study</span>
+                    <ArrowRight size={15} />
                   </button>
 
                   {ggfProject.playStoreUrl && (
@@ -148,14 +154,15 @@ export const RecentProjectsSection = () => {
                       rel="noopener noreferrer"
                       className="bento-btn-ghost"
                     >
-                      <FaGooglePlay size={14} />
+                      <FaGooglePlay size={13} />
                       <span>Google Play</span>
+                      <ArrowUpRight size={12} />
                     </a>
                   )}
-                </div> */}
+                </div>
               </div>
 
-              {/* Visual Side: Web Kanban + Floating Mobile Companion */}
+              {/* Visual Side */}
               <div className="bento-flagship-visual">
                 <img
                   src={ggfProject.image}
@@ -167,29 +174,76 @@ export const RecentProjectsSection = () => {
 
                 {ggfProject.mobileImage && (
                   <>
-                  <div ref={mobileSecondRef} className="bento-floating-mobile second">
-                    <img
-                      src={ggfProject.mobileImageSecond}
-                      alt={`${ggfProject.title} Mobile`}
-                      className="bento-floating-mobile-img"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div ref={mobilePrimaryRef} className="bento-floating-mobile">
-                    <img
-                      src={ggfProject.mobileImage}
-                      alt={`${ggfProject.title} Mobile`}
-                      className="bento-floating-mobile-img"
-                      loading="lazy"
-                    />
-                  </div>
+                    <div ref={mobileSecondRef} className="bento-floating-mobile second">
+                      <img
+                        src={ggfProject.mobileImageSecond}
+                        alt={`${ggfProject.title} Mobile`}
+                        className="bento-floating-mobile-img"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div ref={mobilePrimaryRef} className="bento-floating-mobile">
+                      <img
+                        src={ggfProject.mobileImage}
+                        alt={`${ggfProject.title} Mobile`}
+                        className="bento-floating-mobile-img"
+                        loading="lazy"
+                      />
+                    </div>
                   </>
                 )}
               </div>
             </article>
           )}
 
-          {/* 2. MEDIUM CARD: Astra Motor Honda (SPAN 6) */}
+          {/* 2. MEDIUM CARD: Centris.ai (SPAN 6) */}
+          {centrisProject && (
+            <article
+              className="bento-card bento-card-medium"
+              onClick={() => setSelectedProject(centrisProject)}
+            >
+              <div className="bento-card-media-wrap">
+                <img
+                  src={centrisProject.image}
+                  alt={centrisProject.title}
+                  className="bento-card-media-img"
+                  loading="lazy"
+                />
+                <div className="bento-card-media-overlay"></div>
+              </div>
+
+              <div className="bento-card-body">
+                <div>
+                  <div className="bento-card-top-row">
+                    <div className="bento-brand-badge" title={centrisProject.client}>
+                      {getProjectBrandLogo(centrisProject.id, 24)}
+                    </div>
+                  </div>
+
+                  <h3 className="bento-card-title">{centrisProject.title}</h3>
+                  <p className="bento-card-role-meta">
+                    {centrisProject.role} • {centrisProject.year}
+                  </p>
+                  <p className="bento-card-tagline">{centrisProject.tagline}</p>
+
+                  <div className="bento-tech-row small">
+                    {centrisProject.primaryStack.map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bento-card-footer">
+                  <span className="bento-explore-link">
+                    <span>Explore Architecture &amp; Case</span>
+                    <ArrowRight size={14} />
+                  </span>
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 3. MEDIUM CARD: Astra Motor Honda (SPAN 6) */}
           {astraProject && (
             <article
               className="bento-card bento-card-medium"
@@ -203,80 +257,40 @@ export const RecentProjectsSection = () => {
                   loading="lazy"
                 />
                 <div className="bento-card-media-overlay"></div>
-
-                {astraProject.mobileImage && (
-                  <div className="bento-medium-companion-phone">
-                    <img
-                      src={astraProject.mobileImage}
-                      alt={`${astraProject.title} Mobile`}
-                      className="bento-floating-mobile-img"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
               </div>
 
               <div className="bento-card-body">
                 <div>
                   <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={astraProject.client}>
-                      {getProjectBrandLogo(astraProject.id, 26)}
+                      {getProjectBrandLogo(astraProject.id, 24)}
                     </div>
                   </div>
 
                   <h3 className="bento-card-title">{astraProject.title}</h3>
+                  <p className="bento-card-role-meta">
+                    {astraProject.role} • {astraProject.year}
+                  </p>
                   <p className="bento-card-tagline">{astraProject.tagline}</p>
-                </div>
 
-                {/* <div className="bento-card-footer">
-                  <span className="bento-explore-link">
-                    <span>Lihat Arsitektur &amp; Fitur</span>
-                    <ArrowRight size={15} />
-                  </span>
-                </div> */}
-              </div>
-            </article>
-          )}
-
-          {/* 3. MEDIUM CARD: Centris.ai (SPAN 6) */}
-          {polygonProject && (
-            <article
-              className="bento-card bento-card-medium"
-              onClick={() => setSelectedProject(polygonProject)}
-            >
-              <div className="bento-card-media-wrap">
-                <img
-                  src={polygonProject.image}
-                  alt={polygonProject.title}
-                  className="bento-card-media-img"
-                  loading="lazy"
-                />
-                <div className="bento-card-media-overlay"></div>
-              </div>
-
-              <div className="bento-card-body">
-                <div>
-                  <div className="bento-card-top-row">
-                    <div className="bento-brand-badge" title={polygonProject.client}>
-                      {getProjectBrandLogo(polygonProject.id, 26)}
-                    </div>
+                  <div className="bento-tech-row small">
+                    {astraProject.primaryStack.map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
                   </div>
-
-                  <h3 className="bento-card-title">{polygonProject.title}</h3>
-                  <p className="bento-card-tagline">{polygonProject.tagline}</p>
                 </div>
 
-                {/* <div className="bento-card-footer">
+                <div className="bento-card-footer">
                   <span className="bento-explore-link">
-                    <span>Lihat Arsitektur &amp; Fitur</span>
-                    <ArrowRight size={15} />
+                    <span>Explore Dual Showroom System</span>
+                    <ArrowRight size={14} />
                   </span>
-                </div> */}
+                </div>
               </div>
             </article>
           )}
 
-          {/* 4, 5, 6. SMALL CARDS: Rascal Republic, Polygon Bikes, Samara Lombok (SPAN 4) */}
+          {/* 4, 5, 6. CARDS: Polygon Bikes, Samara Lombok, Rascal Republic (SPAN 4) */}
           {smallProjects.map((project) => (
             <article
               key={project.id}
@@ -295,29 +309,38 @@ export const RecentProjectsSection = () => {
 
               <div className="bento-card-body">
                 <div>
-                  {/* <div className="bento-card-top-row">
+                  <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={project.client}>
-                      {getProjectBrandLogo(project.id, 24)}
+                      {getProjectBrandLogo(project.id, 22)}
                     </div>
-                  </div> */}
+                  </div>
 
                   <h3 className="bento-card-title">{project.title}</h3>
+                  <p className="bento-card-role-meta">
+                    {project.role} • {project.year}
+                  </p>
                   <p className="bento-card-tagline">{project.tagline}</p>
+
+                  <div className="bento-tech-row small">
+                    {project.primaryStack.map((tech, i) => (
+                      <span key={i} className="bento-tech-pill">{tech}</span>
+                    ))}
+                  </div>
                 </div>
 
-                {/* <div className="bento-card-footer">
+                <div className="bento-card-footer">
                   <span className="bento-explore-link">
-                    <span>Detail Proyek</span>
+                    <span>View Specifications</span>
                     <ArrowRight size={14} />
                   </span>
-                </div> */}
+                </div>
               </div>
             </article>
           ))}
         </div>
       </div>
 
-      {/* Modal Detail Proyek Spesifikasi Teknis */}
+      {/* Modal Detail Proyek Spesifikasi Teknis & Case Study */}
       {selectedProject && (
         <ProjectDetailModal
           project={selectedProject}

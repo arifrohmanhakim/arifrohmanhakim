@@ -23,7 +23,7 @@ export const Footer = () => {
             type="button"
             onClick={scrollToTop}
             className="footer-scroll-top"
-            aria-label="Kembali ke atas"
+            aria-label="Back to top"
           >
             <span>Top</span>
             <ArrowUp size={14} />

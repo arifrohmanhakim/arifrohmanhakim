@@ -58,6 +58,27 @@ body {
   width: 100%;
 }
 
+/* Accessibility: Skip Link */
+.skip-to-content-link {
+  position: absolute;
+  top: -9999px;
+  left: 16px;
+  background: var(--accent-dot);
+  color: #000000;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  z-index: 99999;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  transition: top 0.2s ease;
+}
+
+.skip-to-content-link:focus {
+  top: 16px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
@@ -251,6 +272,98 @@ button {
   border-radius: 50%;
   background: var(--accent-dot);
   box-shadow: 0 0 10px var(--accent-dot);
+}
+
+.hero-meta-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 8px 16px;
+  background: rgba(23, 26, 36, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-meta-dot {
+  color: var(--accent-dot);
+  font-weight: 700;
+}
+
+/* Hero Bottom Value & CTA Action Container */
+.hero-cta-action-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 6;
+  padding: 0 16px;
+}
+
+.hero-value-subheadline {
+  max-width: 640px;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.hero-cta-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.12);
+}
+
+.hero-btn-primary:hover {
+  background: #f59e0b;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e2e8f0;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.25s ease;
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
 
 /* Scroll Guide Indicator di Bagian Bawah Stage */
@@ -2120,6 +2233,37 @@ button {
     margin-top: 24px;
   }
 
+  .hero-top-meta-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .hero-cta-action-container {
+    margin-top: 28px;
+    padding: 0 12px;
+  }
+
+  .hero-value-subheadline {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-cta-buttons {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
   /* Apple Detail Modal Mobile */
   .apple-modal-backdrop {
     padding: 12px;
@@ -2210,6 +2354,479 @@ button {
     width: 34px;
     height: 34px;
   }
+}
+
+/* ====================================================
+   TECH STACK MARQUEE (GRAY TO BRIGHT WHITE ON HOVER)
+   ==================================================== */
+.tech-marquee-section {
+  padding: 34px 0;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.tech-marquee-label {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #64748b;
+  margin-bottom: 22px;
+  text-transform: uppercase;
+}
+
+.tech-marquee-wrapper {
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.tech-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  width: max-content;
+  animation: scrollMarquee 26s linear infinite;
+}
+
+.tech-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.tech-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  cursor: default;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-marquee-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: all 0.25s ease;
+}
+
+.tech-marquee-name {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+/* Hover State: Berubah menjadi putih terang */
+.tech-marquee-item:hover,
+.tech-marquee-item:hover .tech-marquee-icon,
+.tech-marquee-item:hover .tech-marquee-name {
+  color: #ffffff;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transform: translateY(-1px);
+}
+
+/* ====================================================
+   HERO IMPACT STRIP (KEY OUTCOMES IN HERO)
+   ==================================================== */
+.hero-impact-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 36px;
+  padding: 16px 28px;
+  background: rgba(18, 20, 29, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  flex-wrap: wrap;
+}
+
+.hero-impact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-impact-num {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f59e0b;
+  line-height: 1.2;
+}
+
+.hero-impact-desc {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.hero-impact-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ====================================================
+   BENTO PROJECTS CARD ENHANCEMENTS
+   ==================================================== */
+.bento-flagship-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.bento-role-text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f59e0b;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bento-meta-sep {
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.bento-year-text {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.bento-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  color: #fef3c7;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin: 12px 0 16px;
+}
+
+.bento-metric-badge strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.metric-badge-icon {
+  color: #f59e0b;
+}
+
+.bento-scope-note {
+  font-size: 0.86rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin-bottom: 18px;
+}
+
+.bento-scope-note strong {
+  color: #f8fafc;
+}
+
+.bento-metric-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.bento-card-role-meta {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ====================================================
+   CASE STUDY IN DETAIL MODAL
+   ==================================================== */
+.apple-modal-scope-box {
+  margin-top: 14px;
+  padding: 12px 16px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-radius: 14px;
+}
+
+.apple-scope-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.apple-scope-text {
+  font-size: 0.84rem;
+  color: #f1f5f9;
+  line-height: 1.5;
+}
+
+.case-study-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case-study-card {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.case-study-card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.case-study-card.challenge .case-study-card-head {
+  color: #f87171;
+}
+
+.case-study-card.solution .case-study-card-head {
+  color: #60a5fa;
+}
+
+.case-study-card.impact .case-study-card-head {
+  color: #34d399;
+}
+
+.case-study-card p {
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  line-height: 1.55;
+}
+
+/* ====================================================
+   TIMELINE (EXPERIENCE) ENHANCEMENTS
+   ==================================================== */
+.creative-journey-period-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.creative-journey-loc {
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+.creative-journey-head {
+  margin-bottom: 10px;
+}
+
+.creative-journey-company {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.company-icon {
+  color: #f59e0b;
+}
+
+.experience-metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.experience-metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fef3c7;
+}
+
+.creative-journey-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.creative-journey-highlight-item {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.creative-journey-highlight-item::before {
+  content: "•";
+  position: absolute;
+  left: 2px;
+  color: #f59e0b;
+  font-weight: bold;
+}
+
+/* ====================================================
+   CONTACT SECTION ACTIONS
+   ==================================================== */
+.creative-contact-primary-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.contact-main-btn {
+  background: #ffffff;
+  color: #000000;
+}
+
+.resume-download-btn {
+  background: #f59e0b;
+  color: #000000;
+}
+
+.copy-email-btn {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.creative-contact-secondary-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.creative-secondary-label {
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.creative-secondary-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.creative-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.creative-btn-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ====================================================
+   NAVBAR RESUME BUTTON & SERVICES SUBLINK
+   ==================================================== */
+.madison-resume-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fef3c7;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.madison-resume-nav-btn:hover {
+  background: #f59e0b;
+  color: #000000;
+}
+
+.service-sublink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f59e0b;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.service-sublink:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Contrast enhancement for WCAG AA */
+.creative-lead,
+.bento-flagship-desc,
+.bento-card-tagline,
+.creative-discipline-desc {
+  color: #cbd5e1 !important;
 }
 
 

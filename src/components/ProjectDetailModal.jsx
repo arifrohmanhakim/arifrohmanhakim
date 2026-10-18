@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, ExternalLink, ArrowRight, Layers } from 'lucide-react';
+import { X, ExternalLink, ArrowRight, Layers, CheckCircle2, AlertCircle, Cpu } from 'lucide-react';
 import { FaGooglePlay } from 'react-icons/fa6';
 import { getProjectBrandLogo } from './BrandLogos';
 
@@ -53,13 +53,13 @@ export const ProjectDetailModal = ({ project, onClose }) => {
         <button
           onClick={onClose}
           className="apple-modal-close-btn"
-          aria-label="Tutup modal"
+          aria-label="Close modal"
         >
           <X size={18} />
         </button>
 
         <div className="apple-modal-content-grid">
-          {/* Kolom Visual & Galeri Screenshot Nyata */}
+          {/* Visual Column & Real Screenshots Gallery */}
           <div className="apple-modal-media-col">
             <div className="apple-modal-image-wrapper">
               {currentDisplayImage ? (
@@ -76,7 +76,7 @@ export const ProjectDetailModal = ({ project, onClose }) => {
               )}
             </div>
 
-            {/* Navigasi Tab Screenshot Bersih & Elegan */}
+            {/* Screenshots Thumbnails */}
             {project.screenshots && project.screenshots.length > 1 && (
               <div style={{ marginTop: '16px' }}>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -89,7 +89,7 @@ export const ProjectDetailModal = ({ project, onClose }) => {
                         background: activeScreenshotIndex === idx ? '#f59e0b' : 'rgba(255, 255, 255, 0.06)',
                         color: activeScreenshotIndex === idx ? '#000000' : '#cbd5e1',
                         border: '1px solid rgba(255, 255, 255, 0.1)',
-                        padding: '5px 11px',
+                        padding: '5px 12px',
                         borderRadius: '9999px',
                         fontSize: '0.72rem',
                         fontWeight: '600',
@@ -105,12 +105,12 @@ export const ProjectDetailModal = ({ project, onClose }) => {
             )}
 
             <div className="apple-modal-quick-meta">
-              <span className="apple-modal-badge">{project.eyebrow}</span>
-              <span className="apple-modal-client">{project.client}</span>
+              <span className="apple-modal-badge">{project.role}</span>
+              <span className="apple-modal-client">{project.client} • {project.year}</span>
             </div>
           </div>
 
-          {/* Kolom Cerita & Eksplorasi Proyek */}
+          {/* Details & Case Study Column */}
           <div className="apple-modal-specs-col">
             <div className="apple-modal-header">
               <div className="apple-modal-brand-row">
@@ -121,17 +121,53 @@ export const ProjectDetailModal = ({ project, onClose }) => {
               </div>
               <h2 id="modal-project-title" className="apple-modal-title">{project.title}</h2>
               <p className="apple-modal-tagline">{project.tagline}</p>
+
+              {/* Transparent Scope & Attribution Banner */}
+              {project.scopeNote && (
+                <div className="apple-modal-scope-box">
+                  <span className="apple-scope-label">ROLE &amp; SCOPE CLARITY</span>
+                  <p className="apple-scope-text">{project.scopeNote}</p>
+                </div>
+              )}
             </div>
 
             <div className="apple-modal-body-scroll">
-              <div className="apple-modal-section">
-                <h4 className="apple-modal-section-title">Cerita Proyek</h4>
-                <p className="apple-modal-desc">{project.description}</p>
-              </div>
+              {/* Deep-Dive Case Study: Problem -> Architecture -> Impact */}
+              {project.caseStudy && (
+                <div className="apple-modal-section">
+                  <h4 className="apple-modal-section-title">Case Study &amp; Technical Depth</h4>
+                  <div className="case-study-cards-wrap">
+                    <div className="case-study-card challenge">
+                      <div className="case-study-card-head">
+                        <AlertCircle size={15} />
+                        <span>The Operational Challenge</span>
+                      </div>
+                      <p>{project.caseStudy.problem}</p>
+                    </div>
 
+                    <div className="case-study-card solution">
+                      <div className="case-study-card-head">
+                        <Cpu size={15} />
+                        <span>Architectural Solution</span>
+                      </div>
+                      <p>{project.caseStudy.solution}</p>
+                    </div>
+
+                    <div className="case-study-card impact">
+                      <div className="case-study-card-head">
+                        <CheckCircle2 size={15} />
+                        <span>Impact &amp; Results</span>
+                      </div>
+                      <p>{project.caseStudy.impact}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Engineering Specs */}
               {project.specs && (
                 <div className="apple-modal-section">
-                  <h4 className="apple-modal-section-title">Sorotan Rekayasa</h4>
+                  <h4 className="apple-modal-section-title">Engineering Specifications</h4>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     {project.specs.map((spec, i) => (
                       <div
@@ -143,7 +179,7 @@ export const ProjectDetailModal = ({ project, onClose }) => {
                           padding: '10px 14px'
                         }}
                       >
-                        <div style={{ fontSize: '0.7rem', color: '#f59e0b', fontWeight: '700', textTransform: 'uppercase' }}>
+                        <div style={{ fontSize: '0.7rem', color: '#f59e0b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                           {spec.label}
                         </div>
                         <div style={{ fontSize: '0.86rem', color: '#f1f5f9', marginTop: '2px' }}>
@@ -155,8 +191,9 @@ export const ProjectDetailModal = ({ project, onClose }) => {
                 </div>
               )}
 
+              {/* Tech Stack */}
               <div className="apple-modal-section">
-                <h4 className="apple-modal-section-title">Teknologi &amp; Pendekatan</h4>
+                <h4 className="apple-modal-section-title">Core Technology Stack</h4>
                 <div className="apple-modal-tech-cloud">
                   {project.techStack.map((tech, i) => (
                     <span key={i} className="apple-tech-pill">{tech}</span>
@@ -173,8 +210,8 @@ export const ProjectDetailModal = ({ project, onClose }) => {
                   rel="noopener noreferrer"
                   className="apple-primary-btn"
                 >
-                  <FaGooglePlay size={16} />
-                  <span>Buka di Google Play</span>
+                  <FaGooglePlay size={15} />
+                  <span>View on Google Play</span>
                   <ExternalLink size={14} />
                 </a>
               )}
@@ -186,7 +223,7 @@ export const ProjectDetailModal = ({ project, onClose }) => {
                   rel="noopener noreferrer"
                   className={project.playStoreUrl ? "apple-ghost-btn" : "apple-primary-btn"}
                 >
-                  <span>Buka Website Resmi</span>
+                  <span>Visit Production Platform</span>
                   <ExternalLink size={14} />
                 </a>
               )}

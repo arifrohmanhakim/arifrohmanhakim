@@ -1,28 +1,33 @@
 import React from 'react';
+import { ArrowRight, Mail } from 'lucide-react';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const HeroMadisonSection = ({ scrollY = 0 }) => {
-  // Animasi Zoom-in untuk teks "Hey, there"
   const scriptZoom = Math.min(1 + scrollY * 0.0012, 1.45);
   const scriptTranslateY = Math.round(scrollY * 0.12);
-
-  // Animasi Foto (Parallax lembut di tengah)
   const photoTranslateY = Math.round(scrollY * 0.06);
-
-  // Animasi Nama (Bergeser dari kiri ke kanan di DEPAN foto)
-  const nameShiftX = Math.round(scrollY * 0.42);
-
-  // Animasi Keahlian (Bergeser dari kanan ke kiri di BELAKANG foto)
-  const roleShiftX = Math.round(-scrollY * 0.42);
+  const nameShiftX = Math.round(scrollY * 0.38);
+  const roleShiftX = Math.round(-scrollY * 0.38);
 
   return (
     <section id="hero" className="madison-hero-section">
-      {/* <div className="madison-ambient-glow"></div> */}
-
       <div className="container madison-hero-wrapper">
+        {/* Top Meta Bar */}
+        <div className="hero-top-meta-bar">
+          <div className="opportunity-badge">
+            <span className="dot-pulse" aria-hidden="true" />
+            <span>Available for New Opportunities</span>
+          </div>
+          <div className="hero-meta-location">
+            <span>{PROFILE_DATA.location}</span>
+            <span className="hero-meta-dot">•</span>
+            <span>{PROFILE_DATA.timezone}</span>
+          </div>
+        </div>
+
         {/* Hero Grand Stage with 3D Depth Layering */}
         <div className="hero-centerpiece-stage">
-          {/* Layer 1 (Paling Belakang): Teks "Hey, there" Zoom In Saat Scroll */}
+          {/* Layer 1 (Back): Cinematic Script Typo (Precision & Systems) */}
           <div
             className="giant-script-background"
             style={{
@@ -31,11 +36,11 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             }}
             aria-hidden="true"
           >
-            <span className="script-word-left">Hey,</span>
-            <span className="script-word-right">there</span>
+            <span className="script-word-left">Precision</span>
+            <span className="script-word-right">Systems</span>
           </div>
 
-          {/* Layer 1.5 (Belakang Foto): Teks Keahlian Bergeser Kanan ke Kiri */}
+          {/* Layer 1.5 (Behind Portrait): Role Layer */}
           <div
             className="hero-role-layer-back"
             style={{
@@ -43,12 +48,12 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             }}
           >
             <div className="floating-role-box">
-              <span className="role-headline-bold">FRONTEND &</span>
+              <span className="role-headline-bold">FULL STACK &amp;</span>
               <span className="role-headline-bold">MOBILE ENGINEER</span>
             </div>
           </div>
 
-          {/* Layer 2 (Tengah): Foto Potret Utama di Tengah */}
+          {/* Layer 2 (Center): Portrait Image */}
           <div
             className="hero-center-portrait-wrap"
             style={{
@@ -64,7 +69,7 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             <div className="portrait-bottom-fade"></div>
           </div>
 
-          {/* Layer 3 (Depan Foto): Teks Nama Bergeser Kiri ke Kanan Melewati Foto */}
+          {/* Layer 3 (In Front): Name Layer */}
           <div
             className="hero-name-layer-front"
             style={{
@@ -83,7 +88,43 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             <div className="scroll-mouse-pill">
               <div className="scroll-mouse-wheel"></div>
             </div>
-            <span className="scroll-label">SCROLL TO DISCOVER</span>
+            <span className="scroll-label">SCROLL TO EXPLORE</span>
+          </div>
+        </div>
+
+        {/* Hero Bottom Value & CTA Action Container */}
+        <div className="hero-cta-action-container">
+          <p className="hero-value-subheadline">
+            {PROFILE_DATA.tagline}
+          </p>
+
+          <div className="hero-cta-buttons">
+            <a href="#projects" className="hero-btn-primary">
+              <span>View Selected Works</span>
+              <ArrowRight size={16} aria-hidden="true" />
+            </a>
+            <a href="#contact" className="hero-btn-secondary">
+              <Mail size={16} aria-hidden="true" />
+              <span>Get in Touch</span>
+            </a>
+          </div>
+
+          {/* Key Impact Metrics Highlights */}
+          <div className="hero-impact-strip">
+            <div className="hero-impact-item">
+              <span className="hero-impact-num">1,000+ Ha</span>
+              <span className="hero-impact-desc">Agro-monitoring deployed</span>
+            </div>
+            <div className="hero-impact-divider" aria-hidden="true"></div>
+            <div className="hero-impact-item">
+              <span className="hero-impact-num">33 Countries</span>
+              <span className="hero-impact-desc">Global platform reach</span>
+            </div>
+            <div className="hero-impact-divider" aria-hidden="true"></div>
+            <div className="hero-impact-item">
+              <span className="hero-impact-num">10+ Years</span>
+              <span className="hero-impact-desc">Engineering craft (since 2014)</span>
+            </div>
           </div>
         </div>
       </div>
