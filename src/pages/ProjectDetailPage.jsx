@@ -1,5 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight, ExternalLink, AlertCircle, Cpu, CheckCircle2, UserCheck, Building2, Calendar, Layers, Mail, FileText } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import {
+  ArrowLeft,
+  ArrowRight,
+  ExternalLink,
+  AlertCircle,
+  Cpu,
+  CheckCircle2,
+  UserCheck,
+  Building2,
+  Calendar,
+  Layers,
+  Mail,
+  FileText,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  X
+} from 'lucide-react';
 import { FaGooglePlay, FaGithub } from 'react-icons/fa6';
 import { PROJECTS_DATA, PROFILE_DATA } from '../constants/portfolioData';
 import { getProjectBrandLogo } from '../components/BrandLogos';
@@ -11,12 +28,14 @@ export const ProjectDetailPage = ({
   onSelectProject
 }) => {
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const project =
     PROJECTS_DATA.find((p) => p.id === projectId) || PROJECTS_DATA[0];
 
   useEffect(() => {
     setActiveScreenshotIndex(0);
+    setIsLightboxOpen(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [projectId]);
 
@@ -26,15 +45,40 @@ export const ProjectDetailPage = ({
   const nextProject =
     PROJECTS_DATA[(currentIndex + 1) % PROJECTS_DATA.length];
 
-  const currentDisplayImage =
-    project.screenshots && project.screenshots[activeScreenshotIndex]
-      ? project.screenshots[activeScreenshotIndex].url
-      : project.image;
+  const screenshots =
+    project.screenshots && project.screenshots.length > 0
+      ? project.screenshots
+      : [{ url: project.image, title: project.title }];
 
-  const currentScreenshotTitle =
-    project.screenshots && project.screenshots[activeScreenshotIndex]
-      ? project.screenshots[activeScreenshotIndex].title
-      : project.title;
+  const currentDisplayImage = screenshots[activeScreenshotIndex]?.url || project.image;
+  const currentScreenshotTitle = screenshots[activeScreenshotIndex]?.title || project.title;
+
+  const handlePrevScreenshot = useCallback(() => {
+    setActiveScreenshotIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+  }, [screenshots.length]);
+
+  const handleNextScreenshot = useCallback(() => {
+    setActiveScreenshotIndex((prev) => (prev + 1) % screenshots.length);
+  }, [screenshots.length]);
+
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsLightboxOpen(false);
+      if (e.key === 'ArrowLeft') handlePrevScreenshot();
+      if (e.key === 'ArrowRight') handleNextScreenshot();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [isLightboxOpen, handlePrevScreenshot, handleNextScreenshot]);
 
   const liveLink = project.liveUrl || project.demoUrl;
 
@@ -154,37 +198,190 @@ export const ProjectDetailPage = ({
           </div>
         </header>
 
-        {/* Visual Media Showcase */}
-        <section className="project-detail-media-card">
-          <div className="project-detail-hero-media">
+        {/* Visual Media Showcase & Studio Gallery */}
+        <section className="project-detail-media-card" aria-label="Visual Media Showcase">
+          {/* Studio Header Bar */}
+          <div className="detail-media-window-bar">
+            <div className="window-dots" aria-hidden="true">
+              <span className="dot dot-close" />
+              <span className="dot dot-minimize" />
+              <span className="dot dot-expand" />
+            </div>
+
+            <div className="window-center-title">
+              <Layers size={13} className="window-icon" />
+              <span className="window-title-text">{currentScreenshotTitle}</span>
+            </div>
+
+            <div className="window-actions">
+              <span className="window-counter-badge">
+                {activeScreenshotIndex + 1} / {screenshots.length}
+              </span>
+              <button
+                type="button"
+                className="window-expand-btn"
+                onClick={() => setIsLightboxOpen(true)}
+                aria-label="Enlarge screenshot in fullscreen"
+                title="Fullscreen / Enlarge"
+              >
+                <Maximize2 size={13} />
+                <span className="expand-label">Zoom</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Studio Hero Stage */}
+          <div
+            className="detail-hero-media-container"
+            onClick={() => setIsLightboxOpen(true)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setIsLightboxOpen(true);
+              }
+            }}
+            title="Click to enlarge"
+          >
+            {/* Ambient Blurred Backdrop */}
+            <div
+              className="detail-hero-backdrop-glow"
+              style={{ backgroundImage: `url(${currentDisplayImage})` }}
+              aria-hidden="true"
+            />
+
+            {/* Main Image */}
             <img
               src={currentDisplayImage}
               alt={currentScreenshotTitle}
               className="detail-hero-img"
+              key={currentDisplayImage}
             />
+
+            {/* Navigation Overlay Arrows */}
+            {screenshots.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  className="detail-nav-arrow detail-nav-prev"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevScreenshot();
+                  }}
+                  aria-label="Previous screenshot"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  type="button"
+                  className="detail-nav-arrow detail-nav-next"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNextScreenshot();
+                  }}
+                  aria-label="Next screenshot"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </>
+            )}
           </div>
 
-          {project.screenshots && project.screenshots.length > 0 && (
-            <div className="detail-media-caption-bar">
-              <span className="detail-caption-title">{currentScreenshotTitle}</span>
+          {/* Caption & Visual Thumbnail Strip */}
+          <div className="detail-media-caption-bar">
+            <div className="detail-caption-info">
+              <span className="detail-caption-label">Active Preview</span>
+              <p className="detail-caption-title">{currentScreenshotTitle}</p>
+            </div>
 
-              {project.screenshots.length > 1 && (
-                <div className="detail-gallery-thumbs">
-                  {project.screenshots.map((item, idx) => (
-                    <button
-                      key={idx}
-                      type="button"
-                      className={`detail-thumb-btn ${activeScreenshotIndex === idx ? 'active' : ''}`}
-                      onClick={() => setActiveScreenshotIndex(idx)}
-                    >
-                      {item.title}
-                    </button>
-                  ))}
-                </div>
+            {screenshots.length > 1 && (
+              <div
+                className="detail-gallery-thumbs"
+                role="tablist"
+                aria-label="Screenshots list"
+              >
+                {screenshots.map((item, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeScreenshotIndex === idx}
+                    className={`detail-thumb-preview ${activeScreenshotIndex === idx ? 'active' : ''}`}
+                    onClick={() => setActiveScreenshotIndex(idx)}
+                    title={item.title}
+                  >
+                    <img
+                      src={item.url}
+                      alt=""
+                      aria-hidden="true"
+                      className="detail-thumb-img"
+                    />
+                    <span className="detail-thumb-badge">{idx + 1}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Fullscreen Lightbox Modal */}
+        {isLightboxOpen && (
+          <div
+            className="detail-lightbox-backdrop"
+            onClick={() => setIsLightboxOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Screenshot lightbox"
+          >
+            <div className="detail-lightbox-bar" onClick={(e) => e.stopPropagation()}>
+              <div className="lightbox-title-wrap">
+                <span className="lightbox-title">{currentScreenshotTitle}</span>
+                <span className="lightbox-counter">
+                  {activeScreenshotIndex + 1} of {screenshots.length}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="detail-lightbox-close"
+                onClick={() => setIsLightboxOpen(false)}
+                aria-label="Close lightbox"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="detail-lightbox-content" onClick={(e) => e.stopPropagation()}>
+              {screenshots.length > 1 && (
+                <button
+                  type="button"
+                  className="lightbox-nav-btn lightbox-nav-prev"
+                  onClick={handlePrevScreenshot}
+                  aria-label="Previous screenshot"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+              )}
+
+              <img
+                src={currentDisplayImage}
+                alt={currentScreenshotTitle}
+                className="detail-lightbox-img"
+              />
+
+              {screenshots.length > 1 && (
+                <button
+                  type="button"
+                  className="lightbox-nav-btn lightbox-nav-next"
+                  onClick={handleNextScreenshot}
+                  aria-label="Next screenshot"
+                >
+                  <ChevronRight size={24} />
+                </button>
               )}
             </div>
-          )}
-        </section>
+          </div>
+        )}
 
         {/* Transparent Role & Scope Attribution Banner */}
         {project.scopeNote && (

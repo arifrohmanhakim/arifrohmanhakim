@@ -79,25 +79,34 @@ export const ProjectDetailModal = ({ project, onClose }) => {
             {/* Screenshots Thumbnails */}
             {project.screenshots && project.screenshots.length > 1 && (
               <div style={{ marginTop: '16px' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
                   {project.screenshots.map((item, idx) => (
                     <button
                       key={idx}
                       type="button"
                       onClick={() => setActiveScreenshotIndex(idx)}
                       style={{
-                        background: activeScreenshotIndex === idx ? '#f59e0b' : 'rgba(255, 255, 255, 0.06)',
-                        color: activeScreenshotIndex === idx ? '#000000' : '#cbd5e1',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        padding: '5px 12px',
-                        borderRadius: '9999px',
-                        fontSize: '0.72rem',
-                        fontWeight: '600',
+                        position: 'relative',
+                        width: '64px',
+                        height: '42px',
+                        borderRadius: '6px',
+                        overflow: 'hidden',
+                        border: activeScreenshotIndex === idx ? '2px solid #f59e0b' : '1px solid rgba(255, 255, 255, 0.15)',
+                        boxShadow: activeScreenshotIndex === idx ? '0 0 10px rgba(245, 158, 11, 0.4)' : 'none',
+                        background: '#090a0f',
                         cursor: 'pointer',
+                        padding: 0,
+                        flexShrink: 0,
+                        opacity: activeScreenshotIndex === idx ? 1 : 0.6,
                         transition: 'all 0.2s ease'
                       }}
+                      title={item.title}
                     >
-                      {item.title}
+                      <img
+                        src={item.url}
+                        alt=""
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
                     </button>
                   ))}
                 </div>

@@ -29,7 +29,7 @@ export const PROJECTS_DATA = [
     client: 'Great Giant Foods (GGF)',
     eyebrow: 'ENTERPRISE MOBILE PLATFORM',
     badge: 'Production Enterprise',
-    year: '2022 — 2024',
+    year: '2023 — 2026',
     role: 'Lead Mobile Engineer',
     primaryStack: ['React Native', 'Offline SQLite', 'GIS / Maps'],
     tagline: 'Precision agriculture mobile platform with offline-first sync.',
@@ -45,7 +45,27 @@ export const PROJECTS_DATA = [
       },
       {
         url: '/images/projects/ggf/ggf-mobile.png',
-        title: 'Field Supervisor Mobile App (Offline SQLite, Weather & GIS)'
+        title: 'Field Supervisor Dashboard (Offline SQLite, Weather & Sync)'
+      },
+      {
+        url: '/images/projects/ggf/ggf-fms-gis-location.png',
+        title: 'GIS Field Polygon & Satellite Observation Mapping'
+      },
+      {
+        url: '/images/projects/ggf/ggf-fms-ndvi-map.png',
+        title: 'Satellite & Drone NDVI Vegetation Index Analysis'
+      },
+      {
+        url: '/images/projects/ggf/ggf-fms-growth-chart.png',
+        title: 'Plant Weight Growth & Forcing Standard Evaluation'
+      },
+      {
+        url: '/images/projects/ggf/ggf-fms-approval-letter.png',
+        title: 'Exception Letter Digital Approval Workflow'
+      },
+      {
+        url: '/images/projects/ggf/ggf-fms-collaboration.png',
+        title: 'Supervisor Field Collaboration & Observation Threads'
       }
     ],
     mockupType: 'mobile',
