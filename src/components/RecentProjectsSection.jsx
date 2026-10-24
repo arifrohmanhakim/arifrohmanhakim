@@ -31,6 +31,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
 
     const updateParallax = () => {
       if (!isVisible || !card) return;
+      if (window.innerWidth <= 768) {
+        if (mobilePrimaryRef.current) mobilePrimaryRef.current.style.transform = '';
+        if (mobileSecondRef.current) mobileSecondRef.current.style.transform = '';
+        return;
+      }
       const rect = card.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 

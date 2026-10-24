@@ -674,9 +674,16 @@
     margin-bottom: 38px;
   }
 
+  .creative-eyebrow,
+  .creative-headline,
+  .creative-lead,
+  .creative-eyebrow-line {
+    transform: none !important;
+  }
+
   .creative-headline {
     font-size: clamp(1.85rem, 6.5vw, 2.4rem);
-    line-height: 1.2;
+    line-height: 1.25;
     margin-bottom: 14px;
   }
 

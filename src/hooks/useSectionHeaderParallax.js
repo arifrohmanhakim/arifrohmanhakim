@@ -19,21 +19,33 @@ export const useSectionHeaderParallax = () => {
     let isVisible = false;
     let rafId = null;
 
+    const resetStyles = () => {
+      if (eyebrow) eyebrow.style.transform = '';
+      if (headline) headline.style.transform = '';
+      if (lead) lead.style.transform = '';
+      eyebrowLines.forEach((line) => {
+        line.style.transform = '';
+      });
+    };
+
     const updateParallax = () => {
       if (!isVisible || !header) return;
+
+      // Di layar mobile atau tablet portrait, matikan parallax vertikal bertingkat agar teks tidak bertabrakan
+      if (window.innerWidth <= 768) {
+        resetStyles();
+        return;
+      }
 
       const rect = header.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Delta terhadap titik tengah layar (0 saat tepat di tengah pandangan mata)
       const centerDelta = (windowHeight * 0.5) - (rect.top + rect.height * 0.5);
 
-      // Pergerakan vertikal bertingkat mengikuti scroll atas-bawah
       const eyebrowY = Math.round(-centerDelta * 0.16);
       const headlineY = Math.round(-centerDelta * 0.10);
       const leadY = Math.round(-centerDelta * 0.05);
 
-      // Garis melebar simetris saat mendekati titik tengah layar
       const distRatio = Math.min(Math.abs(centerDelta) / (windowHeight * 0.6), 1);
       const lineScale = 1.2 - distRatio * 0.5;
 
@@ -75,10 +87,21 @@ export const useSectionHeaderParallax = () => {
 
     observer.observe(header);
 
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        resetStyles();
+      } else {
+        updateParallax();
+      }
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+
     return () => {
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
       if (rafId) cancelAnimationFrame(rafId);
+      resetStyles();
     };
   }, []);
 

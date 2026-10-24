@@ -4,18 +4,31 @@ import { PROFILE_DATA } from '../constants/portfolioData';
 
 export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
   const isLight = theme === 'light';
-  const scriptZoom = Math.min(1 + scrollY * 0.0012, 1.45);
-  const scriptTranslateY = Math.round(scrollY * 0.12);
-  const photoTranslateY = Math.round(scrollY * 0.06);
-  const nameShiftX = Math.round(scrollY * 0.38);
-  const roleShiftX = Math.round(-scrollY * 0.38);
+  const [isMobile, setIsMobile] = React.useState(false);
 
-  // Animasi naik 1-1 bertahap untuk teks nama dan role di light mode
-  const shiftY_IAM = Math.round(-scrollY * 0.52);
-  const shiftY_ARIF = Math.round(-Math.max(0, scrollY - 20) * 0.44);
-  const shiftY_ROHMAN = Math.round(-Math.max(0, scrollY - 45) * 0.36);
-  const shiftY_ROLE_1 = Math.round(-Math.max(0, scrollY - 15) * 0.48);
-  const shiftY_ROLE_2 = Math.round(-Math.max(0, scrollY - 35) * 0.38);
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Di mobile, scroll parallax dinonaktifkan sepenuhnya agar layout tetap stabil
+  const effectiveScrollY = isMobile ? 0 : scrollY;
+  const scriptZoom = Math.min(1 + effectiveScrollY * 0.0012, 1.45);
+  const scriptTranslateY = Math.round(effectiveScrollY * 0.12);
+  const photoTranslateY = Math.round(effectiveScrollY * 0.06);
+  const nameShiftX = Math.round(effectiveScrollY * 0.38);
+  const roleShiftX = Math.round(-effectiveScrollY * 0.38);
+
+  // Animasi naik 1-1 bertahap untuk teks nama dan role di desktop light mode
+  const shiftY_IAM = Math.round(-effectiveScrollY * 0.52);
+  const shiftY_ARIF = Math.round(-Math.max(0, effectiveScrollY - 20) * 0.44);
+  const shiftY_ROHMAN = Math.round(-Math.max(0, effectiveScrollY - 45) * 0.36);
+  const shiftY_ROLE_1 = Math.round(-Math.max(0, effectiveScrollY - 15) * 0.48);
+  const shiftY_ROLE_2 = Math.round(-Math.max(0, effectiveScrollY - 35) * 0.38);
 
   return (
     <section id="hero" className="madison-hero-section">
@@ -24,12 +37,15 @@ export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
         <div className="hero-top-meta-bar">
           <div className="opportunity-badge">
             <span className="dot-pulse" aria-hidden="true" />
-            <span>Available for New Opportunities</span>
+            <span className="meta-avail-full">Available for New Opportunities</span>
+            <span className="meta-avail-short">Available for Work</span>
           </div>
           <div className="hero-meta-location">
-            <span>{PROFILE_DATA.location}</span>
+            <span className="meta-loc-full">{PROFILE_DATA.location}</span>
+            <span className="meta-loc-short">Yogyakarta, ID</span>
             <span className="hero-meta-dot">•</span>
-            <span>{PROFILE_DATA.timezone}</span>
+            <span className="meta-tz-full">{PROFILE_DATA.timezone}</span>
+            <span className="meta-tz-short">WIB</span>
           </div>
         </div>
 
