@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGitHubProfile } from './hooks/useGitHubProfile';
 import { useScrollProgress } from './hooks/useScrollProgress';
+import { useTheme } from './hooks/useTheme';
 import { Navbar } from './components/Navbar';
 import { HeroMadisonSection } from './components/HeroMadisonSection';
 import { TechStackMarquee } from './components/TechStackMarquee';
@@ -16,6 +17,7 @@ import { ProjectDetailPage } from './pages/ProjectDetailPage';
 export const App = () => {
   const gitHubStats = useGitHubProfile();
   const { scrollY, isScrolled } = useScrollProgress();
+  const { theme, toggleTheme } = useTheme();
 
   const getRouteInfo = () => {
     const path = window.location.pathname.toLowerCase();
@@ -97,6 +99,8 @@ export const App = () => {
       <Navbar
         isScrolled={isScrolled}
         currentView={routeState.view}
+        theme={theme}
+        onToggleTheme={toggleTheme}
         onNavigateHome={navigateToHome}
         onNavigateProjects={navigateToProjects}
       />
@@ -115,7 +119,7 @@ export const App = () => {
           />
         ) : (
           <>
-            <HeroMadisonSection scrollY={scrollY} />
+            <HeroMadisonSection scrollY={scrollY} theme={theme} />
             <TechStackMarquee />
             <RecentProjectsSection
               onNavigateProjects={navigateToProjects}

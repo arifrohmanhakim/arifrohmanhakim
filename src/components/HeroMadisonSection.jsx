@@ -2,12 +2,20 @@ import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
-export const HeroMadisonSection = ({ scrollY = 0 }) => {
+export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
+  const isLight = theme === 'light';
   const scriptZoom = Math.min(1 + scrollY * 0.0012, 1.45);
   const scriptTranslateY = Math.round(scrollY * 0.12);
   const photoTranslateY = Math.round(scrollY * 0.06);
   const nameShiftX = Math.round(scrollY * 0.38);
   const roleShiftX = Math.round(-scrollY * 0.38);
+
+  // Animasi naik 1-1 bertahap untuk teks nama dan role di light mode
+  const shiftY_IAM = Math.round(-scrollY * 0.52);
+  const shiftY_ARIF = Math.round(-Math.max(0, scrollY - 20) * 0.44);
+  const shiftY_ROHMAN = Math.round(-Math.max(0, scrollY - 45) * 0.36);
+  const shiftY_ROLE_1 = Math.round(-Math.max(0, scrollY - 15) * 0.48);
+  const shiftY_ROLE_2 = Math.round(-Math.max(0, scrollY - 35) * 0.38);
 
   return (
     <section id="hero" className="madison-hero-section">
@@ -36,20 +44,41 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             }}
             aria-hidden="true"
           >
-            <span className="script-word-left">Precision</span>
-            <span className="script-word-right">Systems</span>
+            <span className="script-word-left">Hi</span>
+            <span className="script-word-right">There</span>
           </div>
 
-          {/* Layer 1.5 (Behind Portrait): Role Layer */}
+          {/* Layer 1.5 (Behind Portrait in Dark, Foreground in Light): Role Layer */}
           <div
             className="hero-role-layer-back"
             style={{
-              transform: `translate3d(${roleShiftX}px, 0, 0)`
+              transform: isLight
+                ? 'none'
+                : `translate3d(${roleShiftX}px, 0, 0)`
             }}
           >
             <div className="floating-role-box">
-              <span className="role-headline-bold">FULL STACK &amp;</span>
-              <span className="role-headline-bold">MOBILE ENGINEER</span>
+              {isLight ? (
+                <>
+                  <div
+                    className="floating-name-item-wrap"
+                    style={{ transform: `translate3d(0, ${shiftY_ROLE_1}px, 0)` }}
+                  >
+                    <span className="role-headline-bold">UI/UX</span>
+                  </div>
+                  <div
+                    className="floating-name-item-wrap"
+                    style={{ transform: `translate3d(0, ${shiftY_ROLE_2}px, 0)` }}
+                  >
+                    <span className="role-headline-bold">DESIGNER</span>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <span className="role-headline-bold">FULL STACK &amp;</span>
+                  <span className="role-headline-bold">MOBILE ENGINEER</span>
+                </>
+              )}
             </div>
           </div>
 
@@ -63,7 +92,13 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
             <img
               src="/arif_portrait.png"
               alt={PROFILE_DATA.name}
-              className="hero-large-portrait-img"
+              className="hero-large-portrait-img hero-portrait-dark"
+              loading="eager"
+            />
+            <img
+              src="/arif_design.jpeg"
+              alt={PROFILE_DATA.name}
+              className="hero-large-portrait-img hero-portrait-light"
               loading="eager"
             />
             <div className="portrait-bottom-fade"></div>
@@ -73,13 +108,30 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
           <div
             className="hero-name-layer-front"
             style={{
-              transform: `translate3d(${nameShiftX}px, 0, 0)`
+              transform: isLight
+                ? 'none'
+                : `translate3d(${nameShiftX}px, 0, 0)`
             }}
           >
             <div className="floating-name-box">
-              <span className="floating-iam-text">I AM</span>
-              <h1 className="floating-name-text">ARIF</h1>
-              <h1 className="floating-name-text">ROHMAN</h1>
+              <div
+                className="floating-name-item-wrap"
+                style={isLight ? { transform: `translate3d(0, ${shiftY_IAM}px, 0)` } : undefined}
+              >
+                <span className="floating-iam-text">I AM</span>
+              </div>
+              <div
+                className="floating-name-item-wrap"
+                style={isLight ? { transform: `translate3d(0, ${shiftY_ARIF}px, 0)` } : undefined}
+              >
+                <h1 className="floating-name-text">ARIF</h1>
+              </div>
+              <div
+                className="floating-name-item-wrap"
+                style={isLight ? { transform: `translate3d(0, ${shiftY_ROHMAN}px, 0)` } : undefined}
+              >
+                <h1 className="floating-name-text">ROHMAN</h1>
+              </div>
             </div>
           </div>
 

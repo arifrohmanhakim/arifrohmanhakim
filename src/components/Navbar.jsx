@@ -1,10 +1,17 @@
 import React from 'react';
-import { FileText, ArrowUpRight } from 'lucide-react';
+import { FileText, ArrowUpRight, Moon, Sun } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { LinkedinIcon } from './LinkedinIcon';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
-export const Navbar = ({ isScrolled, currentView = 'home', onNavigateHome, onNavigateProjects }) => {
+export const Navbar = ({
+  isScrolled,
+  currentView = 'home',
+  theme = 'dark',
+  onToggleTheme,
+  onNavigateHome,
+  onNavigateProjects
+}) => {
   const handleNavClick = (e, targetHash) => {
     if (currentView !== 'home') {
       e.preventDefault();
@@ -88,6 +95,16 @@ export const Navbar = ({ isScrolled, currentView = 'home', onNavigateHome, onNav
             <span>Resume</span>
             <ArrowUpRight size={12} />
           </a>
+
+          <button
+            type="button"
+            className="theme-switch-btn"
+            onClick={onToggleTheme}
+            aria-label={theme === 'dark' ? 'Beralih ke mode terang' : 'Beralih ke mode gelap'}
+            title={theme === 'dark' ? 'Beralih ke mode terang' : 'Beralih ke mode gelap'}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
 
           <a
             href={PROFILE_DATA.linkedinUrl}
