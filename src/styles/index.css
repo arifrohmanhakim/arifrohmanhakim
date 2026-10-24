@@ -542,7 +542,7 @@ button {
 }
 
 .hero-portrait-light {
-  display: none;
+  display: none !important;
 }
 
 html[data-theme="light"] .hero-portrait-dark {
@@ -2251,8 +2251,7 @@ html[data-theme="light"] .hero-portrait-light {
   }
 
   .giant-script-background,
-  .hero-scroll-indicator,
-  .portrait-bottom-fade {
+  .hero-scroll-indicator {
     display: none !important;
   }
 
@@ -2260,31 +2259,76 @@ html[data-theme="light"] .hero-portrait-light {
     position: relative;
     width: 100%;
     max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
     border-radius: 0;
     overflow: hidden;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 360px;
   }
 
-  .hero-large-portrait-img {
+  /* Dark mode mobile: Portrait cutout utuh tidak terpotong */
+  .hero-portrait-dark {
+    display: block !important;
+    width: auto;
+    max-width: 100%;
+    height: 380px;
+    max-height: 52vh;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 0;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+  }
+
+  .hero-portrait-light {
+    display: none !important;
+  }
+
+  .portrait-bottom-fade {
+    display: block !important;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, transparent 0%, #000000 90%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .hero-center-portrait-wrap::after {
+    display: none;
+  }
+
+  /* Light mode mobile: Foto landscape 16:9 full-width */
+  [data-theme="light"] .hero-portrait-dark {
+    display: none !important;
+  }
+
+  [data-theme="light"] .portrait-bottom-fade {
+    display: none !important;
+  }
+
+  [data-theme="light"] .hero-center-portrait-wrap {
+    min-height: auto;
+    display: block;
+  }
+
+  [data-theme="light"] .hero-portrait-light {
+    display: block !important;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 0;
-    display: block;
-    max-height: none;
-  }
-
-  [data-theme="light"] .hero-portrait-light {
-    border-radius: 0;
     border: none;
     box-shadow: none;
-    aspect-ratio: 16 / 9;
   }
 
-  /* Overlay gradient di bagian bawah foto agar teks nama & role terbaca tajam */
-  .hero-center-portrait-wrap::after {
+  [data-theme="light"] .hero-center-portrait-wrap::after {
+    display: block;
     content: "";
     position: absolute;
     inset: 0;
@@ -2309,7 +2353,18 @@ html[data-theme="light"] .hero-portrait-light {
     pointer-events: none;
   }
 
-  .hero-name-layer-front,
+  /* Nama & Role di Dark Mode Mobile: Beri jarak lebih lega dari tepi layar */
+  .hero-name-layer-front {
+    position: absolute !important;
+    bottom: 16px !important;
+    left: 24px !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: 4;
+    margin: 0 !important;
+    width: auto !important;
+  }
+
   [data-theme="light"] .hero-name-layer-front {
     position: absolute !important;
     bottom: 12px !important;
@@ -2349,7 +2404,17 @@ html[data-theme="light"] .hero-portrait-light {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
   }
 
-  .hero-role-layer-back,
+  .hero-role-layer-back {
+    position: absolute !important;
+    bottom: 16px !important;
+    right: 24px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 4;
+    margin: 0 !important;
+    width: auto !important;
+  }
+
   [data-theme="light"] .hero-role-layer-back {
     position: absolute !important;
     bottom: 12px !important;
