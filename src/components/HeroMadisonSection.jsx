@@ -112,7 +112,7 @@ export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
               loading="eager"
             />
             <img
-              src="/arif_design.jpeg"
+              src="/arif_design.jpg"
               alt={PROFILE_DATA.name}
               className="hero-large-portrait-img hero-portrait-light"
               loading="eager"
