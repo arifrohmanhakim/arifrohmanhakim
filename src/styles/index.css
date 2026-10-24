@@ -3111,7 +3111,7 @@ html[data-theme="light"] .hero-portrait-light {
 
 [data-theme="light"] .bento-flagship-title,
 [data-theme="light"] .bento-card-title {
-  color: #0f172a;
+  color: #ffffff;
 }
 
 [data-theme="light"] .bento-flagship-desc,
@@ -3119,11 +3119,11 @@ html[data-theme="light"] .hero-portrait-light {
 [data-theme="light"] .bento-scope-note,
 [data-theme="light"] .bento-year-text,
 [data-theme="light"] .bento-card-role-meta {
-  color: #475569;
+  color: #cbd5e1;
 }
 
 [data-theme="light"] .bento-scope-note strong {
-  color: #0f172a;
+  color: #cbd5e1;
 }
 
 [data-theme="light"] .bento-metric-badge {
@@ -3134,6 +3134,43 @@ html[data-theme="light"] .hero-portrait-light {
 
 [data-theme="light"] .bento-metric-badge strong {
   color: #78350f;
+}
+
+[data-theme="light"] .bento-archive-cta-btn {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
+}
+
+[data-theme="light"] .bento-archive-cta-btn:hover {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #090a0f;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(245, 158, 11, 0.28);
+}
+
+[data-theme="light"] .creative-discipline-card, [data-theme="light"] .creative-discipline-card:hover {
+  background-color: #ffffff;
+}
+
+[data-theme="light"] .creative-discipline-card .creative-discipline-title {
+  color: #000000;
+  font-weight: normal;
+}
+
+[data-theme="light"] .creative-journey-row {
+  background: rgb(241 245 249);
+}
+
+[data-theme="light"] .creative-journey-row .creative-journey-role {
+  color: #000000;
+  font-weight: normal;
+}
+
+[data-theme="light"] .creative-journey-row:hover {
+  background-color: #ffffff;
 }
 
 [data-theme="light"] .apple-bento-card {
@@ -3189,6 +3226,10 @@ html[data-theme="light"] .hero-portrait-light {
   background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12) 0%, rgba(255, 255, 255, 0.95) 60%);
   border-color: rgba(0, 0, 0, 0.08);
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .creative-contact-headline {
+  color: #000000;
 }
 
 [data-theme="light"] .contact-main-btn {
