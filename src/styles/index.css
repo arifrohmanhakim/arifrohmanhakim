@@ -1,38 +1,10 @@
-:root {
+:root,
+[data-theme="light"] {
   --font-sans: 'Google Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Cal Sans', 'Source Serif 4', Georgia, serif;
   --font-serif: 'Source Serif 4', 'Cal Sans', 'Instrument Serif', Georgia, serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Default Dark Theme */
-  --bg-page: #000000;
-  --bg-hero: radial-gradient(ellipse at 50% 15%, rgba(245, 158, 11, 0.16) 0%, rgba(245, 158, 11, 0.03) 48%, #090a0f 82%);
-  --bg-card: #10121a;
-  --bg-subtle: #171a24;
-
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --text-script: #ffffff;
-
-  --border-line: rgba(255, 255, 255, 0.09);
-  --border-hover: rgba(255, 255, 255, 0.22);
-
-  --accent-dot: #f59e0b;
-  --accent-black: #f8fafc;
-
-  --radius-pill: 9999px;
-  --radius-card: 28px;
-
-  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.35);
-  --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.55);
-
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Light Theme Variables */
-[data-theme="light"] {
   --bg-page: #ffffff;
   --bg-hero: radial-gradient(ellipse at 50% 15%, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0.02) 48%, #f1f5f9 82%);
   --bg-card: #ffffff;
@@ -49,8 +21,14 @@
   --accent-dot: #f59e0b;
   --accent-black: #0f172a;
 
+  --radius-pill: 9999px;
+  --radius-card: 28px;
+
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
   --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.1);
+
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -188,7 +166,6 @@ button {
   gap: 12px;
 }
 
-.theme-switch-btn,
 .github-ghost-btn {
   display: inline-flex;
   align-items: center;
@@ -197,26 +174,18 @@ button {
   height: 38px;
   border-radius: var(--radius-pill);
   color: var(--text-main);
-  border: 1px solid var(--border-line);
-  background: rgba(23, 26, 36, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition: all var(--transition-fast);
 }
 
-.theme-switch-btn svg {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.theme-switch-btn:hover svg {
-  transform: rotate(20deg) scale(1.1);
-}
-
-.theme-switch-btn:hover,
 .github-ghost-btn:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.05);
   transform: translateY(-1px);
 }
 
@@ -514,53 +483,57 @@ button {
   display: block;
 }
 
-/* Layer 2 (Tengah): Foto Utama di Tengah & Diperbesar */
+/* Layer 2 (Tengah): Foto Utama di Tengah */
 .hero-center-portrait-wrap {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 580px;
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   will-change: transform;
   transition: transform 0.05s ease-out;
 }
 
-.hero-large-portrait-img {
+.hero-center-portrait-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 0.35) 80%,
+    rgba(0, 0, 0, 0.68) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-large-portrait-img,
+.hero-portrait-light {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 180px);
-  max-height: calc(100dvh - 180px);
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.14));
-}
-
-.hero-portrait-dark {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   display: block;
 }
 
-.hero-portrait-light {
-  display: none !important;
-}
+@media (min-width: 769px) {
+  .hero-portrait-light {
+    border-radius: var(--radius-card);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.09);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
 
-html[data-theme="light"] .hero-portrait-dark {
-  display: none !important;
-}
+  .hero-center-portrait-wrap {
+    border-radius: var(--radius-card);
+  }
 
-html[data-theme="light"] .hero-portrait-light {
-  display: block !important;
-}
-
-.portrait-bottom-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(180deg, transparent 0%, var(--bg-page) 100%);
-  pointer-events: none;
+  .hero-center-portrait-wrap::after {
+    border-radius: var(--radius-card);
+  }
 }
 
 /* Layer 3 (Depan Foto): Teks Nama Meluncur Kiri ke Kanan Melewati Bagian Depan Foto */
@@ -2178,11 +2151,6 @@ html[data-theme="light"] .hero-portrait-light {
     display: none;
   }
 
-  .theme-switch-btn {
-    width: 36px;
-    height: 36px;
-  }
-
   .madison-pill-btn {
     padding: 8px 16px;
     font-size: 0.82rem;
@@ -2269,17 +2237,12 @@ html[data-theme="light"] .hero-portrait-light {
     font-size: clamp(2.8rem, 9.2vw, 3.1rem);
     line-height: 1;
     letter-spacing: -0.01em;
-    opacity: 1;
-    color: var(--text-script);
+    opacity: 0.16;
+    color: rgba(15, 23, 42, 0.3);
     pointer-events: none;
     z-index: 0;
     transform: none !important;
     user-select: none;
-  }
-
-  [data-theme="light"] .giant-script-background {
-    opacity: 0.16;
-    color: rgba(15, 23, 42, 0.3);
   }
 
   .hero-center-portrait-wrap {
@@ -2290,60 +2253,11 @@ html[data-theme="light"] .hero-portrait-light {
     border-radius: 0;
     overflow: hidden;
     z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 360px;
-  }
-
-  /* Dark mode mobile: Portrait cutout utuh tidak terpotong */
-  .hero-portrait-dark {
-    display: block !important;
-    width: auto;
-    max-width: 100%;
-    height: 380px;
-    max-height: 52vh;
-    object-fit: contain;
-    margin: 0 auto;
-    border-radius: 0;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
-  }
-
-  .hero-portrait-light {
-    display: none !important;
-  }
-
-  .portrait-bottom-fade {
-    display: block !important;
-    height: 70px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg, transparent 0%, #000000 90%);
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .hero-center-portrait-wrap::after {
-    display: none;
-  }
-
-  /* Light mode mobile: Foto landscape 16:9 full-width */
-  [data-theme="light"] .hero-portrait-dark {
-    display: none !important;
-  }
-
-  [data-theme="light"] .portrait-bottom-fade {
-    display: none !important;
-  }
-
-  [data-theme="light"] .hero-center-portrait-wrap {
     min-height: auto;
     display: block;
   }
 
-  [data-theme="light"] .hero-portrait-light {
+  .hero-portrait-light {
     display: block !important;
     width: 100%;
     height: auto;
@@ -2354,7 +2268,7 @@ html[data-theme="light"] .hero-portrait-light {
     box-shadow: none;
   }
 
-  [data-theme="light"] .hero-center-portrait-wrap::after {
+  .hero-center-portrait-wrap::after {
     display: block;
     content: "";
     position: absolute;
@@ -2373,26 +2287,12 @@ html[data-theme="light"] .hero-portrait-light {
   /* Nama & Role Masuk ke Dalam Area Gambar (Overlay Bawah Foto) */
   .hero-name-layer-front,
   .hero-role-layer-back,
-  .floating-name-item-wrap,
-  [data-theme="light"] .hero-name-layer-front,
-  [data-theme="light"] .hero-role-layer-back {
+  .floating-name-item-wrap {
     transform: none !important;
     pointer-events: none;
   }
 
-  /* Nama & Role di Dark Mode Mobile: Beri jarak lebih lega dari tepi layar */
   .hero-name-layer-front {
-    position: absolute !important;
-    bottom: 16px !important;
-    left: 24px !important;
-    right: auto !important;
-    top: auto !important;
-    z-index: 4;
-    margin: 0 !important;
-    width: auto !important;
-  }
-
-  [data-theme="light"] .hero-name-layer-front {
     position: absolute !important;
     bottom: 12px !important;
     left: 14px !important;
@@ -2403,16 +2303,14 @@ html[data-theme="light"] .hero-portrait-light {
     width: auto !important;
   }
 
-  .floating-name-box,
-  [data-theme="light"] .floating-name-box {
+  .floating-name-box {
     align-items: flex-start;
     text-align: left;
     margin: 0;
     padding: 0;
   }
 
-  .floating-iam-text,
-  [data-theme="light"] .floating-iam-text {
+  .floating-iam-text {
     font-size: 0.72rem;
     font-weight: 700;
     color: #ffffff;
@@ -2421,8 +2319,7 @@ html[data-theme="light"] .hero-portrait-light {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
   }
 
-  .floating-name-text,
-  [data-theme="light"] .floating-name-text {
+  .floating-name-text {
     font-size: clamp(1.2rem, 5.2vw, 1.55rem);
     font-weight: 800;
     line-height: 1.05;
@@ -2433,17 +2330,6 @@ html[data-theme="light"] .hero-portrait-light {
 
   .hero-role-layer-back {
     position: absolute !important;
-    bottom: 16px !important;
-    right: 24px !important;
-    left: auto !important;
-    top: auto !important;
-    z-index: 4;
-    margin: 0 !important;
-    width: auto !important;
-  }
-
-  [data-theme="light"] .hero-role-layer-back {
-    position: absolute !important;
     bottom: 12px !important;
     right: 14px !important;
     left: auto !important;
@@ -2453,16 +2339,14 @@ html[data-theme="light"] .hero-portrait-light {
     width: auto !important;
   }
 
-  .floating-role-box,
-  [data-theme="light"] .floating-role-box {
+  .floating-role-box {
     align-items: flex-end;
     text-align: right;
     margin: 0;
     padding: 0;
   }
 
-  .role-headline-bold,
-  [data-theme="light"] .role-headline-bold {
+  .role-headline-bold {
     font-size: clamp(0.72rem, 3.2vw, 0.84rem);
     font-weight: 700;
     color: #f1f5f9;
@@ -2560,11 +2444,6 @@ html[data-theme="light"] .hero-portrait-light {
 
   .madison-nav-actions {
     gap: 6px;
-  }
-
-  .theme-switch-btn {
-    width: 32px;
-    height: 32px;
   }
 
   .madison-pill-btn {
@@ -3093,7 +2972,6 @@ html[data-theme="light"] .hero-portrait-light {
   border-bottom: 1px solid var(--border-line);
 }
 
-[data-theme="light"] .theme-switch-btn,
 [data-theme="light"] .github-ghost-btn {
   background: rgba(255, 255, 255, 0.9);
   border-color: rgba(0, 0, 0, 0.1);
@@ -3101,7 +2979,6 @@ html[data-theme="light"] .hero-portrait-light {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
-[data-theme="light"] .theme-switch-btn:hover,
 [data-theme="light"] .github-ghost-btn:hover {
   border-color: rgba(0, 0, 0, 0.25);
   background: rgba(0, 0, 0, 0.05);
@@ -3138,10 +3015,6 @@ html[data-theme="light"] .hero-portrait-light {
 }
 
 /* Hero Section Light Mode: Fullwidth arif_design.jpeg */
-[data-theme="light"] .hero-portrait-dark {
-  display: none !important;
-}
-
 [data-theme="light"] .hero-portrait-light {
   display: block !important;
   width: 100%;
@@ -3191,10 +3064,6 @@ html[data-theme="light"] .hero-portrait-light {
 [data-theme="light"] .hero-centerpiece-stage {
   min-height: auto;
   align-items: center;
-}
-
-[data-theme="light"] .portrait-bottom-fade {
-  display: none;
 }
 
 @media (min-width: 769px) {

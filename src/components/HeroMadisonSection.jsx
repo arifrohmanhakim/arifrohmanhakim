@@ -2,8 +2,7 @@ import React from 'react';
 import { ArrowRight, Mail } from 'lucide-react';
 import { PROFILE_DATA } from '../constants/portfolioData';
 
-export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
-  const isLight = theme === 'light';
+export const HeroMadisonSection = ({ scrollY = 0 }) => {
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
@@ -15,15 +14,11 @@ export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Di mobile, scroll parallax dinonaktifkan sepenuhnya agar layout tetap stabil
   const effectiveScrollY = isMobile ? 0 : scrollY;
   const scriptZoom = Math.min(1 + effectiveScrollY * 0.0012, 1.45);
   const scriptTranslateY = Math.round(effectiveScrollY * 0.12);
   const photoTranslateY = Math.round(effectiveScrollY * 0.06);
-  const nameShiftX = Math.round(effectiveScrollY * 0.38);
-  const roleShiftX = Math.round(-effectiveScrollY * 0.38);
 
-  // Animasi naik 1-1 bertahap untuk teks nama dan role di desktop light mode
   const shiftY_IAM = Math.round(-effectiveScrollY * 0.52);
   const shiftY_ARIF = Math.round(-Math.max(0, effectiveScrollY - 20) * 0.44);
   const shiftY_ROHMAN = Math.round(-Math.max(0, effectiveScrollY - 45) * 0.36);
@@ -64,37 +59,21 @@ export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
             <span className="script-word-right">There</span>
           </div>
 
-          {/* Layer 1.5 (Behind Portrait in Dark, Foreground in Light): Role Layer */}
-          <div
-            className="hero-role-layer-back"
-            style={{
-              transform: isLight
-                ? 'none'
-                : `translate3d(${roleShiftX}px, 0, 0)`
-            }}
-          >
+          {/* Layer 1.5: Role Layer */}
+          <div className="hero-role-layer-back">
             <div className="floating-role-box">
-              {isLight ? (
-                <>
-                  <div
-                    className="floating-name-item-wrap"
-                    style={{ transform: `translate3d(0, ${shiftY_ROLE_1}px, 0)` }}
-                  >
-                    <span className="role-headline-bold">UI/UX</span>
-                  </div>
-                  <div
-                    className="floating-name-item-wrap"
-                    style={{ transform: `translate3d(0, ${shiftY_ROLE_2}px, 0)` }}
-                  >
-                    <span className="role-headline-bold">DESIGNER</span>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <span className="role-headline-bold">FULL STACK &amp;</span>
-                  <span className="role-headline-bold">MOBILE ENGINEER</span>
-                </>
-              )}
+              <div
+                className="floating-name-item-wrap"
+                style={{ transform: `translate3d(0, ${shiftY_ROLE_1}px, 0)` }}
+              >
+                <span className="role-headline-bold">UI/UX</span>
+              </div>
+              <div
+                className="floating-name-item-wrap"
+                style={{ transform: `translate3d(0, ${shiftY_ROLE_2}px, 0)` }}
+              >
+                <span className="role-headline-bold">DESIGNER</span>
+              </div>
             </div>
           </div>
 
@@ -106,45 +85,31 @@ export const HeroMadisonSection = ({ scrollY = 0, theme = 'dark' }) => {
             }}
           >
             <img
-              src="/arif_portrait.png"
-              alt={PROFILE_DATA.name}
-              className="hero-large-portrait-img hero-portrait-dark"
-              loading="eager"
-            />
-            <img
               src="/arif_design.jpg"
               alt={PROFILE_DATA.name}
               className="hero-large-portrait-img hero-portrait-light"
               loading="eager"
             />
-            <div className="portrait-bottom-fade"></div>
           </div>
 
           {/* Layer 3 (In Front): Name Layer */}
-          <div
-            className="hero-name-layer-front"
-            style={{
-              transform: isLight
-                ? 'none'
-                : `translate3d(${nameShiftX}px, 0, 0)`
-            }}
-          >
+          <div className="hero-name-layer-front">
             <div className="floating-name-box">
               <div
                 className="floating-name-item-wrap"
-                style={isLight ? { transform: `translate3d(0, ${shiftY_IAM}px, 0)` } : undefined}
+                style={{ transform: `translate3d(0, ${shiftY_IAM}px, 0)` }}
               >
                 <span className="floating-iam-text">I AM</span>
               </div>
               <div
                 className="floating-name-item-wrap"
-                style={isLight ? { transform: `translate3d(0, ${shiftY_ARIF}px, 0)` } : undefined}
+                style={{ transform: `translate3d(0, ${shiftY_ARIF}px, 0)` }}
               >
                 <h1 className="floating-name-text">ARIF</h1>
               </div>
               <div
                 className="floating-name-item-wrap"
-                style={isLight ? { transform: `translate3d(0, ${shiftY_ROHMAN}px, 0)` } : undefined}
+                style={{ transform: `translate3d(0, ${shiftY_ROHMAN}px, 0)` }}
               >
                 <h1 className="floating-name-text">ROHMAN</h1>
               </div>

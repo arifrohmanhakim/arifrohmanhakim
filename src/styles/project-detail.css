@@ -1,12 +1,12 @@
 /* ====================================================
    PROJECT DETAIL PAGE STYLING
-   Solid, Minimalist, Premium Dark Editorial System
+   Solid, Minimalist, Premium Editorial System
    ==================================================== */
 
 .project-detail-wrapper {
   min-height: 100vh;
-  background-color: #000000;
-  color: #f8fafc;
+  background-color: var(--bg-page);
+  color: var(--text-main);
   padding-top: 100px;
   padding-bottom: 90px;
   position: relative;

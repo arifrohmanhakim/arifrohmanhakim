@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, ArrowUpRight, Moon, Sun } from 'lucide-react';
+import { FileText, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { LinkedinIcon } from './LinkedinIcon';
 import { PROFILE_DATA } from '../constants/portfolioData';
@@ -7,8 +7,6 @@ import { PROFILE_DATA } from '../constants/portfolioData';
 export const Navbar = ({
   isScrolled,
   currentView = 'home',
-  theme = 'dark',
-  onToggleTheme,
   onNavigateHome,
   onNavigateProjects
 }) => {
@@ -46,13 +44,6 @@ export const Navbar = ({
         {/* Center Menu Links */}
         <nav className="madison-nav-menu" aria-label="Primary Navigation">
           <a
-            href="#hero"
-            className="madison-nav-link"
-            onClick={(e) => handleNavClick(e, '#hero')}
-          >
-            Home
-          </a>
-          <a
             href="#projects"
             className="madison-nav-link"
             onClick={(e) => handleNavClick(e, '#projects')}
@@ -73,13 +64,6 @@ export const Navbar = ({
           >
             Services
           </a>
-          <a
-            href="#contact"
-            className="madison-nav-link"
-            onClick={(e) => handleNavClick(e, '#contact')}
-          >
-            Contact
-          </a>
         </nav>
 
         {/* Right Actions */}
@@ -95,16 +79,6 @@ export const Navbar = ({
             <span>Resume</span>
             <ArrowUpRight size={12} />
           </a>
-
-          <button
-            type="button"
-            className="theme-switch-btn"
-            onClick={onToggleTheme}
-            aria-label={theme === 'dark' ? 'Beralih ke mode terang' : 'Beralih ke mode gelap'}
-            title={theme === 'dark' ? 'Beralih ke mode terang' : 'Beralih ke mode gelap'}
-          >
-            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
 
           <a
             href={PROFILE_DATA.linkedinUrl}

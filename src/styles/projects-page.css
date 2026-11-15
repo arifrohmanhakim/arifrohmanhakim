@@ -1,12 +1,12 @@
 /* ====================================================
    ALL PROJECTS PAGE STYLING
-   Clean, Modern, Dark Editorial Theme
+   Clean, Modern Editorial Theme
    ==================================================== */
 
 .projects-page-wrapper {
   min-height: 100vh;
-  background-color: #000000;
-  color: #f8fafc;
+  background-color: var(--bg-page);
+  color: var(--text-main);
   padding-top: 100px;
   padding-bottom: 80px;
   position: relative;

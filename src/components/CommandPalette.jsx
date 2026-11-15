@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ExternalLink, Terminal, Volume2, VolumeX, Moon, Sun, X, Laptop } from 'lucide-react';
+import { Search, ExternalLink, Terminal, Volume2, VolumeX, X, Laptop } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 import { PROJECTS_DATA, PROFILE_DATA } from '../constants/portfolioData';
 
@@ -8,8 +8,6 @@ export const CommandPalette = ({
   onClose,
   isRetroMode,
   onToggleRetro,
-  theme,
-  onToggleTheme,
   isAudioEnabled,
   onToggleAudio,
   onPlaySound
@@ -83,20 +81,6 @@ export const CommandPalette = ({
               {isAudioEnabled ? <VolumeX size={16} /> : <Volume2 size={16} />}
               <span>{isAudioEnabled ? 'Matikan Suara Audio Synth' : 'Aktifkan Suara Audio Synth'}</span>
               <kbd className="palette-kbd">Sound</kbd>
-            </button>
-
-            <button
-              type="button"
-              className="palette-item"
-              onClick={() => {
-                onToggleTheme();
-                onPlaySound?.(500, 'sine', 0.04);
-                onClose();
-              }}
-            >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
-              <span>Ganti Mode Terang / Gelap</span>
-              <kbd className="palette-kbd">Theme</kbd>
             </button>
           </div>
         </div>
