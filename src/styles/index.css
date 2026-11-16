@@ -468,16 +468,18 @@ button {
   display: flex;
   flex-direction: column;
   text-align: right;
-  max-width: 480px;
+  max-width: 460px;
+  gap: 6px;
   overflow: hidden;
   padding: 2px 4px;
 }
 
 .role-headline-bold {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  font-weight: 900;
-  line-height: 1.05;
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
   color: var(--text-main);
   white-space: nowrap;
   display: block;
@@ -2344,13 +2346,14 @@ button {
     text-align: right;
     margin: 0;
     padding: 0;
+    gap: 3px;
   }
 
   .role-headline-bold {
-    font-size: clamp(0.72rem, 3.2vw, 0.84rem);
+    font-size: clamp(0.7rem, 2.9vw, 0.82rem);
     font-weight: 700;
     color: #f1f5f9;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     line-height: 1.25;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     white-space: normal;

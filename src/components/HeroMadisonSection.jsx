@@ -22,8 +22,8 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
   const shiftY_IAM = Math.round(-effectiveScrollY * 0.52);
   const shiftY_ARIF = Math.round(-Math.max(0, effectiveScrollY - 20) * 0.44);
   const shiftY_ROHMAN = Math.round(-Math.max(0, effectiveScrollY - 45) * 0.36);
-  const shiftY_ROLE_1 = Math.round(-Math.max(0, effectiveScrollY - 15) * 0.48);
-  const shiftY_ROLE_2 = Math.round(-Math.max(0, effectiveScrollY - 35) * 0.38);
+  const shiftY_ROLE_1 = Math.round(-Math.max(0, effectiveScrollY - 15) * 0.46);
+  const shiftY_ROLE_2 = Math.round(-Math.max(0, effectiveScrollY - 35) * 0.36);
 
   return (
     <section id="hero" className="madison-hero-section">
@@ -66,13 +66,13 @@ export const HeroMadisonSection = ({ scrollY = 0 }) => {
                 className="floating-name-item-wrap"
                 style={{ transform: `translate3d(0, ${shiftY_ROLE_1}px, 0)` }}
               >
-                <span className="role-headline-bold">UI/UX</span>
+                <span className="role-headline-bold">UI/UX DESIGNER</span>
               </div>
               <div
                 className="floating-name-item-wrap"
                 style={{ transform: `translate3d(0, ${shiftY_ROLE_2}px, 0)` }}
               >
-                <span className="role-headline-bold">DESIGNER</span>
+                <span className="role-headline-bold">FRONTEND &amp; MOBILE</span>
               </div>
             </div>
           </div>

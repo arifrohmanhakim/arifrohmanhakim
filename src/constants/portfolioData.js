@@ -1,7 +1,7 @@
 export const PROFILE_DATA = {
   name: 'Arif Rohman Hakim',
   handle: 'arifrohmanhakim',
-  role: 'Full Stack & Mobile Engineer',
+  role: 'UI/UX Designer, Frontend & Mobile Developer',
   tagline: 'Building enterprise-grade offline-first mobile systems and high-performance modern web platforms.',
   location: 'Yogyakarta, Indonesia',
   timezone: 'WIB (UTC+7)',
