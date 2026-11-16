@@ -217,11 +217,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
 
               <div className="bento-card-body">
                 <div>
-                  <div className="bento-card-top-row">
+                  {/* <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={centrisProject.client}>
                       {getProjectBrandLogo(centrisProject.id, 24)}
                     </div>
-                  </div>
+                  </div> */}
 
                   <h3 className="bento-card-title">{centrisProject.title}</h3>
                   <p className="bento-card-role-meta">
@@ -229,11 +229,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
                   </p>
                   <p className="bento-card-tagline">{centrisProject.tagline}</p>
 
-                  <div className="bento-tech-row small">
+                  {/* <div className="bento-tech-row small">
                     {centrisProject.primaryStack.map((tech, i) => (
                       <span key={i} className="bento-tech-pill">{tech}</span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="bento-card-footer">
@@ -264,11 +264,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
 
               <div className="bento-card-body">
                 <div>
-                  <div className="bento-card-top-row">
+                  {/* <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={astraProject.client}>
                       {getProjectBrandLogo(astraProject.id, 24)}
                     </div>
-                  </div>
+                  </div> */}
 
                   <h3 className="bento-card-title">{astraProject.title}</h3>
                   <p className="bento-card-role-meta">
@@ -276,11 +276,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
                   </p>
                   <p className="bento-card-tagline">{astraProject.tagline}</p>
 
-                  <div className="bento-tech-row small">
+                  {/* <div className="bento-tech-row small">
                     {astraProject.primaryStack.map((tech, i) => (
                       <span key={i} className="bento-tech-pill">{tech}</span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="bento-card-footer">
@@ -312,11 +312,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
 
               <div className="bento-card-body">
                 <div>
-                  <div className="bento-card-top-row">
+                  {/* <div className="bento-card-top-row">
                     <div className="bento-brand-badge" title={project.client}>
                       {getProjectBrandLogo(project.id, 22)}
                     </div>
-                  </div>
+                  </div> */}
 
                   <h3 className="bento-card-title">{project.title}</h3>
                   <p className="bento-card-role-meta">
@@ -324,11 +324,11 @@ export const RecentProjectsSection = ({ onNavigateProjects, onSelectProject }) =
                   </p>
                   <p className="bento-card-tagline">{project.tagline}</p>
 
-                  <div className="bento-tech-row small">
+                  {/* <div className="bento-tech-row small">
                     {project.primaryStack.map((tech, i) => (
                       <span key={i} className="bento-tech-pill">{tech}</span>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="bento-card-footer">
