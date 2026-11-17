@@ -3178,63 +3178,128 @@ button {
 }
 
 [data-theme="light"] .bento-card {
-  background: #ffffff;
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.05);
+  background: #0b0f19;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 [data-theme="light"] .bento-card:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.1), 0 0 30px rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32), 0 0 35px rgba(245, 158, 11, 0.16);
 }
 
 [data-theme="light"] .bento-flagship-title {
   color: #ffffff;
-}
-
-[data-theme="light"] .bento-flagship-desc {
-  color: #f1f5f9;
-}
-
-[data-theme="light"] .bento-card-title {
-  color: #0f172a;
   font-weight: 500;
 }
 
-[data-theme="light"] .bento-card-tagline {
-  color: #334155;
+[data-theme="light"] .bento-flagship-tagline {
+  color: #e2e8f0;
 }
 
-[data-theme="light"] .bento-card-role-meta {
-  color: #b45309;
-  font-weight: 600;
+[data-theme="light"] .bento-flagship-desc {
+  color: #cbd5e1;
 }
 
-[data-theme="light"] .bento-scope-note,
+[data-theme="light"] .bento-role-text {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+[data-theme="light"] .bento-meta-sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 [data-theme="light"] .bento-year-text {
-  color: #475569;
+  color: #94a3b8;
+}
+
+[data-theme="light"] .bento-scope-note {
+  color: #cbd5e1;
 }
 
 [data-theme="light"] .bento-scope-note strong {
-  color: #0f172a;
-}
-
-[data-theme="light"] .bento-explore-link {
-  color: #0f172a;
+  color: #ffffff;
   font-weight: 600;
 }
 
+[data-theme="light"] .bento-tech-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #f8fafc;
+}
+
+[data-theme="light"] .bento-card:hover .bento-tech-pill {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.12);
+  color: #ffffff;
+}
+
+[data-theme="light"] .bento-btn-primary {
+  background: #f59e0b;
+  color: #090a0f;
+  font-weight: 700;
+}
+
+[data-theme="light"] .bento-btn-primary:hover {
+  background: #fbbf24;
+  color: #090a0f;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.4);
+}
+
+[data-theme="light"] .bento-btn-ghost {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+[data-theme="light"] .bento-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="light"] .bento-card-title {
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+[data-theme="light"] .bento-card:hover .bento-card-title {
+  color: #fbbf24;
+}
+
+[data-theme="light"] .bento-card-tagline {
+  color: #cbd5e1;
+}
+
+[data-theme="light"] .bento-card-role-meta {
+  color: #f59e0b;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 [data-theme="light"] .bento-card-footer {
-  border-top-color: rgba(0, 0, 0, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .bento-explore-link {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+[data-theme="light"] .bento-card:hover .bento-explore-link {
+  color: #f59e0b;
 }
 
 [data-theme="light"] .bento-metric-badge {
   background: rgba(245, 158, 11, 0.12);
   border-color: rgba(245, 158, 11, 0.35);
-  color: #92400e;
+  color: #fef3c7;
 }
 
 [data-theme="light"] .bento-metric-badge strong {
-  color: #78350f;
+  color: #ffffff;
 }
 
 [data-theme="light"] .bento-archive-cta-btn {

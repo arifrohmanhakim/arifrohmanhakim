@@ -43,16 +43,6 @@ export const ContactSection = () => {
               <ArrowUpRight size={15} />
             </a>
 
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="creative-btn-outline copy-email-btn"
-              title="Copy email to clipboard"
-            >
-              {copied ? <Check size={16} className="text-amber-500" /> : <Copy size={16} />}
-              <span>{copied ? 'Email Copied!' : 'Copy Email'}</span>
-            </button>
-
             <a
               href={PROFILE_DATA.resumeUrl}
               target="_blank"

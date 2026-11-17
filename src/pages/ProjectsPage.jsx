@@ -140,9 +140,9 @@ export const ProjectsPage = ({ onNavigateHome, onSelectProject }) => {
                     />
                     <div className="archive-card-gradient"></div>
 
-                    <div className="archive-card-floating-badge" title={project.client}>
+                    {/* <div className="archive-card-floating-badge" title={project.client}>
                       {getProjectBrandLogo(project.id, 20)}
-                    </div>
+                    </div> */}
 
                     <span className="archive-card-category-tag">
                       {project.categoryLabel}
