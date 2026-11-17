@@ -39,9 +39,9 @@
   gap: 8px;
   padding: 8px 16px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: #94a3b8;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #334155;
   font-size: 0.86rem;
   font-weight: 500;
   text-decoration: none;
@@ -52,7 +52,7 @@
 .projects-back-btn:hover {
   background: rgba(245, 158, 11, 0.1);
   border-color: rgba(245, 158, 11, 0.35);
-  color: #ffffff;
+  color: #0f172a;
   transform: translateX(-3px);
 }
 
@@ -65,8 +65,8 @@
 .projects-page-title {
   font-family: var(--font-display, var(--font-sans));
   font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 500;
+  color: #0f172a;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
@@ -74,14 +74,12 @@
 
 .projects-page-title em {
   font-style: normal;
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 60%, #fcd34d 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #b45309;
 }
 
 .projects-page-lead {
   font-size: clamp(1.02rem, 1.6vw, 1.18rem);
-  color: #94a3b8;
+  color: #334155;
   line-height: 1.7;
   max-width: 780px;
 }
@@ -90,17 +88,15 @@
 .projects-controls-bar {
   position: relative;
   z-index: 2;
-  background: rgba(15, 17, 23, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   padding: 20px 24px;
   margin-bottom: 44px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
 }
 
 .projects-search-box {
@@ -119,12 +115,12 @@
 
 .projects-search-input {
   width: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.09);
   border-radius: 12px;
   padding: 13px 44px 13px 48px;
   font-size: 0.95rem;
-  color: #f8fafc;
+  color: #0f172a;
   outline: none;
   transition: all 0.25s ease;
   font-family: inherit;
@@ -307,14 +303,14 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 9999px;
   padding: 4px 10px;
   font-size: 0.72rem;
-  color: #cbd5e1;
+  color: #0f172a;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   z-index: 2;
 }
 
@@ -336,7 +332,7 @@
 }
 
 .archive-card-role {
-  color: #f59e0b;
+  color: #b45309;
   font-weight: 600;
 }
 
@@ -345,14 +341,14 @@
 }
 
 .archive-card-year {
-  color: #94a3b8;
+  color: #475569;
 }
 
 .archive-card-title {
   font-family: var(--font-display, var(--font-sans));
   font-size: 1.42rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 500;
+  color: #0f172a;
   line-height: 1.25;
   margin-bottom: 8px;
   cursor: pointer;
@@ -360,29 +356,29 @@
 }
 
 .archive-project-card:hover .archive-card-title {
-  color: #fbbf24;
+  color: #b45309;
 }
 
 .archive-card-tagline {
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: #334155;
   line-height: 1.5;
   margin-bottom: 14px;
 }
 
 .archive-card-scope {
   font-size: 0.84rem;
-  color: #94a3b8;
+  color: #334155;
   line-height: 1.55;
-  background: rgba(255, 255, 255, 0.025);
-  border-left: 2px solid rgba(245, 158, 11, 0.5);
+  background: #f8fafc;
+  border-left: 2px solid #f59e0b;
   padding: 8px 12px;
   border-radius: 0 8px 8px 0;
   margin-bottom: 18px;
 }
 
 .archive-card-scope strong {
-  color: #e2e8f0;
+  color: #0f172a;
 }
 
 /* Tech Stack Pills */
@@ -396,17 +392,17 @@
 .archive-tech-pill {
   font-size: 0.74rem;
   font-weight: 500;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 4px 10px;
   border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 .archive-project-card:hover .archive-tech-pill {
-  color: #cbd5e1;
-  border-color: rgba(255, 255, 255, 0.12);
+  color: #0f172a;
+  border-color: rgba(0, 0, 0, 0.16);
 }
 
 /* Card Actions */
@@ -495,26 +491,26 @@
 .projects-bottom-callout {
   position: relative;
   z-index: 2;
-  background: linear-gradient(135deg, rgba(20, 22, 32, 0.8) 0%, rgba(10, 11, 16, 0.9) 100%);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background: #ffffff;
+  border: 1px solid var(--border-line);
   border-radius: 24px;
   padding: 44px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
 .projects-bottom-callout-text h3 {
   font-size: 1.55rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: 500;
+  color: var(--text-main);
   margin-bottom: 8px;
 }
 
 .projects-bottom-callout-text p {
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 0.95rem;
   max-width: 580px;
   line-height: 1.6;
@@ -525,6 +521,30 @@
   align-items: center;
   gap: 14px;
   flex-shrink: 0;
+}
+
+.projects-bottom-callout .bento-btn-primary {
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+}
+
+.projects-bottom-callout .bento-btn-primary:hover {
+  background: #f59e0b;
+  color: #000000;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+}
+
+.projects-bottom-callout .bento-btn-ghost {
+  background: #ffffff;
+  border: 1px solid var(--border-line);
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.projects-bottom-callout .bento-btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* Home Section Archive CTA Button */

@@ -139,19 +139,31 @@ export const ProjectDetailPage = ({
           {/* Quick Metadata Grid */}
           <div className="project-detail-meta-grid">
             <div className="project-detail-meta-card">
-              <span className="meta-card-label">Role &amp; Responsibility</span>
+              <span className="meta-card-label">
+                <UserCheck size={13} aria-hidden="true" />
+                <span>Role &amp; Responsibility</span>
+              </span>
               <span className="meta-card-val">{project.role}</span>
             </div>
             <div className="project-detail-meta-card">
-              <span className="meta-card-label">Client / Organization</span>
+              <span className="meta-card-label">
+                <Building2 size={13} aria-hidden="true" />
+                <span>Client / Organization</span>
+              </span>
               <span className="meta-card-val">{project.client}</span>
             </div>
             <div className="project-detail-meta-card">
-              <span className="meta-card-label">Timeline</span>
+              <span className="meta-card-label">
+                <Calendar size={13} aria-hidden="true" />
+                <span>Timeline</span>
+              </span>
               <span className="meta-card-val">{project.year}</span>
             </div>
             <div className="project-detail-meta-card">
-              <span className="meta-card-label">Primary Stack</span>
+              <span className="meta-card-label">
+                <Layers size={13} aria-hidden="true" />
+                <span>Primary Stack</span>
+              </span>
               <span className="meta-card-val">{project.primaryStack.join(' • ')}</span>
             </div>
           </div>
